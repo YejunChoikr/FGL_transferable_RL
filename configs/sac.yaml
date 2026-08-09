@@ -1,0 +1,32 @@
+sac:
+  actor_lr: 0.0003
+  critic_lr: 0.0003
+  alpha_lr: 0.0003
+  init_alpha: 0.2
+  target_entropy: -1.0
+  autotune_alpha: true
+  reward_scale: 1.0
+  weight_decay: 0.0
+  log_std_min: -20.0
+  log_std_max: 2.0
+
+train:
+  gamma: 0.99
+  tau: 0.005
+  batch_size: 256
+  memory_capacity: 100000
+  episodes: 1500
+  episode_length: 30
+  memory_fill_episodes: 20
+  updates_per_transition: 1
+  deterministic_eval_interval: 25
+
+seeds: [0, 1, 2, 3, 4]
+
+transfer:
+  layers: [fc1, fc2, fc3, fc4]
+  networks: [actor, q1, q2]
+  n_tensors: 24
+  freeze: false
+  transfer_target_networks: false
+  transfer_alpha: false

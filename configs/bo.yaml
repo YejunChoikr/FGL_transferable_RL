@@ -1,0 +1,18 @@
+# Bayesian optimization baseline: the settings under which the reported runs
+# were made.
+
+implementation: skopt.gp_minimize
+dimensions: 30
+space: [-1.0, 1.0]
+
+kernel:
+  type: matern
+  nu: 2.5
+  anisotropic: true
+  white_noise: true
+  refit: every_iteration
+
+acquisition: gp_hedge
+n_initial_points: 20
+n_calls: 200
+seeds: [0, 1, 2, 3, 4]
