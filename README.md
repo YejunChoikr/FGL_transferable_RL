@@ -14,8 +14,8 @@ train, validation and test indices.
 | file | domain | thickness range | unit cell | samples |
 | --- | --- | --- | --- | --- |
 | `source_1.2_1.8.json` | source | 1.2–1.8 mm | 10 × 10 mm | 30,000 |
-| `upper_1.2_2.4.json` | upper-bound expansion | 1.2–2.4 mm | 10 × 10 mm | 6,000 |
-| `lower_0.9_1.8.json` | lower-bound expansion | 0.9–1.8 mm | 10 × 10 mm | 6,000 |
+| `upper_1.2_2.4.json` | upper-bound expanded domain | 1.2–2.4 mm | 10 × 10 mm | 6,000 |
+| `lower_0.9_1.8.json` | lower-bound expanded domain | 0.9–1.8 mm | 10 × 10 mm | 6,000 |
 | `ar08_1.2_1.8.json` | aspect ratio 0.8 | 1.2–1.8 mm | 8 × 10 mm | 6,000 |
 
 `models/` — the convolutional surrogate for each domain with its output scaler,
