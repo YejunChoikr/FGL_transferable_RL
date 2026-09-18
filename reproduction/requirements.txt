@@ -1,0 +1,8 @@
+numpy==2.2.6
+torch==2.11.0
+scipy==1.15.3
+scikit-learn==1.7.2
+pandas==2.3.3
+pymoo==0.6.2
+scikit-optimize==0.10.2
+PyYAML==6.0.3

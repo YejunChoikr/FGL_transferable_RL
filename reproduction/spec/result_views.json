@@ -1,0 +1,279 @@
+{
+  "canonical_views": {
+    "surrogate/cnn/source/N30000/scratch": {
+      "case_ids": [
+        "surrogate/cnn/source/N30000/scratch/s0",
+        "surrogate/cnn/source/N30000/scratch/s1",
+        "surrogate/cnn/source/N30000/scratch/s2",
+        "surrogate/cnn/source/N30000/scratch/s3",
+        "surrogate/cnn/source/N30000/scratch/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:source/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/mlp/source/N30000/scratch": {
+      "case_ids": [
+        "surrogate/mlp/source/N30000/scratch/s0",
+        "surrogate/mlp/source/N30000/scratch/s1",
+        "surrogate/mlp/source/N30000/scratch/s2",
+        "surrogate/mlp/source/N30000/scratch/s3",
+        "surrogate/mlp/source/N30000/scratch/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:source/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/upper/N500/scratch": {
+      "case_ids": [
+        "surrogate/cnn/upper/N500/scratch/s0",
+        "surrogate/cnn/upper/N500/scratch/s1",
+        "surrogate/cnn/upper/N500/scratch/s2",
+        "surrogate/cnn/upper/N500/scratch/s3",
+        "surrogate/cnn/upper/N500/scratch/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:upper/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/upper/N500/transfer": {
+      "case_ids": [
+        "surrogate/cnn/upper/N500/transfer/s0",
+        "surrogate/cnn/upper/N500/transfer/s1",
+        "surrogate/cnn/upper/N500/transfer/s2",
+        "surrogate/cnn/upper/N500/transfer/s3",
+        "surrogate/cnn/upper/N500/transfer/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:upper/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/upper/N1000/scratch": {
+      "case_ids": [
+        "surrogate/cnn/upper/N1000/scratch/s0",
+        "surrogate/cnn/upper/N1000/scratch/s1",
+        "surrogate/cnn/upper/N1000/scratch/s2",
+        "surrogate/cnn/upper/N1000/scratch/s3",
+        "surrogate/cnn/upper/N1000/scratch/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:upper/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/upper/N1000/transfer": {
+      "case_ids": [
+        "surrogate/cnn/upper/N1000/transfer/s0",
+        "surrogate/cnn/upper/N1000/transfer/s1",
+        "surrogate/cnn/upper/N1000/transfer/s2",
+        "surrogate/cnn/upper/N1000/transfer/s3",
+        "surrogate/cnn/upper/N1000/transfer/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:upper/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/upper/N2000/scratch": {
+      "case_ids": [
+        "surrogate/cnn/upper/N2000/scratch/s0",
+        "surrogate/cnn/upper/N2000/scratch/s1",
+        "surrogate/cnn/upper/N2000/scratch/s2",
+        "surrogate/cnn/upper/N2000/scratch/s3",
+        "surrogate/cnn/upper/N2000/scratch/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:upper/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/upper/N2000/transfer": {
+      "case_ids": [
+        "surrogate/cnn/upper/N2000/transfer/s0",
+        "surrogate/cnn/upper/N2000/transfer/s1",
+        "surrogate/cnn/upper/N2000/transfer/s2",
+        "surrogate/cnn/upper/N2000/transfer/s3",
+        "surrogate/cnn/upper/N2000/transfer/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:upper/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/upper/N4000/scratch": {
+      "case_ids": [
+        "surrogate/cnn/upper/N4000/scratch/s0",
+        "surrogate/cnn/upper/N4000/scratch/s1",
+        "surrogate/cnn/upper/N4000/scratch/s2",
+        "surrogate/cnn/upper/N4000/scratch/s3",
+        "surrogate/cnn/upper/N4000/scratch/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:upper/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/upper/N4000/transfer": {
+      "case_ids": [
+        "surrogate/cnn/upper/N4000/transfer/s0",
+        "surrogate/cnn/upper/N4000/transfer/s1",
+        "surrogate/cnn/upper/N4000/transfer/s2",
+        "surrogate/cnn/upper/N4000/transfer/s3",
+        "surrogate/cnn/upper/N4000/transfer/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:upper/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/upper/N6000/scratch": {
+      "case_ids": [
+        "surrogate/cnn/upper/N6000/scratch/s0",
+        "surrogate/cnn/upper/N6000/scratch/s1",
+        "surrogate/cnn/upper/N6000/scratch/s2",
+        "surrogate/cnn/upper/N6000/scratch/s3",
+        "surrogate/cnn/upper/N6000/scratch/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:upper/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/upper/N6000/transfer": {
+      "case_ids": [
+        "surrogate/cnn/upper/N6000/transfer/s0",
+        "surrogate/cnn/upper/N6000/transfer/s1",
+        "surrogate/cnn/upper/N6000/transfer/s2",
+        "surrogate/cnn/upper/N6000/transfer/s3",
+        "surrogate/cnn/upper/N6000/transfer/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:upper/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/lower/N6000/scratch": {
+      "case_ids": [
+        "surrogate/cnn/lower/N6000/scratch/s0",
+        "surrogate/cnn/lower/N6000/scratch/s1",
+        "surrogate/cnn/lower/N6000/scratch/s2",
+        "surrogate/cnn/lower/N6000/scratch/s3",
+        "surrogate/cnn/lower/N6000/scratch/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:lower/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/lower/N6000/transfer": {
+      "case_ids": [
+        "surrogate/cnn/lower/N6000/transfer/s0",
+        "surrogate/cnn/lower/N6000/transfer/s1",
+        "surrogate/cnn/lower/N6000/transfer/s2",
+        "surrogate/cnn/lower/N6000/transfer/s3",
+        "surrogate/cnn/lower/N6000/transfer/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:lower/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/ar08/N6000/scratch": {
+      "case_ids": [
+        "surrogate/cnn/ar08/N6000/scratch/s0",
+        "surrogate/cnn/ar08/N6000/scratch/s1",
+        "surrogate/cnn/ar08/N6000/scratch/s2",
+        "surrogate/cnn/ar08/N6000/scratch/s3",
+        "surrogate/cnn/ar08/N6000/scratch/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:ar08/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    },
+    "surrogate/cnn/ar08/N6000/transfer": {
+      "case_ids": [
+        "surrogate/cnn/ar08/N6000/transfer/s0",
+        "surrogate/cnn/ar08/N6000/transfer/s1",
+        "surrogate/cnn/ar08/N6000/transfer/s2",
+        "surrogate/cnn/ar08/N6000/transfer/s3",
+        "surrogate/cnn/ar08/N6000/transfer/s4"
+      ],
+      "test_ids_ref": "DATA_LOCK:ar08/common_test",
+      "metrics": [
+        "mae_mm",
+        "rmse_mm",
+        "mean_probe_r2"
+      ],
+      "aggregation": "five run-level values: mean and sample SD; same fixed test split"
+    }
+  },
+  "paper_aliases": {
+    "main/surrogate/upper/scratch": "surrogate/cnn/upper/N6000/scratch",
+    "main/surrogate/upper/transfer": "surrogate/cnn/upper/N6000/transfer",
+    "main/surrogate/lower/scratch": "surrogate/cnn/lower/N6000/scratch",
+    "main/surrogate/lower/transfer": "surrogate/cnn/lower/N6000/transfer",
+    "main/surrogate/ar08/scratch": "surrogate/cnn/ar08/N6000/scratch",
+    "main/surrogate/ar08/transfer": "surrogate/cnn/ar08/N6000/transfer",
+    "budget/surrogate/upper/N500/scratch": "surrogate/cnn/upper/N500/scratch",
+    "budget/surrogate/upper/N500/transfer": "surrogate/cnn/upper/N500/transfer",
+    "budget/surrogate/upper/N1000/scratch": "surrogate/cnn/upper/N1000/scratch",
+    "budget/surrogate/upper/N1000/transfer": "surrogate/cnn/upper/N1000/transfer",
+    "budget/surrogate/upper/N2000/scratch": "surrogate/cnn/upper/N2000/scratch",
+    "budget/surrogate/upper/N2000/transfer": "surrogate/cnn/upper/N2000/transfer",
+    "budget/surrogate/upper/N4000/scratch": "surrogate/cnn/upper/N4000/scratch",
+    "budget/surrogate/upper/N4000/transfer": "surrogate/cnn/upper/N4000/transfer",
+    "budget/surrogate/upper/N6000/scratch": "surrogate/cnn/upper/N6000/scratch",
+    "budget/surrogate/upper/N6000/transfer": "surrogate/cnn/upper/N6000/transfer"
+  },
+  "rule": "Compute each canonical view once from accepted artifacts; all aliases read it without recomputation."
+}

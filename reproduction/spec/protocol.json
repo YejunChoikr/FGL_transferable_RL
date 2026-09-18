@@ -1,0 +1,706 @@
+{
+  "data": {
+    "source_total": 30000,
+    "target_main_total": 6000,
+    "upper_budgets_total": [
+      500,
+      1000,
+      2000,
+      4000,
+      6000
+    ],
+    "fractions": {
+      "train": 0.8,
+      "validation": 0.1,
+      "protocol_test": 0.1
+    },
+    "split_seed": 20260913,
+    "split_generator": "NumPy PCG64 via SeedSequence([20260913, domain_index])",
+    "split_algorithm": "Freeze one permutation of authoritative physical records; take 30000 source or 6000 target; chunks of 10 -> 8 train,1 validation,1 protocol_test. N subsets are prefixes of whole chunks.",
+    "primary_test": "source: all 3000 source test IDs; each target: all 600 N6000 test IDs; same target test for all budgets and methods",
+    "primary_test_disjoint_from": "all training and validation IDs, at every budget",
+    "small_protocol_test": "Nested subset of the common 600. Log-only; never substitute its MAE for primary MAE.",
+    "cost_unique_target_designs_including_common_test": "0.9*N + 600",
+    "decode_rule": "Read physical half-lattice thicknesses or metadata-backed normalized actions; discard old location columns and reconstruct using reference_math.py. Never infer scaling/order from observed extrema.",
+    "y_scaler": "StandardScaler fitted on training-only nine displacements; ddof=0; shared between scratch/transfer and seeds at fixed domain/N",
+    "x_scaler": null
+  },
+  "domains": {
+    "source": {
+      "thickness_bounds_mm": [
+        1.2,
+        1.8
+      ],
+      "cell_size_mm": [
+        10,
+        10
+      ]
+    },
+    "upper": {
+      "thickness_bounds_mm": [
+        1.2,
+        2.4
+      ],
+      "cell_size_mm": [
+        10,
+        10
+      ]
+    },
+    "lower": {
+      "thickness_bounds_mm": [
+        0.9,
+        1.8
+      ],
+      "cell_size_mm": [
+        10,
+        10
+      ]
+    },
+    "ar08": {
+      "thickness_bounds_mm": [
+        1.2,
+        1.8
+      ],
+      "cell_size_mm": [
+        8,
+        10
+      ]
+    }
+  },
+  "encoding": {
+    "implementation": "reference_math.py:encode_design",
+    "rows": 10,
+    "independent_columns": 3,
+    "origin": "lower-left half-lattice; row increases upward, column rightward",
+    "flat_index": "k=3*r+c",
+    "location": "sqrt((r+1)^2+(c+1)^2)/sqrt(109), r=0..9,c=0..2",
+    "location_meaning": "dimensionless grid-index encoding, not physical distance in mm",
+    "location_same_for_all_domains": true,
+    "layout": "[a0,l0,a1,l1,...,a29,l29]",
+    "partial_state": "unassigned action and location are zero; assigned zero action has positive location",
+    "complete_state_dim": 60,
+    "cnn_input_shape": [
+      "batch",
+      1,
+      10,
+      6
+    ],
+    "specific_actor_order": "[state60]",
+    "specific_critic_order": "[state60,action1]",
+    "shared_actor_order": "[state60,omega1]",
+    "shared_critic_order": "[state60,action1,omega1]",
+    "goal_coordinate": "(g-5)/2",
+    "goal_not_given_to_surrogate": true,
+    "default_traversal": "rowwise_raster",
+    "traversal_indices": {
+      "rowwise_raster": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "zigzag_inward": [
+        0,
+        1,
+        2,
+        5,
+        4,
+        3,
+        6,
+        7,
+        8,
+        11,
+        10,
+        9,
+        12,
+        13,
+        14,
+        17,
+        16,
+        15,
+        18,
+        19,
+        20,
+        23,
+        22,
+        21,
+        24,
+        25,
+        26,
+        29,
+        28,
+        27
+      ],
+      "zigzag_outward": [
+        27,
+        28,
+        29,
+        26,
+        25,
+        24,
+        21,
+        22,
+        23,
+        20,
+        19,
+        18,
+        15,
+        16,
+        17,
+        14,
+        13,
+        12,
+        9,
+        10,
+        11,
+        8,
+        7,
+        6,
+        3,
+        4,
+        5,
+        2,
+        1,
+        0
+      ],
+      "spiral_inward": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        24,
+        27,
+        28,
+        29,
+        26,
+        23,
+        20,
+        17,
+        14,
+        11,
+        8,
+        5,
+        2,
+        1,
+        4,
+        7,
+        10,
+        13,
+        16,
+        19,
+        22,
+        25
+      ],
+      "spiral_outward": [
+        25,
+        22,
+        19,
+        16,
+        13,
+        10,
+        7,
+        4,
+        1,
+        2,
+        5,
+        8,
+        11,
+        14,
+        17,
+        20,
+        23,
+        26,
+        29,
+        28,
+        27,
+        24,
+        21,
+        18,
+        15,
+        12,
+        9,
+        6,
+        3,
+        0
+      ]
+    }
+  },
+  "surrogate": {
+    "architecture": {
+      "conv_channels": [
+        1,
+        16,
+        32,
+        64,
+        128
+      ],
+      "conv_kernel": 3,
+      "padding": 1,
+      "bias": true,
+      "batchnorm_after_each_conv": true,
+      "batchnorm_eps": 1e-05,
+      "batchnorm_momentum": 0.1,
+      "pool_after_conv": [
+        2,
+        4
+      ],
+      "pool_kernel_stride": 2,
+      "activation": "LeakyReLU",
+      "negative_slope": 0.005,
+      "dropout_after_second_pool": 0.15,
+      "fc_widths": [
+        256,
+        128,
+        64,
+        9
+      ],
+      "fc_hidden_activation": "LeakyReLU(0.005)",
+      "linear_output": true,
+      "expected_trainable_params": 139369
+    },
+    "mlp": {
+      "widths": [
+        60,
+        288,
+        288,
+        128,
+        9
+      ],
+      "batchnorm_after_hidden": true,
+      "dropout_after_hidden": 2,
+      "dropout": 0.15,
+      "negative_slope": 0.005,
+      "expected_trainable_params": 140361
+    },
+    "epochs": 300,
+    "batch_size": 64,
+    "drop_last": false,
+    "shuffle_train_each_epoch": true,
+    "optimizer": {
+      "name": "Adam",
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "amsgrad": false,
+      "foreach": false,
+      "fused": false,
+      "weight_decay": 0.0005
+    },
+    "source_lr": 0.0005,
+    "scratch_lr": 0.0005,
+    "transfer_lr": 5e-05,
+    "loss": "mean MSE over batch*9 standardized outputs",
+    "validation_and_selection": "global mean squared displacement error after inverse scaling, mm^2",
+    "validation_batch_size": 512,
+    "test_batch_size": 512,
+    "scheduler": {
+      "name": "ReduceLROnPlateau",
+      "mode": "min",
+      "factor": 0.5,
+      "patience": 10,
+      "threshold": 0.0,
+      "threshold_mode": "abs",
+      "cooldown": 0,
+      "min_lr": 1e-07,
+      "eps": 1e-08
+    },
+    "checkpoint": "strict minimum validation MSE over epochs 1..300; earliest exact tie",
+    "early_stopping": false,
+    "gradient_clipping": null,
+    "transfer": {
+      "copy": "all convolution+hidden FC parameters and BN affine parameters",
+      "reset_output_keys": [
+        "fc.4.weight",
+        "fc.4.bias"
+      ],
+      "reset_bn_buffers": [
+        "running_mean",
+        "running_var",
+        "num_batches_tracked"
+      ],
+      "all_layers_trainable": true,
+      "optimizer_and_scheduler_fresh": true
+    },
+    "policy_environment_mode": "eval, requires_grad=False; no BN/dropout updates"
+  },
+  "policy": {
+    "hidden_widths": [
+      4096,
+      2048,
+      1024,
+      512
+    ],
+    "activation": "ReLU",
+    "dropout": 0,
+    "epochs_or_lr_scheduler": null,
+    "episodes_total": 1500,
+    "steps_per_episode": 30,
+    "prefill_episodes_in_total": 20,
+    "prefill_policy": "stored uniform [-1,1] actions, no updates",
+    "training_transition_count": 45000,
+    "gradient_update_count": 44400,
+    "updates_per_transition_after_prefill": 1,
+    "replay_capacity": 100000,
+    "replay_sampling": "uniform without replacement within each minibatch from currently valid entries; do not change sampling law for GPU replay",
+    "gamma": 0.99,
+    "optimizer": {
+      "name": "Adam",
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "amsgrad": false,
+      "foreach": false,
+      "fused": false,
+      "weight_decay": 0.0
+    },
+    "gradient_clipping": null,
+    "termination": "true terminal at 30 assignments, no bootstrapping at terminal",
+    "sac": {
+      "actor_lr": 0.0003,
+      "critic_lr": 0.0003,
+      "alpha_lr": 0.0003,
+      "batch_size": 256,
+      "tau": 0.005,
+      "critics": 2,
+      "initial_alpha": 0.2,
+      "target_entropy": -1.0,
+      "log_std_bounds": [
+        -20.0,
+        2.0
+      ],
+      "tanh_jacobian_epsilon": 1e-06,
+      "reward_scale": 1.0,
+      "critic_loss": "MSE",
+      "alpha_loss": "-mean(log_alpha * stop_gradient(log_pi + target_entropy))",
+      "update_order": [
+        "both critics",
+        "actor",
+        "alpha",
+        "soft target critics"
+      ],
+      "deterministic_action": "tanh(mu) via actor.forward ONLY; do not call actor.sample",
+      "additional_exploration_noise": null
+    },
+    "ddpg": {
+      "actor_lr": 0.0001,
+      "critic_lr": 0.001,
+      "batch_size": 64,
+      "tau": 0.001,
+      "critics": 1,
+      "ou_mu": 0.0,
+      "ou_theta": 0.15,
+      "ou_sigma": 0.3,
+      "ou_dt": 1.0,
+      "ou_sigma_decay": false,
+      "ou_reset_every_episode": true,
+      "training_action": "clip(tanh(actor)+OU,-1,1)",
+      "evaluation_noise": false,
+      "update_order": [
+        "critic",
+        "actor",
+        "soft target actor and critic"
+      ]
+    },
+    "transfer": {
+      "actor_copy": [
+        "fc1",
+        "fc2",
+        "fc3",
+        "fc4"
+      ],
+      "critic_copy": [
+        "fc1",
+        "fc2",
+        "fc3",
+        "fc4"
+      ],
+      "output_heads": "retain identical paired-scratch head values",
+      "target_networks": "hard-copy after transfer; DDPG target actor included",
+      "optimizer_replay_alpha_rng": "fresh; never source-loaded",
+      "freeze_or_critic_warmup": false,
+      "all_trainable": true,
+      "source_selection": "same goal(s), algorithm and seed; actor+critics from SAME selected source episode"
+    },
+    "shared": {
+      "goals": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "goal_order": "shuffle each five-episode block, one occurrence per goal",
+      "episodes_per_goal": 300,
+      "prefill_episodes_per_goal": 4,
+      "relabel": "uniform new goal independently per sampled replay transition; terminal reward reconstructed from saved u9/actions",
+      "relabel_in_source_and_both_target_arms": true,
+      "relabel_not_new_surrogate_call": true,
+      "scratch_initialization": "widen paired specific scratch FC1 by one zero goal column; keep all original weights/heads",
+      "replay_source_data_transferred": false
+    }
+  },
+  "reward": {
+    "C1": 0.5,
+    "C2": 1.0,
+    "formula": "(u[g]-C1*(u[g-1]+u[g+1]))/(0.5+C2*mean((a+1)/2))",
+    "indexing": "g is 1-based in manuscript; array index=g-1",
+    "nonterminal": 0.0,
+    "clipping_penalty_extra_scaling": null,
+    "coefficient_grid_source_only": [
+      [
+        0.4,
+        0.75
+      ],
+      [
+        0.4,
+        1.0
+      ],
+      [
+        0.5,
+        0.75
+      ],
+      [
+        0.5,
+        1.0
+      ]
+    ]
+  },
+  "evaluation": {
+    "episodes": [
+      0,
+      25,
+      50,
+      75,
+      100,
+      125,
+      150,
+      175,
+      200,
+      225,
+      250,
+      275,
+      300,
+      325,
+      350,
+      375,
+      400,
+      425,
+      450,
+      475,
+      500,
+      525,
+      550,
+      575,
+      600,
+      625,
+      650,
+      675,
+      700,
+      725,
+      750,
+      775,
+      800,
+      825,
+      850,
+      875,
+      900,
+      925,
+      950,
+      975,
+      1000,
+      1025,
+      1050,
+      1075,
+      1100,
+      1125,
+      1150,
+      1175,
+      1200,
+      1225,
+      1250,
+      1275,
+      1300,
+      1325,
+      1350,
+      1375,
+      1400,
+      1425,
+      1450,
+      1475,
+      1500
+    ],
+    "repeats_per_goal_per_checkpoint": 1,
+    "evaluation_rng_must_not_change_training_rng": true,
+    "early_auc": "trapezoidal integral of canonical arithmetic deterministic reward at 0,25,...,300 divided by 300",
+    "checkpoint_selection": "maximum mean training-objective surrogate reward over the fixed evaluation goal set; one checkpoint for shared policy; earliest exact tie; includes e0",
+    "reported_reward": "canonical C1=0.5,C2=1.0 even for coefficient sensitivity; also save training/selection objective separately",
+    "fea_selection": "surrogate-only selected designs; never revise selection after FEA",
+    "peak_success": "strictly exceeds all other eight probes; tie is failure",
+    "bilateral_margin": "minimum of the two neighbor displacement differences",
+    "kappa": "u_goal divided by arithmetic mean of the two neighbors; undefined if denominator is exactly zero, record null; never add an arbitrary epsilon to this reported metric",
+    "arbitrary_equivalence_margins": null,
+    "mean_sd": "mean and sample SD (ddof=1) of five run-level values",
+    "paired_ci": {
+      "method": "percentile bootstrap over seed pairs",
+      "resamples": 10000,
+      "confidence": 0.95,
+      "seed": 20260913
+    },
+    "primary_mae": "mean abs(error) over all common-test samples and nine probes, mm",
+    "rmse": "sqrt(mean(error^2)) over all samples*9",
+    "r2": "arithmetic mean of 9 per-probe R2",
+    "shared_statistical_unit": "training seed; goals are clustered within seed"
+  },
+  "runtime": {
+    "python": "3.11.15",
+    "torch": "2.11.0+cu128",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2",
+    "pandas": "2.3.3",
+    "pymoo": "0.6.2",
+    "scikit-optimize": "0.10.2",
+    "PyYAML": "6.0.3",
+    "precision": "float32",
+    "TF32": false,
+    "AMP": false,
+    "torch_compile": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "use_deterministic_algorithms": true,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "data_loader_workers": 0,
+    "rng": "separate CPU initialization, train shuffle, rollout, replay, relabel, OU streams; fixed sub-seeds recorded in init manifest",
+    "rng_subseed_rule": "int(SeedSequence([20260913, run_seed, stream_id]).generate_state(1, dtype=uint32)[0]); no Python hash() or wall-clock seed",
+    "rng_stream_ids": {
+      "cnn_init": 100,
+      "mlp_init": 200,
+      "sac_actor_init": 300,
+      "sac_q1_init": 400,
+      "sac_q2_init": 500,
+      "ddpg_actor_init": 600,
+      "ddpg_critic_init": 700,
+      "prefill": 800,
+      "train_shuffle": 900,
+      "surrogate_dropout": 1000,
+      "policy_rollout": 1100,
+      "replay_sampling": 1200,
+      "goal_schedule": 1300,
+      "goal_relabel": 1400,
+      "ddpg_ou": 1500,
+      "policy_update_noise": 1600,
+      "direct_search": 1700,
+      "evaluation_loader": 1800
+    },
+    "initialization": "Pinned PyTorch CPU nn.Linear/Conv2d reset_parameters defaults; BN affine weight=1,bias=0 and running mean=0,var=1,counter=0. Construct SAC actor,Q1,Q2 and DDPG actor,Q separately with their assigned initialization seeds; target networks are copies.",
+    "initial_tensor_pairing": "For each seed and architecture/algorithm, generate one CPU scratch state. Reuse across domains, N, goals and transfer arms; shared FC1 widens the specific scratch state by a zero goal column. Source-transfer overwrites only the specified hidden keys. Store actual initial tensors in INIT_LOCK.",
+    "prefill_pairing": "One stored 20x30 uniform action array per seed, shared across domains, N, algorithms and arms. Shared assigns the same 20 rows to its balanced goal schedule. No model call is needed for these actions."
+  },
+  "direct_optimization": {
+    "methods": [
+      "BO",
+      "LBFGSB",
+      "GA",
+      "DE"
+    ],
+    "domain": "upper",
+    "surrogate": "transferred N6000 paired seed",
+    "bounds": [
+      -1.0,
+      1.0
+    ],
+    "variables": 30,
+    "terminal_objective": "negative canonical reward",
+    "time_cap_rule": "median of the 3 upper target-specific scratch-policy (ST_P0) seed-0 exclusive workstation T_learning values; freeze one scalar before any direct run",
+    "timing_start": "after shared surrogate loaded, before method initialization/initial evaluations",
+    "timing_scope": "all initial evaluations, GP fitting, gradients, search and recording",
+    "valid_incumbent": "candidate whose evaluation finished before time cap; log overrun separately",
+    "GA": {
+      "population": 40,
+      "initial_sampling": "uniform",
+      "selection": "binary tournament by objective",
+      "crossover": "SBX",
+      "crossover_prob": 0.9,
+      "crossover_eta": 20,
+      "mutation": "PM",
+      "mutation_individual_prob": 1.0,
+      "mutation_variable_prob": 0.03333333333333333,
+      "mutation_eta": 20,
+      "eliminate_duplicates": true
+    },
+    "DE": {
+      "population": 40,
+      "variant": "DE/rand/1/bin",
+      "F": 0.5,
+      "CR": 0.9,
+      "dither": null,
+      "jitter": false
+    },
+    "LBFGSB": {
+      "first_restart": "zero vector",
+      "later_restarts": "uniform [-1,1]",
+      "per_restart_new_evaluations": 150,
+      "ftol": 1e-12,
+      "gtol": 1e-08,
+      "maxiter": 450,
+      "maxfun": 450,
+      "maxls": 20,
+      "jac": "autograd",
+      "cache": "exact x bytes, value+gradient, restart-local"
+    },
+    "BO": {
+      "api": "skopt.Optimizer ask/tell",
+      "initial_points": 20,
+      "initial_generator": "random",
+      "surrogate": "GaussianProcessRegressor",
+      "kernel": "ConstantKernel(1,[.01,1000])*Matern(length_scale=ones(30),bounds=[.01,100],nu=2.5)",
+      "noise": "gaussian fitted white noise",
+      "normalize_y": true,
+      "gp_n_restarts_optimizer": 2,
+      "acq_func": "gp_hedge",
+      "acq_optimizer": "lbfgs",
+      "acq_n_points": 10000,
+      "acq_n_restarts_optimizer": 5,
+      "xi": 0.01,
+      "kappa": 1.96,
+      "n_jobs": 1
+    }
+  }
+}

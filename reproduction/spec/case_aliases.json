@@ -1,0 +1,1022 @@
+[
+  {
+    "usage": "budget/upper/N6000/transfer/g5/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_P0/N6000/s0"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g6/s0",
+    "canonical_case_id": "policy/SAC/upper/g6/ST_P0/N6000/s0"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g7/s0",
+    "canonical_case_id": "policy/SAC/upper/g7/ST_P0/N6000/s0"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g5/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N500/s0"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g5/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N500/s0"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g5/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N1000/s0"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g5/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N1000/s0"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g5/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N2000/s0"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g5/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N2000/s0"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g5/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N4000/s0"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g5/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N4000/s0"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g5/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N6000/s0"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g6/s0",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N500/s0"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g6/s0",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N500/s0"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g6/s0",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N1000/s0"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g6/s0",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N1000/s0"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g6/s0",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N2000/s0"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g6/s0",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N2000/s0"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g6/s0",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N4000/s0"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g6/s0",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N4000/s0"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g6/s0",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N6000/s0"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g7/s0",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N500/s0"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g7/s0",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N500/s0"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g7/s0",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N1000/s0"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g7/s0",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N1000/s0"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g7/s0",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N2000/s0"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g7/s0",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N2000/s0"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g7/s0",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N4000/s0"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g7/s0",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N4000/s0"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g7/s0",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N6000/s0"
+  },
+  {
+    "usage": "component/upper/g5/S0_P0/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N6000/s0"
+  },
+  {
+    "usage": "component/upper/g5/ST_P0/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_P0/N6000/s0"
+  },
+  {
+    "usage": "component/upper/g5/ST_PA/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_PA/N6000/s0"
+  },
+  {
+    "usage": "component/upper/g5/ST_PAC/s0",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_PAC/N6000/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g5/s0",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.4_C2_0.75/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g6/s0",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.4_C2_0.75/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g7/s0",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.4_C2_0.75/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g5/s0",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.4_C2_1.0/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g6/s0",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.4_C2_1.0/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g7/s0",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.4_C2_1.0/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g5/s0",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g6/s0",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g7/s0",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g5/s0",
+    "canonical_case_id": "policy/SAC/source/g5/P0/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g6/s0",
+    "canonical_case_id": "policy/SAC/source/g6/P0/s0"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g7/s0",
+    "canonical_case_id": "policy/SAC/source/g7/P0/s0"
+  },
+  {
+    "usage": "sensitivity/order/rowwise_raster/s0",
+    "canonical_case_id": "policy/SAC/source/g5/P0/s0"
+  },
+  {
+    "usage": "sensitivity/order/zigzag_inward/s0",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/zigzag_inward/s0"
+  },
+  {
+    "usage": "sensitivity/order/zigzag_outward/s0",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/zigzag_outward/s0"
+  },
+  {
+    "usage": "sensitivity/order/spiral_inward/s0",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/spiral_inward/s0"
+  },
+  {
+    "usage": "sensitivity/order/spiral_outward/s0",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/spiral_outward/s0"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g5/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_P0/N6000/s1"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g6/s1",
+    "canonical_case_id": "policy/SAC/upper/g6/ST_P0/N6000/s1"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g7/s1",
+    "canonical_case_id": "policy/SAC/upper/g7/ST_P0/N6000/s1"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g5/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N500/s1"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g5/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N500/s1"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g5/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N1000/s1"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g5/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N1000/s1"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g5/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N2000/s1"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g5/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N2000/s1"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g5/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N4000/s1"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g5/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N4000/s1"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g5/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N6000/s1"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g6/s1",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N500/s1"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g6/s1",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N500/s1"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g6/s1",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N1000/s1"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g6/s1",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N1000/s1"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g6/s1",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N2000/s1"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g6/s1",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N2000/s1"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g6/s1",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N4000/s1"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g6/s1",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N4000/s1"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g6/s1",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N6000/s1"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g7/s1",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N500/s1"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g7/s1",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N500/s1"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g7/s1",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N1000/s1"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g7/s1",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N1000/s1"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g7/s1",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N2000/s1"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g7/s1",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N2000/s1"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g7/s1",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N4000/s1"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g7/s1",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N4000/s1"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g7/s1",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N6000/s1"
+  },
+  {
+    "usage": "component/upper/g5/S0_P0/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N6000/s1"
+  },
+  {
+    "usage": "component/upper/g5/ST_P0/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_P0/N6000/s1"
+  },
+  {
+    "usage": "component/upper/g5/ST_PA/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_PA/N6000/s1"
+  },
+  {
+    "usage": "component/upper/g5/ST_PAC/s1",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_PAC/N6000/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g5/s1",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.4_C2_0.75/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g6/s1",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.4_C2_0.75/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g7/s1",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.4_C2_0.75/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g5/s1",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.4_C2_1.0/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g6/s1",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.4_C2_1.0/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g7/s1",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.4_C2_1.0/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g5/s1",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g6/s1",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g7/s1",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g5/s1",
+    "canonical_case_id": "policy/SAC/source/g5/P0/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g6/s1",
+    "canonical_case_id": "policy/SAC/source/g6/P0/s1"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g7/s1",
+    "canonical_case_id": "policy/SAC/source/g7/P0/s1"
+  },
+  {
+    "usage": "sensitivity/order/rowwise_raster/s1",
+    "canonical_case_id": "policy/SAC/source/g5/P0/s1"
+  },
+  {
+    "usage": "sensitivity/order/zigzag_inward/s1",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/zigzag_inward/s1"
+  },
+  {
+    "usage": "sensitivity/order/zigzag_outward/s1",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/zigzag_outward/s1"
+  },
+  {
+    "usage": "sensitivity/order/spiral_inward/s1",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/spiral_inward/s1"
+  },
+  {
+    "usage": "sensitivity/order/spiral_outward/s1",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/spiral_outward/s1"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g5/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_P0/N6000/s2"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g6/s2",
+    "canonical_case_id": "policy/SAC/upper/g6/ST_P0/N6000/s2"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g7/s2",
+    "canonical_case_id": "policy/SAC/upper/g7/ST_P0/N6000/s2"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g5/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N500/s2"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g5/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N500/s2"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g5/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N1000/s2"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g5/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N1000/s2"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g5/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N2000/s2"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g5/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N2000/s2"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g5/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N4000/s2"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g5/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N4000/s2"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g5/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N6000/s2"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g6/s2",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N500/s2"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g6/s2",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N500/s2"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g6/s2",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N1000/s2"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g6/s2",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N1000/s2"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g6/s2",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N2000/s2"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g6/s2",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N2000/s2"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g6/s2",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N4000/s2"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g6/s2",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N4000/s2"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g6/s2",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N6000/s2"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g7/s2",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N500/s2"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g7/s2",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N500/s2"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g7/s2",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N1000/s2"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g7/s2",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N1000/s2"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g7/s2",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N2000/s2"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g7/s2",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N2000/s2"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g7/s2",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N4000/s2"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g7/s2",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N4000/s2"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g7/s2",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N6000/s2"
+  },
+  {
+    "usage": "component/upper/g5/S0_P0/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N6000/s2"
+  },
+  {
+    "usage": "component/upper/g5/ST_P0/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_P0/N6000/s2"
+  },
+  {
+    "usage": "component/upper/g5/ST_PA/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_PA/N6000/s2"
+  },
+  {
+    "usage": "component/upper/g5/ST_PAC/s2",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_PAC/N6000/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g5/s2",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.4_C2_0.75/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g6/s2",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.4_C2_0.75/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g7/s2",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.4_C2_0.75/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g5/s2",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.4_C2_1.0/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g6/s2",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.4_C2_1.0/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g7/s2",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.4_C2_1.0/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g5/s2",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g6/s2",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g7/s2",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g5/s2",
+    "canonical_case_id": "policy/SAC/source/g5/P0/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g6/s2",
+    "canonical_case_id": "policy/SAC/source/g6/P0/s2"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g7/s2",
+    "canonical_case_id": "policy/SAC/source/g7/P0/s2"
+  },
+  {
+    "usage": "sensitivity/order/rowwise_raster/s2",
+    "canonical_case_id": "policy/SAC/source/g5/P0/s2"
+  },
+  {
+    "usage": "sensitivity/order/zigzag_inward/s2",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/zigzag_inward/s2"
+  },
+  {
+    "usage": "sensitivity/order/zigzag_outward/s2",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/zigzag_outward/s2"
+  },
+  {
+    "usage": "sensitivity/order/spiral_inward/s2",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/spiral_inward/s2"
+  },
+  {
+    "usage": "sensitivity/order/spiral_outward/s2",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/spiral_outward/s2"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g5/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_P0/N6000/s3"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g6/s3",
+    "canonical_case_id": "policy/SAC/upper/g6/ST_P0/N6000/s3"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g7/s3",
+    "canonical_case_id": "policy/SAC/upper/g7/ST_P0/N6000/s3"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g5/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N500/s3"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g5/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N500/s3"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g5/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N1000/s3"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g5/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N1000/s3"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g5/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N2000/s3"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g5/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N2000/s3"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g5/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N4000/s3"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g5/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N4000/s3"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g5/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N6000/s3"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g6/s3",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N500/s3"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g6/s3",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N500/s3"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g6/s3",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N1000/s3"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g6/s3",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N1000/s3"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g6/s3",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N2000/s3"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g6/s3",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N2000/s3"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g6/s3",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N4000/s3"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g6/s3",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N4000/s3"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g6/s3",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N6000/s3"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g7/s3",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N500/s3"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g7/s3",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N500/s3"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g7/s3",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N1000/s3"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g7/s3",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N1000/s3"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g7/s3",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N2000/s3"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g7/s3",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N2000/s3"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g7/s3",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N4000/s3"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g7/s3",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N4000/s3"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g7/s3",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N6000/s3"
+  },
+  {
+    "usage": "component/upper/g5/S0_P0/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N6000/s3"
+  },
+  {
+    "usage": "component/upper/g5/ST_P0/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_P0/N6000/s3"
+  },
+  {
+    "usage": "component/upper/g5/ST_PA/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_PA/N6000/s3"
+  },
+  {
+    "usage": "component/upper/g5/ST_PAC/s3",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_PAC/N6000/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g5/s3",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.4_C2_0.75/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g6/s3",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.4_C2_0.75/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g7/s3",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.4_C2_0.75/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g5/s3",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.4_C2_1.0/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g6/s3",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.4_C2_1.0/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g7/s3",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.4_C2_1.0/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g5/s3",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g6/s3",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g7/s3",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g5/s3",
+    "canonical_case_id": "policy/SAC/source/g5/P0/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g6/s3",
+    "canonical_case_id": "policy/SAC/source/g6/P0/s3"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g7/s3",
+    "canonical_case_id": "policy/SAC/source/g7/P0/s3"
+  },
+  {
+    "usage": "sensitivity/order/rowwise_raster/s3",
+    "canonical_case_id": "policy/SAC/source/g5/P0/s3"
+  },
+  {
+    "usage": "sensitivity/order/zigzag_inward/s3",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/zigzag_inward/s3"
+  },
+  {
+    "usage": "sensitivity/order/zigzag_outward/s3",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/zigzag_outward/s3"
+  },
+  {
+    "usage": "sensitivity/order/spiral_inward/s3",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/spiral_inward/s3"
+  },
+  {
+    "usage": "sensitivity/order/spiral_outward/s3",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/spiral_outward/s3"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g5/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_P0/N6000/s4"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g6/s4",
+    "canonical_case_id": "policy/SAC/upper/g6/ST_P0/N6000/s4"
+  },
+  {
+    "usage": "budget/upper/N6000/transfer/g7/s4",
+    "canonical_case_id": "policy/SAC/upper/g7/ST_P0/N6000/s4"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g5/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N500/s4"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g5/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N500/s4"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g5/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N1000/s4"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g5/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N1000/s4"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g5/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N2000/s4"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g5/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N2000/s4"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g5/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N4000/s4"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g5/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/transfer/N4000/s4"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g5/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N6000/s4"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g6/s4",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N500/s4"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g6/s4",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N500/s4"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g6/s4",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N1000/s4"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g6/s4",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N1000/s4"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g6/s4",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N2000/s4"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g6/s4",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N2000/s4"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g6/s4",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N4000/s4"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g6/s4",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/transfer/N4000/s4"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g6/s4",
+    "canonical_case_id": "policy/SAC/upper/g6/budget/scratch/N6000/s4"
+  },
+  {
+    "usage": "budget/upper/N500/scratch/g7/s4",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N500/s4"
+  },
+  {
+    "usage": "budget/upper/N500/transfer/g7/s4",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N500/s4"
+  },
+  {
+    "usage": "budget/upper/N1000/scratch/g7/s4",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N1000/s4"
+  },
+  {
+    "usage": "budget/upper/N1000/transfer/g7/s4",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N1000/s4"
+  },
+  {
+    "usage": "budget/upper/N2000/scratch/g7/s4",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N2000/s4"
+  },
+  {
+    "usage": "budget/upper/N2000/transfer/g7/s4",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N2000/s4"
+  },
+  {
+    "usage": "budget/upper/N4000/scratch/g7/s4",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N4000/s4"
+  },
+  {
+    "usage": "budget/upper/N4000/transfer/g7/s4",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/transfer/N4000/s4"
+  },
+  {
+    "usage": "budget/upper/N6000/scratch/g7/s4",
+    "canonical_case_id": "policy/SAC/upper/g7/budget/scratch/N6000/s4"
+  },
+  {
+    "usage": "component/upper/g5/S0_P0/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/budget/scratch/N6000/s4"
+  },
+  {
+    "usage": "component/upper/g5/ST_P0/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_P0/N6000/s4"
+  },
+  {
+    "usage": "component/upper/g5/ST_PA/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_PA/N6000/s4"
+  },
+  {
+    "usage": "component/upper/g5/ST_PAC/s4",
+    "canonical_case_id": "policy/SAC/upper/g5/ST_PAC/N6000/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g5/s4",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.4_C2_0.75/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g6/s4",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.4_C2_0.75/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_0.75/g7/s4",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.4_C2_0.75/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g5/s4",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.4_C2_1.0/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g6/s4",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.4_C2_1.0/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.4_C2_1.0/g7/s4",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.4_C2_1.0/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g5/s4",
+    "canonical_case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g6/s4",
+    "canonical_case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_0.75/g7/s4",
+    "canonical_case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g5/s4",
+    "canonical_case_id": "policy/SAC/source/g5/P0/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g6/s4",
+    "canonical_case_id": "policy/SAC/source/g6/P0/s4"
+  },
+  {
+    "usage": "sensitivity/reward/C1_0.5_C2_1.0/g7/s4",
+    "canonical_case_id": "policy/SAC/source/g7/P0/s4"
+  },
+  {
+    "usage": "sensitivity/order/rowwise_raster/s4",
+    "canonical_case_id": "policy/SAC/source/g5/P0/s4"
+  },
+  {
+    "usage": "sensitivity/order/zigzag_inward/s4",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/zigzag_inward/s4"
+  },
+  {
+    "usage": "sensitivity/order/zigzag_outward/s4",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/zigzag_outward/s4"
+  },
+  {
+    "usage": "sensitivity/order/spiral_inward/s4",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/spiral_inward/s4"
+  },
+  {
+    "usage": "sensitivity/order/spiral_outward/s4",
+    "canonical_case_id": "policy/SAC/source/g5/traversal/spiral_outward/s4"
+  }
+]

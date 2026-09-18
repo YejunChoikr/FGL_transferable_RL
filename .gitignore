@@ -7,3 +7,14 @@ env/
 Thumbs.db
 *.log
 runs/
+
+# Generated reproduction artifacts
+reproduction/accepted/
+reproduction/init_bank/
+reproduction/pilot/
+reproduction/results/
+reproduction/status/
+reproduction/ledger/
+reproduction/fea/
+reproduction/locks/INIT_LOCK.json
+.pytest_cache/

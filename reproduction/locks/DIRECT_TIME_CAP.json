@@ -1,0 +1,24 @@
+{
+  "cap_seconds": 382.5083336830139,
+  "rule": "Median learning time of the three upper-domain scratch SAC reference runs on an RTX 4080 SUPER.",
+  "sources": [
+    {
+      "case_id": "policy/SAC/upper/g5/ST_P0/N6000/s0",
+      "t_learning_s": 382.3315806388855
+    },
+    {
+      "case_id": "policy/SAC/upper/g6/ST_P0/N6000/s0",
+      "t_learning_s": 382.5083336830139
+    },
+    {
+      "case_id": "policy/SAC/upper/g7/ST_P0/N6000/s0",
+      "t_learning_s": 383.03948187828064
+    }
+  ],
+  "exclusive": [
+    true,
+    true,
+    true
+  ],
+  "written_at": "2026-09-12T20:48:11+00:00"
+}

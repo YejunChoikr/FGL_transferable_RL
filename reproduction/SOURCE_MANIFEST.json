@@ -1,0 +1,170 @@
+{
+  "source_protocol_hash": "e19cf45505ae87a2c82ab2880d5a62cac8cc27022855320451a815bf2f321744",
+  "source_date": "2026-09-13",
+  "code": {
+    "__init__.py": {
+      "source_sha256": "bc2e3242eeeb9469e8aba2e7b31daf6ff6de0b6914e4f9b4687170a682231410",
+      "published_sha256": "4a90d4ad1b284d0e8598869f34af2134680ea15abe26b6490fbf4fdb435afdea",
+      "changes": "Module description only"
+    },
+    "data.py": {
+      "source_sha256": "bb30b5610c05700ef14c31b3a4aeded7247f55c0c5c37d61b7168c5bf6393d71",
+      "published_sha256": "becb8417947178e84848af81c407e93e1301946c0973b558c4594ba94ae2cee7",
+      "changes": "Module description only"
+    },
+    "determinism.py": {
+      "source_sha256": "7ad1a2d310d6cd25bbcbd1eea37537cc3dbfea7e49198409bdca4ec2434bd03a",
+      "published_sha256": "750cecc6cc646b2f762ec086486595fa24228ad738e29641261afad8e53de447",
+      "changes": "Module description only"
+    },
+    "direct.py": {
+      "source_sha256": "b4d8fe47abdbcfb27c618ad7f729da3d918712492b84609637d65220b61acbb6",
+      "published_sha256": "f0da741e60f06e08c95d07db948f948c6b80f8391b91184be4f9c52e5b1f79e0",
+      "changes": "Module description only"
+    },
+    "encoding.py": {
+      "source_sha256": "aadf68bac2e67d52bc645fcaceb051774c06fe83f53d563a70b2e2e721969a39",
+      "published_sha256": "5137d5004b0b91b2934ad7e8758c5a1b946d3dc38a8303c786dbb1e7092ff8cd",
+      "changes": "Module description only"
+    },
+    "env.py": {
+      "source_sha256": "5e3a44239a21319244c01d2d9b77b1934e0bf1ffee727f3bc28d06a3f022cb5b",
+      "published_sha256": "b1cc26c874efbfa7c8481a6c0a899eae64a205e79445f01857b72db4f1a0d436",
+      "changes": "Module description only"
+    },
+    "evaluation.py": {
+      "source_sha256": "01bdc148ad7b1300a0d87eded1a10965366652210b74e43fb76fc0725ad76f06",
+      "published_sha256": "fe5ae41bfa88aff41d521ac937899b13e2ecc06c90e867fed2447c92e2f82ad2",
+      "changes": "Module description only"
+    },
+    "init_bank.py": {
+      "source_sha256": "bff7f87be2d0a58f10d4d605692fc0c4d5e1b89aee69b2875ada7dc3b99ee2eb",
+      "published_sha256": "ca1f6ffe5ae81b0e31cc222f7722e0a526491821f8a0056487e704dcd7061cc8",
+      "changes": "Module description only"
+    },
+    "models_policy.py": {
+      "source_sha256": "c48a54e13d8ac6d9886d6a115e6839e3eb0d22c5ebb83ab4d1e6163e11f37752",
+      "published_sha256": "e005d9470832f582fbce230183a6b2e39c968d563a6bcaadf79c0f88c0df999a",
+      "changes": "Module description only"
+    },
+    "models_surrogate.py": {
+      "source_sha256": "98d9f08e4d21d505f9694a72bfb48c7895f14a4fe91ff7a7b2a811b0e8e0013e",
+      "published_sha256": "32577f3c7be4249931115bddc571aefe4029d99c6063978a97ab494484063555",
+      "changes": "Module description only"
+    },
+    "paths.py": {
+      "source_sha256": "f641811279e2017ae63761687e388648d03aa74b69c301465534fd321f671f53",
+      "published_sha256": "a3fe787df40b955b249f777d5afde9b8749ccbfdbd187771e1bfb04008f0ba8b",
+      "changes": "Module description only"
+    },
+    "policy_init.py": {
+      "source_sha256": "74e090882878d96f7fdcd061502cf9322eb6a07d24ccbef0fcf3d7fc6005521f",
+      "published_sha256": "0dfd27d79d3071e7d03d3c34364c710fbea70c5313f13611aaf27451112105a6",
+      "changes": "Module description only"
+    },
+    "policy_train.py": {
+      "source_sha256": "052e8d946a0e689ad113d72f0dae22eb986938f2e28ba9f18a03a59b1af0cf16",
+      "published_sha256": "aea910483f02cfb65c249718fe92c067e7a8d5ee93e4653fdedcd6e2fc277f0c",
+      "changes": "Module description; deterministic-AUC artifact name"
+    },
+    "protocol.py": {
+      "source_sha256": "ebfc74426706e77e1f5248193570e3e3667d27a5a7a848a2573bfa39a52e56e8",
+      "published_sha256": "6abbdfa2be61554ea213d48c32538752be452b794e55665d9029dc15fb55834c",
+      "changes": "Module description; published protocol digest after metadata removal"
+    },
+    "replay.py": {
+      "source_sha256": "6d038a600adecf24ef83c3ad60252c245e186d1c74edb5519d0e11989a581373",
+      "published_sha256": "3ee873fa8fbbd7b2bb7c1cf52d045f57e9a3d80a2c20010292b7a931a6dcf5b1",
+      "changes": "Module description only"
+    },
+    "reward.py": {
+      "source_sha256": "993c1c2819ec699b7cbbbb7d0ffb017952a7c930b2224a54bc30e6c01241f65f",
+      "published_sha256": "262ea626ebab8a0db51bbe67e74bc415c912a8f971d495f5751620af34147dba",
+      "changes": "Module description only"
+    },
+    "rng.py": {
+      "source_sha256": "268862d8041b0eb031d3bb78cab738b2e152653a5fd95ffd657e1005738b8c99",
+      "published_sha256": "3e8febf8835e3d2e95db048d1dc8e2e261536f2404a746358b049ff333213101",
+      "changes": "Module description only"
+    },
+    "sac.py": {
+      "source_sha256": "79f5278d7eea6c7896c2fea86bb37fdbf01751848c12eec93c7cc1b2c396bedb",
+      "published_sha256": "d506faccb07632b5136f03484f0ce7994ec6c89bff958b06b90b70a650a3e203",
+      "changes": "Module description only"
+    },
+    "ddpg.py": {
+      "source_sha256": "ce6bcc82620c88b64aeef48237a930010f1a5ffab3eefd829c8a9675c0c4ee60",
+      "published_sha256": "cd7f66495e7d5ada8216aadee43af4ba23cd3b9ad951e89d8ec3d7ffa66610f7",
+      "changes": "Module description only"
+    },
+    "surrogate_train.py": {
+      "source_sha256": "764e6202791d6832e4979351111de0fdc7fa9f3e8a9ac59562b90f09eb00e3bf",
+      "published_sha256": "836a2cb87b3a2645af46aa1a9669bd174da6a392678968e070d0c0dfa973e6dd",
+      "changes": "Module description only"
+    }
+  },
+  "data": {
+    "source": {
+      "source_container_sha256": "abca9798bfaddcfe34ce16d74375b15fec4e542fb05fd594ac2b310e64062b20",
+      "published_container_sha256": "4bac768a10395f690a7fc93d9611682afe90f1e266f97ad8acd6eac138cbdb6a",
+      "arrays_bitwise_unchanged": true,
+      "bytes": 12642552
+    },
+    "upper": {
+      "source_container_sha256": "88ec56132e116a56c8fa4cf5ad9ecae95498c9e341d117c9c208585fe88b49fd",
+      "published_container_sha256": "8e19b77ad4fdfada0be42f7b310026cf477b384542b32e74c4f3c3e36d1f7ee0",
+      "arrays_bitwise_unchanged": true,
+      "bytes": 2514049
+    },
+    "lower": {
+      "source_container_sha256": "30a280fc26d6dc07b5b15dc81ed59221c63fa554705181767e177fa69d11db81",
+      "published_container_sha256": "884415aed908678f5af3053aeef2811660048362ad3d14261ecbcc10a3792091",
+      "arrays_bitwise_unchanged": true,
+      "bytes": 2608729
+    },
+    "ar08": {
+      "source_container_sha256": "17e27e007297218f4c58c1bf35c28f48f1769279d032241fed2fe8b4c8913e00",
+      "published_container_sha256": "2e471c971787a498160315952f8c8648528ae1a46a162c0c42a5e01dc3ce1d5d",
+      "arrays_bitwise_unchanged": true,
+      "bytes": 3333015
+    }
+  },
+  "published_protocol_hash": "ed02b4ac8df780ce56439b677b5e8fa72b3a037c93dcc29e7f467ed212c50f46",
+  "protocol_metadata_omitted": [
+    "id",
+    "status",
+    "meaning",
+    "launch_training_in_this_package",
+    "deadline",
+    "preserved_coefficient_selection",
+    "machines",
+    "orchestration",
+    "fea",
+    "excluded",
+    "preproduction_release_files",
+    "runtime.env_name",
+    "runtime.existing_environments_must_not_be_modified",
+    "runtime.hardware",
+    "runtime.forward_gate",
+    "runtime.fixed_minibatch_update_gate",
+    "runtime.gate_note",
+    "runtime.dataset_encoding_and_artifact_bytes",
+    "runtime.adam_backend_release",
+    "direct_optimization.GA_note",
+    "direct_optimization.no_extended_50000_evaluation_experiment"
+  ],
+  "protocol_changes": "Scheduling/private-path metadata removed; training, evaluation and optimizer settings retained.",
+  "spec_sha256": {
+    "case_aliases.json": "a69f338cd2f17fa48e8c9437fe3e559632c574bf924cc14348c6fd4b71ccd068",
+    "cases.json": "0eb381c16323215776bab04db456c255934e068d2ea9182ff82b92f7f0d13b25",
+    "fea_requests.json": "18f92acacfbe07bbf8451b43a6c02031461c577799172bd3ce50379e59198cce",
+    "location_golden.json": "40c586540c48261f4f8e0bb9ebe9efeeb2d18dc79a478e17d35e949021e16769",
+    "protocol.json": "a7ed1e988dd2a05c78ad8c05011acba6cf4842290935de9f3c7cffdea0e938f8",
+    "reference_math.py": "ce585305dc1fe74be72f519c35958694f3ce5bf4367fd82295f7bf1743045ae2",
+    "result_views.json": "be78c1d42ea284590be29099c2f33387161745e0fb3ed12e32baee52d3c16fc9"
+  },
+  "package_additions": {
+    "run.py": "c168b128050ac26a53a7253c77dbda6816d28e34f91c103cf5a754acff5d7af7",
+    "cmame_rt/reporting.py": "a4b43c8bf228d5f2583c8e507dfd3b385ca5880b4c58365533c2f62b96eb59e1"
+  }
+}

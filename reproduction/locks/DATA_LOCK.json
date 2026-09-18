@@ -1,0 +1,56 @@
+{
+  "domains": {
+    "source": {
+      "cache": {
+        "sha256": "4bac768a10395f690a7fc93d9611682afe90f1e266f97ad8acd6eac138cbdb6a"
+      },
+      "scalers": {
+        "source_N30000.json": {
+          "sha256": "d6939039e97c810a1874bedb345ac19444daa7c4fffcbcbf362f3575c9dfec12"
+        }
+      }
+    },
+    "upper": {
+      "cache": {
+        "sha256": "8e19b77ad4fdfada0be42f7b310026cf477b384542b32e74c4f3c3e36d1f7ee0"
+      },
+      "scalers": {
+        "upper_N1000.json": {
+          "sha256": "d118f00ac1f0ad3de9a041e204a6eb4f04e2622ad56c845621e560241500eb14"
+        },
+        "upper_N2000.json": {
+          "sha256": "1dc5a0181539bd28455f3a59214df68200a0899a24fd29346c5ee490165029f0"
+        },
+        "upper_N4000.json": {
+          "sha256": "f3d52b87e2b8748a7f1d98eb3d57bc610c633cf39d6ed3cbfe08fd89e23c8458"
+        },
+        "upper_N500.json": {
+          "sha256": "62e9b5cc63a1285015cc39b4144938baddadc4316c1e01d0661321ead0975aa6"
+        },
+        "upper_N6000.json": {
+          "sha256": "a72c04fb1192fa585d53ad8f02fc964841bf97f7f9eb977b99118ec3aca2e7b1"
+        }
+      }
+    },
+    "lower": {
+      "cache": {
+        "sha256": "884415aed908678f5af3053aeef2811660048362ad3d14261ecbcc10a3792091"
+      },
+      "scalers": {
+        "lower_N6000.json": {
+          "sha256": "703ebfd156607e4a1a0f4675b69393cc0456cc160d127e38b98bf0837dd338ec"
+        }
+      }
+    },
+    "ar08": {
+      "cache": {
+        "sha256": "2e471c971787a498160315952f8c8648528ae1a46a162c0c42a5e01dc3ce1d5d"
+      },
+      "scalers": {
+        "ar08_N6000.json": {
+          "sha256": "3fe00fd84ebcf3f34bbd5da5c725160d5898a4e40ab63711a43e1874cd883a2f"
+        }
+      }
+    }
+  }
+}
