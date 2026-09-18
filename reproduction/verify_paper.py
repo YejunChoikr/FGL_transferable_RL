@@ -24,6 +24,37 @@ def stats(values):
     return {"mean":float(np.mean(values)),"sd":float(np.std(values,ddof=1)),"n":len(values)}
 
 
+def verify_source_budget(evidence):
+    """Recompute Fig. S9 from epoch-300 test predictions at each total budget."""
+    with zipfile.ZipFile(evidence/'source_budget.zip') as z:
+        summary=j(z,'summary.json')
+        budgets=summary['budgets']
+        assert [b['N_total'] for b in budgets]==[1000,3000,6000,9000,15000,24000,30000]
+        for b in budgets:
+            n=b['N_total'];maes=[]
+            assert (b['n_train'],b['n_validation'],b['n_test'],b['runs'])==(n*8//10,n//10,n//10,5)
+            for seed in range(5):
+                r=j(z,f'runs/N{n}_seed{seed}.json')
+                assert (r['N_total'],r['seed'],r['epochs'],r['checkpoint'])==(n,seed,300,'epoch 300')
+                with np.load(io.BytesIO(z.read(r['prediction_member'])),allow_pickle=False) as d:
+                    assert d['pred'].shape==d['true'].shape==(n//10,9)
+                    assert len(np.unique(d['ids']))==n//10
+                    mae=float(np.abs(d['pred']-d['true']).mean())
+                np.testing.assert_allclose(mae,r['mae_mm'],rtol=0,atol=1e-14)
+                maes.append(mae)
+            np.testing.assert_allclose([np.mean(maes),np.std(maes,ddof=1)],
+                                       [b['mae_mm_mean'],b['mae_mm_sd']],rtol=0,atol=1e-14)
+        reductions=summary['marginal_mae_reduction_percent']
+        assert len(reductions)==len(budgets)-1
+        for a,b,r in zip(budgets,budgets[1:],reductions):
+            assert (r['from_total'],r['to_total'])==(a['N_total'],b['N_total'])
+            np.testing.assert_allclose(r['reduction_percent'],
+                                       100*(1-b['mae_mm_mean']/a['mae_mm_mean']),rtol=0,atol=1e-12)
+        assert round(reductions[0]['reduction_percent'])==44
+        assert round(reductions[-1]['reduction_percent'])==2
+    return summary
+
+
 def verify(evidence,output):
     index=json.loads((evidence/"INDEX.json").read_text(encoding="utf-8"))
     report={"archive_integrity":{},"surrogate_transfer":{},"source_epoch300":{},"shared_peak_success":{}}
@@ -33,6 +64,7 @@ def verify(evidence,output):
             for member,meta in j(z,"MANIFEST.json").items():
                 assert hashlib.sha256(z.read(member)).hexdigest()==meta['sha256'],(name,member)
         report['archive_integrity'][name]=True
+    report['source_data_budget']=verify_source_budget(evidence)
     with zipfile.ZipFile(evidence/'surrogates.zip') as z:
         for domain in ['upper','lower','ar08']:
             means={}

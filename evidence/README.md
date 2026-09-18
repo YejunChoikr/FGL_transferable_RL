@@ -6,6 +6,7 @@ checksums. Each archive contains a `MANIFEST.json` with member checksums.
 | Artifact | Contents |
 | --- | --- |
 | `surrogates.zip` | 80 runs: configurations, training logs, best checkpoints and test predictions; ten source CNN/MLP runs also include epoch-300 checkpoints and predictions |
+| `source_budget.zip` | Fig. S9: epoch-300 test predictions and metrics for seven total sample budgets, with five runs per budget |
 | `policies.zip` | 555 runs: episode rewards, deterministic evaluations, selections and designs |
 | `direct.zip` | 60 runs: first 1,500 evaluations, full-budget selected incumbents, settings and timing |
 | `fea.zip` | Saved FEA responses and links for 805 requests |
@@ -23,8 +24,9 @@ python reproduction/verify_paper.py
 
 Run from the repository root with the reproduction dependencies installed.
 The verifier checks archive integrity, design/FEA connections, Table S9
-predictions and all 135 Fig. 5 designs, solver responses and plotted mean/SD
-tables. It writes `verified_metrics.json` and `selected_design_fea_metrics.csv` under
+predictions, Fig. S9 test errors and marginal reductions, and all 135 Fig. 5
+designs, solver responses and plotted mean/SD tables. It writes
+`verified_metrics.json` and `selected_design_fea_metrics.csv` under
 `reproduction/evidence_checks/`.
 
 To inspect only saved-data consistency, without model inference or training:
@@ -39,6 +41,7 @@ python reproduction/evidence_links.py
 | Shared transferred SAC, FEA peak success | 25/25 / 21/25 / 15/25 |
 | Source CNN epoch-300 MAE, mean +/- sample SD | 0.004344 +/- 0.000159 mm |
 | Source MLP epoch-300 MAE, mean +/- sample SD | 0.004965 +/- 0.000602 mm |
+| Fig. S9 MAE reduction, 1,000 to 3,000 / 24,000 to 30,000 total samples | 44.02% / 1.99% |
 | Table S9 maximum prediction difference | Less than 0.000001 mm |
 
 Extract `surrogates.zip` to evaluate a checkpoint with

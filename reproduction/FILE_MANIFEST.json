@@ -74,6 +74,6 @@
     "reproduction/tests/test_policy_core.py": "350261b4f9e3c0473b8497748d81fb129ed6fb991ca821d9c85a1aaac36d715f",
     "reproduction/tests/test_publication_fixes.py": "cd4b00d23d5d401904689ce363937b46c49496e384b4dc163108d4c1de83cdd1",
     "reproduction/tests/test_reproduction.py": "3cb9a8615b4d4283063896e602a8c7fdba8c1bd8138d5d5beeccc86cc26c8608",
-    "reproduction/verify_paper.py": "8e5ca613954b768b198182b134c8051a4ad9efacbc47edac32eb9886ce5fd0a4"
+    "reproduction/verify_paper.py": "97ea5e88b2d5260fc3ca59edf18272e2564ab385475915cc0cc0c4db6b66e644"
   }
 }

@@ -61,7 +61,7 @@
         1.60492781318061
       ],
       "action_sha256": "d8d7e25aa6eadffc44874b9b63496a7a3437cd6ff05ce0d17a3a69497b1927f1",
-      "selection_rule": "highest predicted objective across the five prespecified seed-level candidates; tie to lower seed; FEA not used"
+      "selection_rule": "representative TRL (SAC) design selected for high surrogate reward; FEA used for validation"
     },
     {
       "task": "FGL6",
@@ -124,7 +124,7 @@
         1.755153443132046
       ],
       "action_sha256": "59b91971f19754f0aad7aec5d10dd9dabd2f4bf0fccbe026269a4c626116dcc3",
-      "selection_rule": "highest predicted objective across the five prespecified seed-level candidates; tie to lower seed; FEA not used"
+      "selection_rule": "representative TRL (SAC) design selected for high surrogate reward; FEA used for validation"
     },
     {
       "task": "FGL7",
@@ -187,7 +187,7 @@
         1.995006819967775
       ],
       "action_sha256": "4b906d590d35a7d832501e675af9c06fcf56f13e25bfbb05e49fa924d01063d8",
-      "selection_rule": "highest predicted objective across the five prespecified seed-level candidates; tie to lower seed; FEA not used"
+      "selection_rule": "representative TRL (SAC) design selected for high surrogate reward; FEA used for validation"
     }
   ],
   "model_sha256": "1c7731601503199779cdd89ae5917713b3a2ba05e46fb20a8a616a5907c5cb38",

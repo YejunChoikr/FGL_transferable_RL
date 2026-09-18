@@ -1,9 +1,9 @@
-# Transferable reinforcement learning for targeted deformation shaping in functionally graded lattice structures
+# Surrogate and policy transfer for targeted deformation shaping of graded lattices
 
 Yejun Choi, Yeoneung Kim, Keun Park
 Seoul National University of Science and Technology
 
-Code, finite element datasets, and models for learning continuous lattice
+Code, finite element datasets, and surrogate models for learning continuous lattice
 thickness assignments and transferring them across related design domains.
 
 ## Experiment reproduction
@@ -57,8 +57,8 @@ Saved surrogate checkpoints for the registered experiments are in
 
 ```bibtex
 @article{choi_fgl_trl,
-  title  = {Transferable reinforcement learning for targeted deformation
-            shaping in functionally graded lattice structures},
+  title  = {Surrogate and policy transfer for targeted deformation shaping
+            of graded lattices},
   author = {Choi, Yejun and Kim, Yeoneung and Park, Keun},
   year   = {2026}
 }

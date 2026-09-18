@@ -30,6 +30,11 @@
       "sha256": "94ace12fcd375a80422f9fc57d6209d47df65f41d3b8f80aed73501c27aa2b0e",
       "bytes": 5051338,
       "members": 550
+    },
+    "source_budget.zip": {
+      "sha256": "62c1b29889e1b4c3e10b9730e9ab9d78d0bb9b15b77cff5f32e90106549d21ba",
+      "bytes": 4367624,
+      "members": 72
     }
   },
   "claims": {
@@ -40,8 +45,9 @@
     "S10": "bilateral.zip and reproduction/studies/bilateral; arithmetic columns from unified policy/direct FEA",
     "Fig_5b": "coefficients.zip: 135 selected designs linked to policies.zip by POLICY_LINKS.json and to fea.zip by FEA_LINKS.json; FEA mean/sample-SD tables in results/C1_summary.csv, results/C2_summary.csv and evidence/fig5/.",
     "Fig_11": "direct.zip first1500.csv; full time-cap selected candidate is in incumbent.json",
-    "Fig_5a": "coefficients.zip: 135 selected designs linked to policies.zip by POLICY_LINKS.json and to fea.zip by FEA_LINKS.json; FEA mean/sample-SD tables in results/C1_summary.csv, results/C2_summary.csv and evidence/fig5/."
+    "Fig_5a": "coefficients.zip: 135 selected designs linked to policies.zip by POLICY_LINKS.json and to fea.zip by FEA_LINKS.json; FEA mean/sample-SD tables in results/C1_summary.csv, results/C2_summary.csv and evidence/fig5/.",
+    "Fig_S9": "source_budget.zip: 35 epoch-300 source CNN test predictions, seven total sample budgets with an 8:1:1 split; means, sample SDs and marginal MAE reductions."
   },
-  "table_s9_sha256": "69a23c620ba1a30336390f4eeae2953dc3d9aa7265ab2ea8ce8bf192fe985707",
+  "table_s9_sha256": "d4a6d9a3a9e808d5344cef119c33298a49efa5425a0a7bb26d017f2321e16dcd",
   "representative_designs_sha256": "4ab1d2e37ca628ba97634a0e7c33548ebad99f90cd325b1faffe57b758ba1c0e"
 }
