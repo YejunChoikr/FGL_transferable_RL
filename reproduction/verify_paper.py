@@ -15,6 +15,7 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from cmame_rt.reward import design_metrics, reward
+from evidence_links import verify_coefficient_links, verify_solver_record
 
 
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -85,8 +86,11 @@ def verify(evidence,output):
     with zipfile.ZipFile(evidence/'bilateral.zip') as z:
         rows=j(z,'final_upper_runs.json')
         c4_fea=j(z,'ddpg_c4_fea.json')
-        recovered=j(z,'recovered_fea_profiles.json')
-        report['recovered_fea_provenance']=recovered
+        solver_records=j(z,'solver_records.json')
+        solver_profiles={(r['task'],r['method'],r['seed']):verify_solver_record(z,r)
+                         for r in solver_records}
+        report['solver_evidence']={'verified_records':len(solver_profiles),
+                                  'selected_design_and_nodal_output_match':True}
         report['bilateral']={}
         for task in ['FGL5','FGL6','FGL7']:
             for method in ['SAC-RL','SAC-TRL','DDPG-RL','DDPG-TRL','BO']:
@@ -108,9 +112,12 @@ def verify(evidence,output):
                         if raw['status']=='success':
                             raw_u=[float(raw[f'u{i}']) for i in range(1,10)]
                         else:
-                            recovery=next(x for x in recovered['profiles'] if x['task']==task and
-                                          x['method']==method and x['seed']==int(r['seed']))
-                            raw_u=recovery['profile']
+                            raise ValueError(f"missing successful FEA record: {task}/{method}/{r['seed']}")
+                        key=(task,method,int(r['seed']))
+                        if raw.get('solver_record_member'):
+                            assert key in solver_profiles, f"missing solver evidence: {key}"
+                        if key in solver_profiles:
+                            np.testing.assert_array_equal(raw_u,solver_profiles[key])
                     else:
                         raw_rows=list(csv.DictReader(io.StringIO(z.read(
                             f'ansys/upper_{task}/outputs/fea_validation_summary.csv').decode('utf-8-sig'))))
@@ -166,6 +173,8 @@ def verify(evidence,output):
             checked+=1
         assert checked==135
         report['coefficient_figure_data']={'saved_runs':checked,**description}
+    report['coefficient_policy_links']=verify_coefficient_links(
+        evidence, ROOT/'reproduction/spec/coefficient_sweeps.json')
     # These are rounded manuscript values, checked only after independent aggregation.
     for domain,want in [('upper',35.3),('lower',29.8),('ar08',36.4)]:
         assert round(report['surrogate_transfer'][domain]['mae_reduction_percent'],1)==want

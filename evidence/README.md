@@ -25,6 +25,12 @@ The verifier checks integrity, design/FEA connections and Table S9 predictions,
 then writes `verified_metrics.json` and `selected_design_fea_metrics.csv` under
 `reproduction/evidence_checks/`.
 
+To inspect only saved-data consistency, without model inference or training:
+
+```sh
+python reproduction/evidence_links.py
+```
+
 | Quantity | Recomputed result |
 | --- | --- |
 | Surrogate MAE reduction, upper / lower / aspect-ratio domain | 35.3% / 29.8% / 36.4% |
@@ -41,16 +47,21 @@ The corresponding frozen test data are in `reproduction/data/`.
 
 S10 uses the bilateral settings in `reproduction/studies/bilateral/` and the
 arithmetic-objective results in the main policy and optimizer archives. The
-bilateral DDPG transfer loads actor and critic fc1-fc4. For its FGL7 seed 2
-case, the supplied FEA response is a recovered nine-displacement profile;
-`recovered_fea_profiles.json` identifies this record. Its supporting solver
-output is not included. Rewards, ratios and margins are computed directly
-from the supplied displacements and actions.
+bilateral DDPG transfer loads actor and critic fc1-fc4. Its FGL7 seed 2
+record is linked to the supplied APDL input, converged solver output, nodal
+displacements and thickness table through `solver_records.json`. Verification
+checks the selected design, applied compression and all nine probe values.
+Rewards, ratios and margins are computed from those recorded displacements.
 
 Coefficient sweeps use the source-surrogate and SAC settings in
 `reproduction/spec/protocol.json`. `coefficients.zip` contains the sequential
-reward-coefficient data for Fig. 5. S7 joint-sensitivity cases are in the main
-policy and FEA archives.
+reward-coefficient data for Fig. 5. Its 30 overlapping conditions reuse the
+selected designs, complete training curves and configurations in `policies.zip`;
+`POLICY_LINKS.json` records the source members and checksums. Per-run
+`resolved_config.json` files identify the actual model and execution settings.
+The remaining 105 conditions have not been rerun under the common protocol,
+so the combined archive does not establish a fully matched sensitivity sweep.
+S7 joint-sensitivity cases are in the main policy and FEA archives.
 
 Table S9 uses the matching checkpoint and scaler in `validation_models/` with
 the common CNN and input encoder. Its model hashes and full-precision design

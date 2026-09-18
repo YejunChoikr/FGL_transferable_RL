@@ -28,6 +28,7 @@
     "reproduction/cmame_rt/surrogate_train.py": "836a2cb87b3a2645af46aa1a9669bd174da6a392678968e070d0c0dfa973e6dd",
     "reproduction/coefficients.py": "764941b65716832cb81ccb3c04f85e1220dd212a9c331063224312acfe6ffc35",
     "reproduction/evaluate_surrogate.py": "859e809311fef85a06b0b411c84430d036ab8ad678e0c5a118d74ea90731830c",
+    "reproduction/evidence_links.py": "05f97e000bc8136d9db947a3e86bd17412de54c91d2748c0dfbb7f22b0caa879",
     "reproduction/locks/DATA_LOCK.json": "e9c1a5b0eada04f294ec8062fece8e190c7e3905bdb3f9229e4b04efd3b25343",
     "reproduction/locks/DIRECT_TIME_CAP.json": "c0b5eb56874f73d94985616f9e0e425cf9c8a9c2ee466a8f1c0f05c32b863711",
     "reproduction/requirements-test.txt": "93b9f03b620035f2abb49d8a34c72768dce0dfb1fa30480124bc492f141c3678",
@@ -67,9 +68,10 @@
     "reproduction/tests/conftest.py": "e905655c9493e32d5390a9a9b6e763e0d1b2f8463db1570f4493dba3935c78ee",
     "reproduction/tests/objective_fixture.py": "b6398fd7027489b10ab8f42d7c2b970e14c5b537091dc805b8676130071377d9",
     "reproduction/tests/test_direct_settings.py": "82ba9f7cae7479bf842d564a2ce0577eba999f35c2397bbedccd4ad9119e11b3",
+    "reproduction/tests/test_evidence_links.py": "9aabc40ec4cdb74bc69353d0dcab8181596694474933f965e59d0a400f768397",
     "reproduction/tests/test_policy_core.py": "350261b4f9e3c0473b8497748d81fb129ed6fb991ca821d9c85a1aaac36d715f",
     "reproduction/tests/test_publication_fixes.py": "cd4b00d23d5d401904689ce363937b46c49496e384b4dc163108d4c1de83cdd1",
     "reproduction/tests/test_reproduction.py": "3cb9a8615b4d4283063896e602a8c7fdba8c1bd8138d5d5beeccc86cc26c8608",
-    "reproduction/verify_paper.py": "3c1b478da5564995c5c13a1e0dca67b8528b3517b66ddacc6f1d3fe172d3572a"
+    "reproduction/verify_paper.py": "da9ba091f01f0032843f49fe365c390e87254573bf25c0ddb23de10c811e60db"
   }
 }
