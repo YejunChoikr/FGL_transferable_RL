@@ -12,7 +12,7 @@ import torch
 from .encoding import (N_CELLS, STATE_DIM, to_cnn_input, torch_location_buffer,
                        traversal as traversal_indices)
 from .protocol import load_protocol
-from .reward import C1_CANONICAL, C2_CANONICAL
+from .reward import C1_CANONICAL, C2_CANONICAL, material_weight
 
 _PROTO = load_protocol()
 _POLICY = _PROTO["policy"]
@@ -187,7 +187,7 @@ class SurrogateEnv:
         ul = u.gather(1, (idx - 1).unsqueeze(1)).squeeze(1)
         ur = u.gather(1, (idx + 1).unsqueeze(1)).squeeze(1)
         rho = ((a + 1.0) / 2.0).mean(dim=1)
-        r = (ug - float(C1) * (ul + ur)) / (0.5 + float(C2) * rho)
+        r = (ug - float(C1) * (ul + ur)) / material_weight(float(C2), rho)
         return r.to(torch.float32)
 
     def canonical_reward(self, u9: torch.Tensor, actions30: torch.Tensor,

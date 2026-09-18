@@ -130,8 +130,6 @@ def run(task: str, seed: int, machine: str) -> dict:
         "state_map_sha256": state_map_sha256(),
         "machine": machine_metadata(machine),
         "reuse": False,
-        "reuse_gate": "not accepted: historical run lacks a complete exact "
-        "protocol/hash record under the successor native lock; BO rerun",
     }
     atomic_write_json(wdir / "provenance.json", provenance)
     manifest = {

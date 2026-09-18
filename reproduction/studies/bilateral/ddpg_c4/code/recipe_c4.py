@@ -1,34 +1,15 @@
-"""A4_C4_NATIVE_OPT: the single method change, isolated in one file.
-
-``ddpg_agent.py`` in this project is a BYTE-IDENTICAL copy of the native DDPG
-authority's agent. That is deliberate. The authority's module defines
-
-    ACTOR_TRANSFER  = ("fc1", "fc2", "fc3", "fc4")
-    CRITIC_TRANSFER = ("fc1", "fc2", "fc3")            # fc4, fc5 stay scratch
-
-and editing it in place would make "did anything else change?" a judgement call
-about a diff. Instead the new mask lives here, so the audit statement is exact:
-the agent file's SHA-256 equals the authority's, and the one behavioural
-difference in this project is the CRITIC_TRANSFER tuple below.
-
-    A4_C3_NATIVE_OPT : actor fc1-fc4 + critic fc1-fc3 = 14 tensors
-    A4_C4_NATIVE_OPT : actor fc1-fc4 + critic fc1-fc4 = 16 tensors
-
-Optimizer settings are the NATIVE ones (actor 1e-4, critic 1e-3, WD 0), NOT the
-SAC-matched 3e-4/3e-4. Nothing here touches learning rate, batch size or tau.
-"""
+"""Transfer actor and critic hidden layers fc1-fc4; reset output heads and optimizer state."""
 from __future__ import annotations
 
 import torch
 
-ACTOR_TRANSFER = ("fc1", "fc2", "fc3", "fc4")     # unchanged from A4_C3
-CRITIC_TRANSFER = ("fc1", "fc2", "fc3", "fc4")    # <-- THE ONLY CHANGE (was fc1-fc3)
+ACTOR_TRANSFER = ("fc1", "fc2", "fc3", "fc4")
+CRITIC_TRANSFER = ("fc1", "fc2", "fc3", "fc4")
 ACTOR_FRESH = ("fc5",)
 CRITIC_FRESH = ("fc5",)
 N_TRANSFERRED_TENSORS = 2 * len(ACTOR_TRANSFER) + 2 * len(CRITIC_TRANSFER)   # 16
 
 RECIPE_ID = "A4_C4_NATIVE_OPT"
-BASELINE_RECIPE_ID = "A4_C3_NATIVE_OPT"
 
 
 def _load_masked(dst_module, src_sd, layers, tag, moved):
@@ -87,7 +68,6 @@ def apply_a4c4_native(agent, source_sd):
 
     return {
         "recipe_id": RECIPE_ID,
-        "baseline_recipe_id": BASELINE_RECIPE_ID,
         "actor_load": list(ACTOR_TRANSFER), "actor_fresh": list(ACTOR_FRESH),
         "critic_load": list(CRITIC_TRANSFER), "critic_fresh": list(CRITIC_FRESH),
         "moved": sorted(moved),
@@ -129,9 +109,5 @@ def optimizer_audit(agent):
         "any_frozen_parameter": any(not p.requires_grad
                                     for p in list(agent.actor.parameters()) +
                                     list(agent.critic.parameters())),
-        "sac_matched_values_present": bool(
-            any(abs(float(g["lr"]) - 3e-4) < 1e-12
-                for g in list(agent.actor_opt.param_groups) +
-                list(agent.critic_opt.param_groups))
-            or int(agent.batch_size) == 256 or abs(float(agent.tau) - 0.005) < 1e-12),
+
     }

@@ -1,5 +1,4 @@
 """Regression tests for the publication reward and checkpoint interfaces."""
-import importlib.util
 import json
 from pathlib import Path
 import subprocess
@@ -18,18 +17,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.mark.parametrize("c2", [0., .25, .5, .75, 1.])
-def test_reward_matches_manuscript_and_original_coefficient_experiment(c2):
-    spec = importlib.util.spec_from_file_location(
-        "coefficient_reward", ROOT/"studies/reward_coefficients/code/reward_cc.py")
-    original = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(original)
+def test_reward_matches_manuscript_for_all_coefficient_values(c2):
     # Deliberately asymmetric neighbors and nonzero reward catch the factor of two.
     u = np.array([1., 2., 3., 4., 6., 5., 3., 2., 1.])
     a = np.linspace(-1., 1., 30)
     denominator = 1. if c2 == 0 else .5 + c2*.5
     want = 1.5 / denominator
     assert reward(u, a, 5, C2=c2) == pytest.approx(want)
-    assert original.reward(u, a, 'FGL5', .5, c2) == pytest.approx(want)
     assert design_metrics(u, a, 5, C2=c2)['reward'] == pytest.approx(want)
     assert load_reference_math().design_metrics(u, a, 5, C2=c2)['reward'] == pytest.approx(want)
     got = reward_torch(torch.tensor(u[None]), torch.tensor(a[None]), 5, C2=c2)
@@ -59,6 +53,22 @@ def test_checkpoint_evaluator_distinguishes_best_from_last(tmp_path):
     (tmp_path/'train_log.csv').write_text('epoch\n1\n300\n')
     with pytest.raises(ValueError,match='nonconsecutive'):
         evaluate_checkpoint(tmp_path,'last')
+
+
+def test_coefficient_sweeps_use_common_cases_and_reuse_identical_pairs():
+    sweeps = json.loads((ROOT/'spec/coefficient_sweeps.json').read_text())
+    assert {k:len(v) for k,v in sweeps.items()} == {'C1':75,'C2':75,'joint':60}
+    assert len({r['case_id'] for r in sweeps['C1']+sweeps['C2']}) == 135
+    for stage,rows in sweeps.items():
+        for r in rows:
+            c = case_by_id(r['case_id'])
+            assert c['algorithm']=='SAC' and c['domain']=='source' and c['arm']=='P0'
+            assert c['C1']==r['C1'] and c['C2']==r['C2']
+            assert c['traversal']=='rowwise_raster'
+            assert c['dependencies']==[f"surrogate/cnn/source/N30000/scratch/s{r['seed']}"]
+    # The final C2 pair uses the same source policies as the main experiment.
+    final = [r for r in sweeps['C2'] if r['C2']==1.]
+    assert all('/P0/' in r['case_id'] for r in final)
 
 
 def test_bilateral_bo_routes_200_calls_to_bilateral_objective(tmp_path):

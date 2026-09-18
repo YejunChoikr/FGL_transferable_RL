@@ -1,83 +1,66 @@
-# Saved experiment evidence
+# Manuscript results
 
-These are saved experimental artifacts, not new runs made during code
-publication. `INDEX.json` contains archive hashes and the mapping to manuscript
-results. Each archive has a `MANIFEST.json` with published member hashes and,
-for copied files, their original hashes. Private absolute paths are made
-portable; numerical arrays and checkpoint tensors are retained.
+`INDEX.json` maps the supplied artifacts to the manuscript and records archive
+checksums. Each archive contains a `MANIFEST.json` with member checksums.
 
-| Artifact | Contents and use |
+| Artifact | Contents |
 | --- | --- |
-| `surrogates.zip` | 80 runs: training logs, configuration, best checkpoints, common-test predictions; ten source CNN/MLP runs also contain epoch-300 last checkpoints and predictions |
-| `policies.zip` | 450 runs: episode rewards, deterministic evaluations, checkpoint selection, selected designs, configuration |
-| `direct.zip` | 60 runs: first 1,500 evaluations for Fig. 11, full-time-allowance selected incumbent, counts and timing |
-| `fea.zip` | Saved FEA displacement profiles and links for 700 requests, identified by case, goal and input hash |
-| `bilateral.zip` | S10 source/target learning logs, selected designs, original FEA records, and the final 75 upper-domain cases |
-| `coefficients.zip` | Original coefficient-study histories, selected designs, and analysis tables including the `C2=0` baseline |
-| `table_s9.json` | Three fabricated-design inputs, original model/scaler hashes, predictions and FEA profiles |
+| `surrogates.zip` | 80 runs: configurations, training logs, best checkpoints and test predictions; ten source CNN/MLP runs also include epoch-300 checkpoints and predictions |
+| `policies.zip` | 450 runs: episode rewards, deterministic evaluations, selections and designs |
+| `direct.zip` | 60 runs: first 1,500 evaluations, full-budget selected incumbents, settings and timing |
+| `fea.zip` | Saved FEA responses and links for 700 requests |
+| `bilateral.zip` | S10 source-policy logs and 75 upper-domain results, selected designs and FEA responses |
+| `coefficients.zip` | Saved sequential coefficient-panel data for Fig. 5 |
+| `table_s9.json`, `validation_models/` | Fabricated-design inputs, matching surrogate/scaler, predictions and FEA profiles |
+| `representative_designs.json` | Thicknesses and FEA profiles of displayed designs, with figure references |
 
-## Recompute the reported quantities
-
-From the repository root, with the reproduction dependencies installed:
+## Verification
 
 ```sh
 python reproduction/verify_paper.py
 ```
 
-The command checks archive and member hashes, reaggregates the metrics, verifies
-policy/design/FEA connections, and evaluates the original model on the exact
-Table S9 inputs. Results go to `reproduction/evidence_checks/`:
+Run from the repository root with the reproduction dependencies installed.
+The verifier checks integrity, design/FEA connections and Table S9 predictions,
+then writes `verified_metrics.json` and `selected_design_fea_metrics.csv` under
+`reproduction/evidence_checks/`.
 
-- `verified_metrics.json`: MAE, sample SD, peak counts, and S10 comparisons.
-- `selected_design_fea_metrics.csv`: case-level metrics from selected-design FEA.
-
-Reaggregation gives the following values:
-
-| Quantity | Result |
+| Quantity | Recomputed result |
 | --- | --- |
 | Surrogate MAE reduction, upper / lower / aspect-ratio domain | 35.3% / 29.8% / 36.4% |
-| Shared transferred SAC policy, FEA peak success | 25/25 upper; 21/25 lower; 15/25 aspect-ratio domain |
-| Source CNN, epoch-300 MAE, mean ± sample SD | 0.004344 ± 0.000159 mm |
-| Source MLP, epoch-300 MAE, mean ± sample SD | 0.004965 ± 0.000602 mm |
-| Table S9, maximum difference between saved and reevaluated predictions | Less than 0.000001 mm |
+| Shared transferred SAC, FEA peak success | 25/25 / 21/25 / 15/25 |
+| Source CNN epoch-300 MAE, mean +/- sample SD | 0.004344 +/- 0.000159 mm |
+| Source MLP epoch-300 MAE, mean +/- sample SD | 0.004965 +/- 0.000602 mm |
+| Table S9 maximum prediction difference | Less than 0.000001 mm |
 
-To evaluate the source last checkpoints, extract `surrogates.zip` into a local
-directory and pass one extracted case directory to
-`reproduction/evaluate_surrogate.py --run-dir ... --checkpoint last`. The main
-frozen dataset is already included in `reproduction/data/`. Existing saved
-predictions preserve the original run's arithmetic; reevaluation can differ
-slightly with the hardware/backend.
+Extract `surrogates.zip` to evaluate a checkpoint with
+`reproduction/evaluate_surrogate.py --run-dir PATH_TO_CASE --checkpoint last`.
+The corresponding frozen test data are in `reproduction/data/`.
 
-## S10 provenance
+## Experiment mapping
 
-The bilateral SAC, scratch DDPG and BO records originate from the fixed-surrogate
-bilateral study. Its DDPG transfer arm was subsequently replaced by the
-`A4_C4_NATIVE_OPT` experiment: actor and critic layers fc1–fc4 are transferred.
-The 15 final DDPG transfer records and their selected designs are included in
-`bilateral.zip`; the superseded C3 runs are not used in the final aggregation.
-The executable paths are in `reproduction/studies/bilateral/`.
+S10 uses the bilateral settings in `reproduction/studies/bilateral/` and the
+arithmetic-objective results in the main policy and optimizer archives. The
+bilateral DDPG transfer loads actor and critic fc1-fc4. For its FGL7 seed 2
+case, the supplied FEA response is a recovered nine-displacement profile;
+`recovered_fea_profiles.json` identifies this record. Its supporting solver
+output is not included. Rewards, ratios and margins are computed directly
+from the supplied displacements and actions.
 
-For FGL7, DDPG transfer seed 2, the original automated FEA record reports failure.
-The final data package supplied a recovered nine-displacement profile through
-`apply_recovered_failed_fea.py`. `recovered_fea_profiles.json` preserves that
-profile, its source filename and hash. The five-run table is reproducible from
-this recovery record; the original solver output supporting the recovery is
-not included. Other final S10 FEA profiles are checked against the saved solver
-summary records. All rewards, margins and ratios are recomputed from the nine
-displacements and actions rather than copied from previously derived fields.
+The coefficient commands use the common source-surrogate and SAC settings in
+`reproduction/spec/protocol.json`. `coefficients.zip` contains the saved
+Fig. 5 inputs, not outputs of those commands. `DATA_DESCRIPTION.json` records
+that the complete coefficient sweep under the current runner has not been
+executed. S7 joint-sensitivity cases are in the main policy and FEA archives.
 
-The arithmetic-objective columns of S10 are recomputed from the September
-policy and optimizer archives. The two studies retain their actual protocols;
-the archive does not imply a controlled comparison changing only the reward.
+Table S9 uses the matching checkpoint and scaler in `validation_models/` with
+the common CNN and input encoder. Its model hashes and full-precision design
+inputs are recorded in `table_s9.json`.
 
-## Coverage
+## Available outputs
 
-The saved logs allow reaggregation without training. They do not contain every
-policy weight or the entire direct-optimization trajectory after evaluation
-1,500. The selected incumbent under the full 382.5 s allowance is retained
-separately. The training code can generate new policies, but numerical
-trajectories and timing can differ with hardware and software.
-
-These files do not execute Ansys or reproduce physical measurements. Their
-presence establishes the traceable source of the stored numerical results,
-not a new physical validation.
+The archives support reaggregation without training. They contain the surrogate
+checkpoints needed for prediction; policy weights can be generated by the
+training commands. Direct-optimization trajectories cover the first 1,500
+evaluations, with the best full-allowance candidate supplied separately.
+Ansys execution and physical measurements are separate from these commands.

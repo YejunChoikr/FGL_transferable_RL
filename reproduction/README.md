@@ -2,8 +2,9 @@
 
 This package provides the training and optimization implementation used for the
 paper's experiments. It runs independently of the multi-machine
-scheduler. The case registry contains 590 experiments across five random seeds:
-80 surrogate fits, 450 policy runs, and 60 direct-optimization runs.
+scheduler. The registry contains 80 surrogate fits, 450 policy runs and 60 direct-optimization
+runs with saved results, plus 105 coefficient-sweep cases using the same
+training implementation.
 
 ## Installation
 
@@ -122,7 +123,7 @@ the final-epoch CNN/MLP comparison uses `last.pt` for both architectures.
 
 The standalone runner evaluates both checkpoints explicitly and writes
 `metrics_best.json`, `metrics_last.json`, and their corresponding common-test
-predictions. `metrics.json` remains the original best-checkpoint evaluation.
+predictions. `metrics.json` contains the best-checkpoint evaluation.
 To evaluate an existing run without training:
 
 ```sh
@@ -159,7 +160,7 @@ The current manuscript's Average reward curves and early area under the curve
   deviation across independently trained policies after smoothing each run.
 - `deterministic_auc.json` retains the separate trapezoidal integral of the
   deterministic evaluations at episodes 0,25,…,300. This is a diagnostic
-  produced by the original training protocol, not the manuscript's
+  produced by scheduled policy evaluations, not the manuscript's
   training-reward Early AUC. The `evaluation.early_auc` entry in the frozen
   numerical protocol describes this diagnostic.
 
@@ -167,36 +168,58 @@ Selected-design displacements and rewards produced here are surrogate
 predictions. Direct FEA and physical testing are separate validation steps;
 these commands do not invoke Ansys or generate experimental measurements.
 
-## Verification and provenance
+## Reward-coefficient sweeps
+
+The sequential C1/C2 sweeps and the local joint sweep use `spec/protocol.json`:
+source CNN with N=30,000, the paired source surrogate seed, row-wise encoding,
+scratch SAC with actor/critic/temperature learning rates of 3e-4, batch 256,
+and 1,500 episodes including 20 replay-fill episodes. Selection uses deterministic
+surrogate reward at episode 0 and every 25 episodes. C2=0 uses W=1 in training,
+evaluation and reporting.
+
+| Sweep | Coefficients | Goals / seeds |
+| --- | --- | --- |
+| C1 | C1 in {0.1,0.2,0.3,0.4,0.5}, C2=0 | 5,6,7 / 0-4 |
+| C2 | C1=0.5, C2 in {0,0.25,0.5,0.75,1} | 5,6,7 / 0-4 |
+| Joint | C1 in {0.4,0.5}, C2 in {0.75,1} | 5,6,7 / 0-4 |
+
+```sh
+python reproduction/coefficients.py list --stage C1
+python reproduction/coefficients.py plan --stage C1 --goal 5 --seed 0 --C1 0.5
+python reproduction/coefficients.py run --stage C1 --goal 5 --seed 0 --C1 0.5 --with-dependencies
+python reproduction/coefficients.py run --stage C2 --goal 5 --seed 0 --C2 1 --with-dependencies
+```
+
+The sequential sweeps contain 135 unique cases. Thirty already occur in the
+main/joint registry, so 105 additional cases are registered. Identical
+coefficient/goal/seed combinations share one case ID and one output directory.
+Selected designs include the training objective, canonical reward, contrast
+ratio, bilateral margin and normalized thickness. These quantities support
+comparison across coefficient pairs; the differently scaled training objectives
+are not interchangeable.
+
+The commands generate coefficient results under these settings. Saved Fig. 5
+inputs remain in `evidence/coefficients.zip`; they are not results generated
+by this coefficient runner. Full coefficient sweeps have not been rerun as
+part of repository preparation. New results should be evaluated before replacing
+those figure inputs.
+
+## Verification
 
 ```sh
 python -m pip install -r reproduction/requirements-test.txt
 python -m pytest reproduction/tests -q
+python reproduction/verify_paper.py
 ```
 
-Tests cover data splits and scalers, shared encoding, transfer initialization,
-SAC/DDPG updates, goal relabeling, evaluation RNG isolation, optimizer settings,
-and training-reward summaries. `SOURCE_MANIFEST.json` records the source and
-published file hashes. The training algorithms are preserved from
-the experiment implementation. The published reward implementation corrects
-the separate `C2=0` branch to use `W=1`, matching the manuscript and original
-coefficient experiment. Positive `C2` values are unchanged; the 590-case main
-registry contains no `C2=0` runs. The correction updates the published protocol
-hash but does not relabel hashes or results of saved experiments.
-Packaging adds the standalone runner and
-training-reward summaries, renames the deterministic-AUC output, and removes
-machine scheduling and private-path metadata from the published specification.
+Tests cover data splits and scalers, encoding, transfer initialization,
+SAC/DDPG updates, coefficient rewards and selection, checkpoint evaluation,
+optimizer settings and training-reward summaries. `FILE_MANIFEST.json` records
+checksums of the supplied code, settings and model assets.
 
-This runner uses the checkpoints and scalers in each experiment's output
-directory. Supplied models used for Table S9 are loaded through `src.env`, as
-described in the [model and data guide](../docs/model_usage.md). Each model
-requires its associated architecture, scaler and input encoding. Newly trained
-checkpoints are excluded from Git.
-
-Saved experiment outputs are provided separately in [../evidence/](../evidence/README.md).
-The verifier reaggregates MAE, peak counts, the two S10 objectives, and Table S9
-predictions from these artifacts. See the separate guides for the
-[bilateral study](studies/bilateral/README.md) and
-[coefficient study](studies/reward_coefficients/README.md). Their experiment-specific
-surrogates, encoding, training schedules, and transfer implementations are
-preserved; their results are not attributed to the September protocol.
+Saved results are documented in [the evidence guide](../evidence/README.md).
+The verifier recomputes MAE, peak counts, S10 comparisons and Table S9
+predictions. Table S9 uses the CNN implementation in `cmame_rt/models_surrogate.py`
+with the matching checkpoint and scaler in `evidence/validation_models/`.
+The [bilateral study guide](studies/bilateral/README.md) specifies the settings
+required for the bilateral-objective results in S10.

@@ -9,6 +9,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 import numpy as np  # noqa: E402
+import pytest  # noqa: E402
 import torch  # noqa: E402
 
 from cmame_rt import ddpg as DDPG  # noqa: E402
@@ -240,8 +241,9 @@ def _toy_env(goals, batch=1, C1=0.5, C2=1.0, traversal="rowwise_raster"):
                         traversal, C1, C2, goals, "cpu", batch=batch)
 
 
-def test_terminal_only_at_step_30_and_reward_matches_reference():
-    env = _toy_env([5])
+@pytest.mark.parametrize("c2", [0., .25, .75, 1.])
+def test_terminal_only_at_step_30_and_reward_matches_reference(c2):
+    env = _toy_env([5], C2=c2)
     env.reset([5])
     acts = np.random.default_rng(1).uniform(-1, 1, 30).astype(np.float32)
     for t in range(30):
@@ -251,9 +253,9 @@ def test_terminal_only_at_step_30_and_reward_matches_reference():
             assert float(r) == 0.0 and info["u9"] is None
     u = info["u9"].numpy().astype(np.float64)[0]
     a = info["actions30"].numpy().astype(np.float64)[0]
-    want = REF.design_metrics(u, a, 5, 0.5, 1.0)["reward"]
+    want = REF.design_metrics(u, a, 5, 0.5, c2)["reward"]
     assert abs(float(r) - want) <= 1e-6 * max(abs(want), 1.0)
-    assert abs(reward_ref(u, a, 5) - want) == 0.0
+    assert abs(reward_ref(u, a, 5, C2=c2) - want) == 0.0
 
 
 def test_every_traversal_visits_each_cell_once():
@@ -334,15 +336,16 @@ def test_evaluation_leaves_agent_untouched():
                     "kappa")) <= set(r)
 
 
-def test_training_and_canonical_objectives_are_separate_fields():
-    env = _toy_env([5], C1=0.4, C2=0.75)
+@pytest.mark.parametrize("c2", [0., .25, .75, 1.])
+def test_training_and_canonical_objectives_are_separate_fields(c2):
+    env = _toy_env([5], C1=0.4, C2=c2)
     ag = SAC.SACAgent("cpu", False, PI.build_policy_init(0, "SAC"),
                       "reference")
-    rec = EV.evaluate_checkpoint(ag, env, [5], 0, 0.4, 0.75)[0]
+    rec = EV.evaluate_checkpoint(ag, env, [5], 0, 0.4, c2)[0]
     u = np.asarray(rec["u9_pred"])
     a = np.asarray(rec["actions30"])
     assert abs(rec["training_objective"]
-               - REF.design_metrics(u, a, 5, 0.4, 0.75)["reward"]) < 1e-9
+               - REF.design_metrics(u, a, 5, 0.4, c2)["reward"]) < 1e-9
     assert abs(rec["canonical_reward"]
                - REF.design_metrics(u, a, 5, 0.5, 1.0)["reward"]) < 1e-9
     assert rec["selection_score"] == rec["training_objective"]

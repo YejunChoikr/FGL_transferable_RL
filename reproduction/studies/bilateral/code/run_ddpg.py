@@ -1,4 +1,4 @@
-"""Run one locked bilateral DDPG source, RL, or native-recipe TRL experiment."""
+"""Train a bilateral DDPG source policy or upper-domain scratch policy."""
 from __future__ import annotations
 
 import argparse
@@ -17,14 +17,12 @@ from common import (
     CFG, EPISODES, atomic_write_json, checkpoint_dir, code_hashes,
     det_schedule, domain_assets, machine_metadata, machine_seeds, make_env,
     neural_run_dir, protocol_sha256, run_metrics, scratch_path, set_seed,
-    sha256, sha256_text, source_checkpoint, state_map_sha256, tensor_sha256,
+    sha256, sha256_text, state_map_sha256, tensor_sha256,
     verify_assets,
 )
 from ddpg_agent import DDPGAgent
 
-VALID_METHODS = ("DDPG-SOURCE", "DDPG-RL", "DDPG-TRL")
-ACTOR_LOAD = ("fc1", "fc2", "fc3", "fc4")
-CRITIC_LOAD = ("fc1", "fc2", "fc3")
+VALID_METHODS = ("DDPG-SOURCE", "DDPG-RL")
 
 
 class Tee:
@@ -54,19 +52,6 @@ def state_hashes(module):
     return {k: tensor_sha256(v) for k, v in module.state_dict().items()}
 
 
-def copy_layers(module, source_state, prefixes):
-    current = module.state_dict()
-    loaded = []
-    for key, value in source_state.items():
-        if key.split(".")[0] in prefixes:
-            if key not in current or current[key].shape != value.shape:
-                raise SystemExit(f"transfer shape/key mismatch: {key}")
-            current[key] = value.clone()
-            loaded.append(key)
-    module.load_state_dict(current)
-    return sorted(loaded)
-
-
 def new_agent(seed: int, device):
     c = CFG["ddpg"]
     return DDPGAgent(
@@ -81,6 +66,8 @@ def new_agent(seed: int, device):
 
 
 def initialize(task: str, method: str, seed: int, device):
+    if method not in VALID_METHODS:
+        raise ValueError("Use the standalone runner for DDPG transfer")
     set_seed(seed)
     agent = new_agent(seed, device)
     role = "source" if method == "DDPG-SOURCE" else "target"
@@ -91,19 +78,7 @@ def initialize(task: str, method: str, seed: int, device):
     source_path = None
     source_blob = None
     loaded = {"actor": [], "critic": []}
-    if method == "DDPG-TRL":
-        source_path = source_checkpoint("DDPG", task, seed)
-        if not source_path.is_file():
-            raise SystemExit(f"missing task/seed source checkpoint: {source_path}")
-        source_blob = torch.load(source_path, map_location=device, weights_only=False)
-        if source_blob.get("task") != task or int(source_blob.get("seed", -1)) != seed:
-            raise SystemExit("source task/seed metadata mismatch")
-        loaded["actor"] = copy_layers(agent.actor, source_blob["actor"], ACTOR_LOAD)
-        loaded["critic"] = copy_layers(agent.critic, source_blob["critic"], CRITIC_LOAD)
-        agent.hard_update()
-
-    expected = {"actor": 8 if method == "DDPG-TRL" else 0,
-                "critic": 6 if method == "DDPG-TRL" else 0}
+    expected = {"actor": 0, "critic": 0}
     problems = []
     for net in ("actor", "critic"):
         if len(loaded[net]) != expected[net]:

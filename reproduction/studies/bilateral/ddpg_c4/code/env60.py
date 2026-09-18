@@ -1,21 +1,4 @@
-"""Domain-parameterised Environment with the 60-dim surrogate-identical state.
-
-Identical mechanics to the calibration project's ``env60`` (itself derived from the
-verified source ``env_agent_reference.Environment``); the only parameter is which
-surrogate/scaler pair is loaded:
-
-  * source domain [1.2, 1.8] mm -> surrogate_6x10_30000_1.2_to_1.8
-  * upper  domain [1.2, 2.4] mm -> surrogate_6x10_6000_1.2_to_2.4
-
-The normalized state/action representation is the SAME in both domains even though
-the action-to-thickness mapping differs (1.5+0.3a vs 1.8+0.6a); the mapping lives
-inside the surrogate that was trained on that domain, not in the observation.
-
-Verified: this architecture + input layout reproduces the historical BO objective
-(``run_bayesian_FGL5_FGL6_FGL7.py``) on the upper surrogate with max difference 0.0
-over 50 random designs. The BO script's inert ``Dropout(0.15)`` (eval mode, no
-state_dict keys) is therefore intentionally absent here.
-"""
+"""Surrogate-assisted, 60-dimensional thickness-assignment environment for S10."""
 from __future__ import annotations
 
 import math
@@ -31,7 +14,7 @@ STATE_ENCODING = "surrogate_interleaved_thickness_location"
 
 
 class SurrogateCNN(nn.Module):
-    """Unchanged from the verified source implementation."""
+    """CNN predicting nine boundary displacements."""
 
     def __init__(self, output_dim, leakyrelu_para):
         super().__init__()

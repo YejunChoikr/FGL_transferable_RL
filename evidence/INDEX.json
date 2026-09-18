@@ -1,51 +1,46 @@
 {
   "schema": 1,
-  "source_studies": {
-    "unified": "proj_cmame_unified_rerun_20260913",
-    "bilateral": "proj_bilateral_upper_sac_ddpg_bo_native_3machine_202607",
-    "ddpg_c4": "proj_ddpg_native_c4_trl_all_3machine_202608",
-    "coefficients": "proj_sac_reward_coefficient_lock_3machine_202607"
-  },
   "archives": {
     "surrogates.zip": {
-      "sha256": "b45cef6631dce74cf25cbd25126907c0bcc98a02483c50f093da97e0e179252a",
-      "bytes": 60004964,
+      "sha256": "a412bb0ad4d91279178ab225f30ce667be81896b5c58fa5ac30791807b2c5231",
+      "bytes": 59790975,
       "members": 661
     },
     "policies.zip": {
-      "sha256": "64f44183e3d098bb281dc9fd3f57d22b56d65fd87a0c896ed7f2b0a405863f75",
-      "bytes": 68754377,
+      "sha256": "d92da3efe4a2be684e417150e9ad4626d0c5f3525458ec63f22df5436141b169",
+      "bytes": 67350730,
       "members": 2701
     },
     "direct.zip": {
-      "sha256": "ba0df50e86f1f4ddeda37dda75b3611f1f092b90b5ba2ea9a7e4fc596fcc64c2",
-      "bytes": 14234238,
+      "sha256": "415c390732d773b045d9353e650d4ad24d5cf500c617a0e93030a8805562d15b",
+      "bytes": 14034152,
       "members": 361
     },
     "fea.zip": {
-      "sha256": "69c604836a0898f259ae6d6a25965451edd97b0ec9405f037a84a0db07831e79",
-      "bytes": 1325927,
+      "sha256": "305ad1bb5dd0dfdfb2966f465231477bf00e8a387b9c6e8bbf27bda91c4590ac",
+      "bytes": 1268983,
       "members": 700
     },
     "bilateral.zip": {
-      "sha256": "9927809c0bb787d8fe93a61a8c2e1c25ce50ed1569c1bc32bd6604a5cab7c70a",
-      "bytes": 4844790,
-      "members": 511
+      "sha256": "6194a97c5f130eabc1ff3e93a605076639c9ae3e82db37aa76196c685e204de6",
+      "bytes": 4757748,
+      "members": 502
     },
     "coefficients.zip": {
-      "sha256": "a2a38abc7b7b9e92e51db2a8db1d8f71b5b02eec965c56cc30626f6d1efd98af",
-      "bytes": 1743076,
-      "members": 337
+      "sha256": "8fff9ce1191c878c574d06735fbcc9146f8c2ed22f1c571db41aca642b7fd667",
+      "bytes": 1332412,
+      "members": 277
     }
   },
   "claims": {
     "surrogate_transfer_mae": "surrogates.zip: 3 domains x scratch/transfer x five best.pt common-test predictions",
     "shared_upper_25_of_25": "policies.zip selected designs + fea.zip linkage by request_id and fe_input_hash",
     "Table_S6_Fig_S5": "surrogates.zip: source cnn/mlp, seeds 0-4, epoch-300 last.pt predictions",
-    "Table_S9": "table_s9.json and original models/; current main Fig. 6 and experimental Fig. 10",
+    "Table_S9": "table_s9.json and validation_models/; main Fig. 6 and experimental Fig. 10",
     "S10": "bilateral.zip and reproduction/studies/bilateral; arithmetic columns from unified policy/direct FEA",
-    "Fig_5b": "coefficients.zip and reproduction/studies/reward_coefficients; C2=0 uses W=1",
+    "Fig_5b": "coefficients.zip: saved plot data. New coefficient sweeps use reproduction/coefficients.py and spec/protocol.json; no results from that sweep have been generated.",
     "Fig_11": "direct.zip first1500.csv; full time-cap selected candidate is in incumbent.json"
   },
-  "table_s9_sha256": "94ac82aaa66a29fab1fa35e5e73f2023f77c596d6ee4aef9a2336d2513c9beb3"
+  "table_s9_sha256": "69a23c620ba1a30336390f4eeae2953dc3d9aa7265ab2ea8ce8bf192fe985707",
+  "representative_designs_sha256": "4ab1d2e37ca628ba97634a0e7c33548ebad99f90cd325b1faffe57b758ba1c0e"
 }

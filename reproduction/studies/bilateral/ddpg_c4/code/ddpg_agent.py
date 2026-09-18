@@ -1,13 +1,4 @@
-"""Protocol-matched DDPG: 60-dim state, deterministic actor, single critic.
-
-Deliberately plain DDPG. Everything TD3/SAC-ish is absent by construction:
-no twin critics, no target-policy smoothing, no delayed updates, no entropy or
-alpha, no prioritized replay, no LR schedule, no critic-only warm-up, no
-progressive freezing. Those absences are asserted in tests_unit.
-
-  actor  : 60 -> 4096 -> 2048 -> 1024 -> 512 -> 1   ReLU hidden, tanh output
-  critic : 61 -> 4096 -> 2048 -> 1024 -> 512 -> 1   ReLU hidden, linear Q
-"""
+"""DDPG actor, critic, replay memory and native optimizer settings for S10."""
 from __future__ import annotations
 
 import random
@@ -176,51 +167,3 @@ class DDPGAgent:
         self.critic.load_state_dict(sd["critic"])
         self.actor_target.load_state_dict(sd["actor_target"])
         self.critic_target.load_state_dict(sd["critic_target"])
-
-
-# --------------------------------------------------------------- transfer
-ACTOR_TRANSFER = ("fc1", "fc2", "fc3", "fc4")     # fc5 head stays target-scratch
-CRITIC_TRANSFER = ("fc1", "fc2", "fc3")           # fc4, fc5 stay target-scratch
-
-
-def apply_published_transfer(agent, source_sd):
-    """The submitted DDPG recipe: actor fc1-fc4, critic fc1-fc3, then hard-copy
-    online -> target. Optimizer state, replay, OU state are never touched."""
-    moved = []
-    a_src, c_src = source_sd["actor"], source_sd["critic"]
-    a_dst = agent.actor.state_dict()
-    for k in list(a_dst):
-        if k.split(".")[0] in ACTOR_TRANSFER and k in a_src:
-            if a_dst[k].shape != a_src[k].shape:
-                raise ValueError(f"actor shape mismatch on {k}")
-            a_dst[k] = a_src[k].clone()
-            moved.append(f"actor:{k}")
-    agent.actor.load_state_dict(a_dst)
-
-    c_dst = agent.critic.state_dict()
-    for k in list(c_dst):
-        if k.split(".")[0] in CRITIC_TRANSFER and k in c_src:
-            if c_dst[k].shape != c_src[k].shape:
-                raise ValueError(f"critic shape mismatch on {k}")
-            c_dst[k] = c_src[k].clone()
-            moved.append(f"critic:{k}")
-    agent.critic.load_state_dict(c_dst)
-
-    agent.hard_update()      # targets are re-synced AFTER assembly
-    return moved
-
-
-def n_transferred_expected():
-    """4 actor blocks + 3 critic blocks, weight and bias each."""
-    return 2 * len(ACTOR_TRANSFER) + 2 * len(CRITIC_TRANSFER)
-
-
-def set_transfer_optimizers(agent, actor_lr=5e-6, critic_lr=1e-4, weight_decay=1e-4):
-    """ST_PAC optimizer settings. Rebuilt from scratch: no source optimizer state."""
-    agent.actor_opt = torch.optim.Adam(agent.actor.parameters(), lr=actor_lr,
-                                       weight_decay=weight_decay)
-    agent.critic_opt = torch.optim.Adam(agent.critic.parameters(), lr=critic_lr,
-                                        weight_decay=weight_decay)
-    return {"actor_lr": actor_lr, "critic_lr": critic_lr,
-            "weight_decay": weight_decay,
-            "optimizer_state_transferred": False}

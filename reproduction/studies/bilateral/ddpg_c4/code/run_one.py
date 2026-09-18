@@ -26,7 +26,7 @@ from common_c4 import (CFG, D, ROOT, action_to_thickness,  # noqa: E402
                        atomic_write_json, atomic_write_text, code_hashes,
                        det_schedule, make_numerator, physical_metrics, run_dir,
                        sha256, source_path, verify_assets)
-from ddpg_agent import DDPGAgent  # noqa: E402  (byte-identical to the authority)
+from ddpg_agent import DDPGAgent  # noqa: E402
 from env60 import Environment  # noqa: E402
 from recipe_c4 import apply_a4c4_native, optimizer_audit  # noqa: E402
 
@@ -108,8 +108,7 @@ def deterministic_eval(env, agent, spec):
     prof = np.asarray(prof, dtype=np.float64).reshape(-1)
     m = physical_metrics(prof, acts, spec["task"])
     m["actions"] = acts.tolist()
-    m["reward_objective"] = (m["reward_bilateral"] if spec["objective"] == "bilateral"
-                             else m["reward_original"])
+    m["reward_objective"] = m["reward_bilateral"]
     return m
 
 

@@ -12,7 +12,7 @@ import torch
 
 from .protocol import load_protocol
 from .reward import (C1_CANONICAL, C2_CANONICAL, bilateral_margin, kappa,
-                     peak_success)
+                     peak_success, material_weight)
 
 _PROTO = load_protocol()
 _EVAL = _PROTO["evaluation"]
@@ -152,7 +152,7 @@ def evaluate_checkpoint(agent, env, goals: Sequence[int], episode: int,
         u, a = u9[i], acts[i]
         rho = float(np.mean((a + 1) / 2))
         j = g - 1
-        train_obj = float(u[j] - C1 * (u[j - 1] + u[j + 1])) / (0.5 + C2 * rho)
+        train_obj = float(u[j] - C1 * (u[j - 1] + u[j + 1])) / material_weight(C2, rho)
         canon = (float(u[j] - C1_CANONICAL * (u[j - 1] + u[j + 1]))
                  / (0.5 + C2_CANONICAL * rho))
         records.append({

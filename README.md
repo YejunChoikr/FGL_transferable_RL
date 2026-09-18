@@ -22,8 +22,8 @@ The reproduction package includes CNN/MLP surrogate training, nested data-budget
 experiments, SAC and DDPG, actor/critic transfer, goal-conditioned policies,
 coefficient sensitivity, and BO/L-BFGS-B/GA/DE. A common configuration controls
 learning rates, location encoding, splits, and checkpoint selection. The frozen
-case registry identifies all 590 experiments; the smoke command only tests the
-installation with short runs.
+case registry includes the manuscript experiments and coefficient sweeps. The
+smoke command tests the installation with short runs.
 
 Saved experiment logs, surrogate checkpoints, selected designs, and FEA
 responses are provided in **[the evidence guide](evidence/README.md)**. Recompute
@@ -35,9 +35,9 @@ python reproduction/verify_paper.py
 
 The [bilateral-objective study](reproduction/studies/bilateral/README.md)
 contains the SAC/DDPG training and 200-evaluation BO paths used for S10,
-including the four-layer DDPG critic transfer. The
-[coefficient study](reproduction/studies/reward_coefficients/README.md)
-includes the separate `C2=0`, `W=1` baseline used for Fig. 5.
+including four-layer actor and critic transfer.
+[Coefficient sweeps](reproduction/README.md#reward-coefficient-sweeps) use the
+same SAC, source surrogate, encoding and training settings as the main runner.
 
 | Directory | Contents |
 | --- | --- |
@@ -45,14 +45,13 @@ includes the separate `C2=0`, `W=1` baseline used for Fig. 5.
 | `reproduction/spec/` | Numerical protocol, case registry, and reference math |
 | `reproduction/data/` | Exact encoded arrays, fixed splits, and output scalers |
 | `reproduction/tests/` | Regression and integration tests |
-| `reproduction/studies/` | Coefficient and bilateral-objective experiments |
+| `reproduction/studies/` | Bilateral-objective experiments |
 | `evidence/` | Saved run artifacts and their mapping to manuscript results |
-| `src/`, `tools/`, `configs/` | Model utilities, training helpers, and configuration |
-| `data/`, `models/`, `designs/` | Domain datasets, supplied checkpoints, and selected designs |
 
 Saved surrogate checkpoints for the registered experiments are in
-`evidence/surrogates.zip`. The [model and data guide](docs/model_usage.md)
-describes the supplied files and their associated loading utilities.
+`evidence/surrogates.zip`. Models required for Table S9 are in
+`evidence/validation_models/`; displayed designs are recorded in
+`evidence/representative_designs.json`.
 
 ## Citation
 

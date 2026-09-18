@@ -1,0 +1,1478 @@
+{
+  "C1": [
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.1_C2_0/s0"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.1_C2_0/s1"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.1_C2_0/s2"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.1_C2_0/s3"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.1_C2_0/s4"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.1_C2_0/s0"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.1_C2_0/s1"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.1_C2_0/s2"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.1_C2_0/s3"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.1_C2_0/s4"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.1_C2_0/s0"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.1_C2_0/s1"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.1_C2_0/s2"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.1_C2_0/s3"
+    },
+    {
+      "C1": 0.1,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.1_C2_0/s4"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.2_C2_0/s0"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.2_C2_0/s1"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.2_C2_0/s2"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.2_C2_0/s3"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.2_C2_0/s4"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.2_C2_0/s0"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.2_C2_0/s1"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.2_C2_0/s2"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.2_C2_0/s3"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.2_C2_0/s4"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.2_C2_0/s0"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.2_C2_0/s1"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.2_C2_0/s2"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.2_C2_0/s3"
+    },
+    {
+      "C1": 0.2,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.2_C2_0/s4"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.3_C2_0/s0"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.3_C2_0/s1"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.3_C2_0/s2"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.3_C2_0/s3"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.3_C2_0/s4"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.3_C2_0/s0"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.3_C2_0/s1"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.3_C2_0/s2"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.3_C2_0/s3"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.3_C2_0/s4"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.3_C2_0/s0"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.3_C2_0/s1"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.3_C2_0/s2"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.3_C2_0/s3"
+    },
+    {
+      "C1": 0.3,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.3_C2_0/s4"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_0/s0"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_0/s1"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_0/s2"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_0/s3"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_0/s4"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_0/s0"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_0/s1"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_0/s2"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_0/s3"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_0/s4"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_0/s0"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_0/s1"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_0/s2"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_0/s3"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s4"
+    }
+  ],
+  "C2": [
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.0,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.25,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.5,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/P0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/P0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/P0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/P0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/P0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/P0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/P0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/P0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/P0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/P0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/P0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/P0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/P0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/P0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/P0/s4"
+    }
+  ],
+  "joint": [
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_0.75/s0"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_0.75/s1"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_0.75/s2"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_0.75/s3"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_0.75/s4"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_0.75/s0"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_0.75/s1"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_0.75/s2"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_0.75/s3"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_0.75/s4"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_0.75/s0"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_0.75/s1"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_0.75/s2"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_0.75/s3"
+    },
+    {
+      "C1": 0.4,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_0.75/s4"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_1.0/s0"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_1.0/s1"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_1.0/s2"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_1.0/s3"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.4_C2_1.0/s4"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_1.0/s0"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_1.0/s1"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_1.0/s2"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_1.0/s3"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.4_C2_1.0/s4"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_1.0/s0"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_1.0/s1"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_1.0/s2"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_1.0/s3"
+    },
+    {
+      "C1": 0.4,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.4_C2_1.0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.75/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.75/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 0.75,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.75/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g5/P0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g5/P0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g5/P0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g5/P0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 5,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g5/P0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g6/P0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g6/P0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g6/P0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g6/P0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 6,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g6/P0/s4"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 0,
+      "case_id": "policy/SAC/source/g7/P0/s0"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 1,
+      "case_id": "policy/SAC/source/g7/P0/s1"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 2,
+      "case_id": "policy/SAC/source/g7/P0/s2"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 3,
+      "case_id": "policy/SAC/source/g7/P0/s3"
+    },
+    {
+      "C1": 0.5,
+      "C2": 1.0,
+      "goal": 7,
+      "seed": 4,
+      "case_id": "policy/SAC/source/g7/P0/s4"
+    }
+  ]
+}

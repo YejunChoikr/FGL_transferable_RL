@@ -1,8 +1,8 @@
 # S10 bilateral-objective experiments
 
-This package supplies the actual reward-training paths, not just an evaluation
-function. The 105 registered cases comprise 30 source policies, 60 upper-domain
-policies and 15 BO runs (three goals and five seeds).
+The 105 cases comprise 30 source policies, 60 upper-domain policies and 15 BO
+runs: three prescribed goals and five seeds. The objective is
+`min(u_i-u_(i-1),u_i-u_(i+1))/(0.5+rho_A)`, with `rho_A=mean((action+1)/2)`.
 
 From the repository root:
 
@@ -15,42 +15,37 @@ python reproduction/studies/bilateral/run.py run --case upper/FGL5/BO/s0
 ```
 
 `--with-dependencies` trains the matching source policy first. SAC/DDPG require
-CUDA. Outputs and source checkpoints go under `generated/`; they do not modify
-the saved evidence. To test the neural execution paths with 25 episodes:
+CUDA. Run outputs and source checkpoints go under `generated/`. Smoke commands
+use 25 episodes and write under `pilot/`:
 
 ```sh
 python reproduction/studies/bilateral/run.py smoke --case upper/FGL5/SAC-TRL/s0
 python reproduction/studies/bilateral/run.py smoke --case upper/FGL5/DDPG-TRL/s0
 ```
 
-Smoke outputs go under `pilot/` and are never used by the full-run commands.
-Only run one process per case. Preserve existing incomplete outputs before
-retrying. BO retains its full 200-call protocol; its automated integration test
-checks objective wiring without fitting 180 Gaussian-process models.
+Only run one process per case. Preserve incomplete outputs before retrying.
+BO retains its 200-call protocol; the integration test checks its objective
+and evaluation count without a complete Gaussian-process optimization.
 
-## Preserved settings
+## Settings
 
-The objective is `min(u_i-u_(i-1), u_i-u_(i+1)) / (0.5 + rho_A)` with
-`rho_A=mean((action+1)/2)`. Source and upper surrogates/scalers are included under
-`assets/`. Their original encoding is retained. These are separate from the
-September common-encoding dataset and models.
+The fixed source and upper-domain surrogate/scaler pairs are in `assets/`.
+Their input encoding is implemented in `code/env60.py` and
+`ddpg_c4/code/env60.py` for the corresponding experiment paths.
 
-| Path | Protocol |
+| Path | Settings |
 | --- | --- |
-| SAC source/scratch/transfer | Actor/critics/temperature LR 3e-4; batch 256; 1,500 training episodes after 20 replay-fill episodes |
+| SAC source/scratch/transfer | Actor, critics and temperature LR 3e-4; batch 256; 1,500 training episodes after 20 replay-fill episodes |
 | DDPG source/scratch | Actor LR 1e-4, critic LR 1e-3; batch 64; 1,500 training episodes after 20 replay-fill episodes |
-| Final DDPG transfer (`ddpg_c4/`) | Native DDPG settings; actor and critic fc1–fc4 transferred; 1,500 total episodes including 20 replay-fill episodes |
+| DDPG transfer | Actor LR 1e-4, critic LR 1e-3; batch 64; 1,500 total episodes including 20 replay-fill episodes |
 | BO | `gp_minimize`, 200 total evaluations, 20 random initial points, `gp_hedge` |
 
-The final DDPG transfer path uses the later C4 implementation that generated
-the manuscript's values. The original C3 trainer remains in `code/run_ddpg.py`
-because it also implements the source and scratch arms; the standalone runner
-routes every upper DDPG transfer case to `ddpg_c4/`.
+Transfer copies actor and critic hidden layers fc1?fc4. Output heads, optimizer
+states, replay memory and exploration states are initialized afresh. The DDPG
+transfer implementation is in `ddpg_c4/`; the other paths are in `code/`.
+Initial source/scratch tensors are checked against specified hashes.
 
-Initial scratch tensors are reconstructed and checked against the hashes
-archived with the original source/target runs. Checkpoint serialization bytes
-can differ while those tensors remain identical. The published configuration
-omits machine scheduling and private paths; `SOURCE_MANIFEST.json` records
-original and published hashes. New source checkpoints are trained by the
-source commands; saved research learning curves, selections and FEA records
-are in `evidence/bilateral.zip`.
+Saved learning curves, selected designs and FEA responses are in
+`evidence/bilateral.zip`. Arithmetic-objective S10 columns are evaluated using
+the main policy/optimizer results. The two sets retain their specified
+surrogates and episode/evaluation budgets.

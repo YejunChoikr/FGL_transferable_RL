@@ -22,7 +22,7 @@ def test_input_checksums():
 
 def test_protocol_and_registry_hashes():
     assert hash_report()["protocol_hash_matches_spec"]
-    assert len(load_cases()) == 590
+    assert len(load_cases()) == 695
     for case in load_cases():
         assert case["protocol_hash"] == PROTOCOL_HASH
         assert case["case_hash"] == canonical_digest({k:v for k,v in case.items() if k != "case_hash"})

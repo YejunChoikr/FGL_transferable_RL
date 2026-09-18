@@ -1,4 +1,4 @@
-"""Config, hashing, atomic IO, paths, objectives, and the frozen 60-run matrix."""
+"""Settings, objectives, checksums and paths for the S10 DDPG transfer experiment."""
 from __future__ import annotations
 
 import hashlib
@@ -19,10 +19,9 @@ TASKS = list(CFG["tasks"])
 SEEDS = [int(s) for s in CFG["seeds"]]
 D = CFG["ddpg"]
 
-# Files that determine the LEARNING RESULT. ddpg_agent.py is byte-identical to
-# the native authority; recipe_c4.py holds the single method change.
+# Files defining the DDPG transfer experiment.
 LEARNING_CODE = ["code/ddpg_agent.py", "code/recipe_c4.py", "code/env60.py",
-                 "code/reward.py", "code/run_one.py", "configs/experiment.yaml"]
+                 "code/run_one.py", "configs/experiment.yaml"]
 ORCHESTRATION_CODE = ["code/common_c4.py"]
 
 TASK_IX = {k: v for k, v in CFG["task_indices"].items()}
@@ -121,17 +120,9 @@ def det_schedule():
 
 # ------------------------------------------------------------------ objectives
 # env60.Environment computes  reward = reward_function(*u) / mean((s+2)/2),
-# and mean((s+2)/2) == 0.5 + rho_A exactly. So BOTH objectives are expressed by
+# and mean((s+2)/2) == 0.5 + rho_A exactly. The bilateral objective is expressed by
 # supplying the NUMERATOR only; the shared density denominator is already the
-# environment's, unchanged from the authority.
-def numerator_original(task):
-    ix = TASK_IX[task]
-
-    def f(*u):
-        return u[ix["target"]] - 0.5 * (u[ix["lower"]] + u[ix["upper"]])
-    return f
-
-
+# environment denominator.
 def numerator_bilateral(task):
     ix = TASK_IX[task]
 
@@ -142,8 +133,6 @@ def numerator_bilateral(task):
 
 
 def make_numerator(objective, task):
-    if objective == "original":
-        return numerator_original(task)
     if objective == "bilateral":
         return numerator_bilateral(task)
     raise ValueError(f"unknown objective {objective!r}")

@@ -5,6 +5,7 @@ import csv
 import hashlib
 import io
 import json
+import re
 from pathlib import Path
 import sys
 import zipfile
@@ -13,7 +14,7 @@ import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from cmame_rt.reward import design_metrics
+from cmame_rt.reward import design_metrics, reward
 
 
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -148,6 +149,23 @@ def verify(evidence,output):
                     'arithmetic_reward':stats([x['reward'] for x in selected])}
     assert sha(evidence/'table_s9.json')==index['table_s9_sha256']
     report['table_s9']=verify_s9(evidence/'table_s9.json')
+    with zipfile.ZipFile(evidence/'coefficients.zip') as z:
+        description=j(z,'DATA_DESCRIPTION.json')
+        checked=0
+        for name in z.namelist():
+            if not name.endswith('/best_det_design.json'):
+                continue
+            match=re.search(r'/FGL(\d)/C1_([\d.]+)__C2_([\d.]+)/',name)
+            goal,c1,c2=int(match[1]),float(match[2]),float(match[3])
+            selected=j(z,name)
+            actual=reward(selected['u'],selected['action'],goal,c1,c2)
+            np.testing.assert_allclose(actual,selected['reward_env'],rtol=1e-6,atol=1e-6)
+            with io.BytesIO(z.read(name.replace('best_det_design.json','reward_history.npy'))) as f:
+                history=np.load(f,allow_pickle=False)
+            assert len(history)==1500 and np.isfinite(history).all()
+            checked+=1
+        assert checked==135
+        report['coefficient_figure_data']={'saved_runs':checked,**description}
     # These are rounded manuscript values, checked only after independent aggregation.
     for domain,want in [('upper',35.3),('lower',29.8),('ar08',36.4)]:
         assert round(report['surrogate_transfer'][domain]['mae_reduction_percent'],1)==want
@@ -165,16 +183,21 @@ def verify(evidence,output):
 
 def verify_s9(path):
     import torch
-    from src.env import SurrogateCNN,OutputScaler,location_grid
+    from cmame_rt.models_surrogate import CNN
+    from cmame_rt.encoding import encode_batch_numpy
     document=json.loads(Path(path).read_text(encoding='utf-8'));out=[]
-    assert sha(ROOT/'models/surrogate_upper.pth')==document['model_sha256']
-    assert sha(ROOT/'models/scaler_upper.json')==document['scaler_sha256']
-    model=SurrogateCNN(9,.005)
-    model.load_state_dict(torch.load(ROOT/'models/surrogate_upper.pth',map_location='cpu',weights_only=True));model.eval()
-    scaler=OutputScaler(ROOT/'models/scaler_upper.json')
+    model_path=ROOT/document['designs'][0]['model']
+    scaler_path=ROOT/document['designs'][0]['scaler']
+    assert sha(model_path)==document['model_sha256']
+    assert sha(scaler_path)==document['scaler_sha256']
+    model=CNN()
+    model.load_state_dict(torch.load(model_path,map_location='cpu',weights_only=True));model.eval()
+    scaler=json.loads(scaler_path.read_text(encoding='utf-8'))
     for r in document['designs']:
-        x=np.stack([np.array(r['actions30']),location_grid().ravel()],axis=1).reshape(1,60)
-        with torch.no_grad(): pred=scaler.inverse_transform(model(torch.tensor(x,dtype=torch.float32)).numpy())[0]
+        x=encode_batch_numpy(np.array([r['actions30']]))
+        with torch.no_grad():
+            standardized=model(torch.tensor(x,dtype=torch.float32)).numpy().astype(np.float64)
+            pred=(standardized*np.asarray(scaler['scale'])+np.asarray(scaler['mean']))[0]
         err=float(np.max(abs(pred-r['pred_mm'])))
         assert err<1e-5,(r['task'],err)
         out.append({'task':r['task'],'seed':r['seed'],'prediction_max_abs_difference_mm':err,

@@ -4,8 +4,8 @@
       "task": "FGL5",
       "goal": 5,
       "seed": 0,
-      "model": "models/surrogate_upper.pth",
-      "scaler": "models/scaler_upper.json",
+      "model": "evidence/validation_models/surrogate_upper.pth",
+      "scaler": "evidence/validation_models/scaler_upper.json",
       "actions30": [
         -0.9089257717132568,
         -0.8317584991455078,
@@ -67,8 +67,8 @@
       "task": "FGL6",
       "goal": 6,
       "seed": 4,
-      "model": "models/surrogate_upper.pth",
-      "scaler": "models/scaler_upper.json",
+      "model": "evidence/validation_models/surrogate_upper.pth",
+      "scaler": "evidence/validation_models/scaler_upper.json",
       "actions30": [
         -0.8989726305007935,
         -0.8961659073829651,
@@ -130,8 +130,8 @@
       "task": "FGL7",
       "goal": 7,
       "seed": 1,
-      "model": "models/surrogate_upper.pth",
-      "scaler": "models/scaler_upper.json",
+      "model": "evidence/validation_models/surrogate_upper.pth",
+      "scaler": "evidence/validation_models/scaler_upper.json",
       "actions30": [
         -0.9065829515457152,
         -0.8936237096786499,
@@ -190,9 +190,7 @@
       "selection_rule": "highest predicted objective across the five prespecified seed-level candidates; tie to lower seed; FEA not used"
     }
   ],
-  "source_table_sha256": "6021e92b40b0287fd6ab5864d0f33af294c1d0a6f3508e14640251e2f370e287",
-  "fgl5_fea_audit_sha256": "540bd1b257e8d0cb6c8f185b1f269f12fb724fe6adf409a11fd97e0367fbb1e2",
   "model_sha256": "1c7731601503199779cdd89ae5917713b3a2ba05e46fb20a8a616a5907c5cb38",
   "scaler_sha256": "0ad15fe0e5efeda8d7b525e8a055553b84938b68aa0d1c188c846538d97c8830",
-  "purpose": "Surrogate predictions used to select the fabricated designs; not the unified-rerun surrogate validation."
+  "purpose": "Table S9 predictions and FEA for the fabricated upper-domain designs."
 }

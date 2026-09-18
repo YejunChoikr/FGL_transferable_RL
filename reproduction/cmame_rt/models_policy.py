@@ -104,7 +104,7 @@ class Actor(nn.Module):
         """Deterministic action. Forward pass only; consumes no RNG.
 
         SAC uses ``tanh(mu)`` (protocol.policy.sac.deterministic_action). The
-        legacy ``actor.sample()`` route is forbidden because it also draws a
+        ``actor.sample()`` route is forbidden because it also draws a
         Gaussian sample and advances the RNG.
         """
         if self.algo == "SAC":

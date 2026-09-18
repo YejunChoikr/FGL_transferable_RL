@@ -1,5 +1,3 @@
-status: LOCKED_BEFORE_RUNS
-identity: Protocol-matched bilateral Upper reward-reformulation study
 scope:
   domains:
   - source
@@ -78,8 +76,6 @@ assets:
     path: assets/scaler_Y_6x10_6000_1.2_to_2.4.pkl
     sha256: 28e1e4fbf6b256730f0c0f54348a6ca9bfe8f10d8098e2cae70aef1fe67dce9e
 sac:
-  authority_recipe: A4-C4-S0
-  recipe_lock_sha256: 52aef759599bf6bd103a686af60381bf58dc88e58b1d9c8277b87ba8279f4a63
   actor:
   - 60
   - 4096
@@ -130,8 +126,6 @@ sac:
     freeze: none
     warmup: none
 ddpg:
-  authority_recipe: A4_C3_NATIVE_OPT
-  recipe_lock_sha256: 9e260f68ad68fa91df0523d3de907dda9bdff8b093f350ba2cbf660506fae765
   actor:
   - 60
   - 4096
@@ -160,26 +154,7 @@ ddpg:
     sigma: 0.3
     reset_each_episode: true
   updates_per_transition: 1
-  transfer:
-    actor_load:
-    - fc1
-    - fc2
-    - fc3
-    - fc4
-    actor_fresh:
-    - fc5
-    critic_load:
-    - fc1
-    - fc2
-    - fc3
-    critic_fresh:
-    - fc4
-    - fc5
-    targets: hard_copy_after_assembly
-    optimizer_state: fresh
-    replay: fresh
-    ou_state: fresh
-    freeze: none
+  transfer_settings: ../ddpg_c4/configs/experiment.yaml
 training:
   episodes: 1500
   decisions_per_episode: 30
@@ -206,15 +181,6 @@ bo:
   - 2
   - 3
   - 4
-execution_order:
-  source_tasks:
-  - FGL5
-  - FGL6
-  - FGL7
-  upper_tasks:
-  - FGL5
-  - FGL6
-  - FGL7
 fea:
   local_only: true
   lattice: 10x3
@@ -244,14 +210,6 @@ fea:
   upper_thickness_mm:
   - 1.2
   - 2.4
-analysis:
-  paired_bootstrap_resamples: 10000
-  sample_sd_ddof: 1
-  preserve_all_valid_seeds: true
-  top_k_forbidden: true
-  seed_replacement_forbidden: true
-  representative_rule: closest_surrogate_selected_reward_to_five_seed_median_tie_lower_seed
-immutability_note: This file must not change after manifests/RUN_STARTED.json is written.
 machine_allocation:
   local:
     seeds:

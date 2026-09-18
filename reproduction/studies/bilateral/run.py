@@ -1,4 +1,4 @@
-"""Run the 105 registered S10 experiments with their original algorithms."""
+"""Run the 105 registered S10 experiments."""
 from __future__ import annotations
 
 import argparse
@@ -29,7 +29,7 @@ def cases():
 
 
 def prepare_scratch(algo, seed):
-    """Reconstruct the original bank and verify every tensor against run audits."""
+    """Construct scratch initializations and verify their tensor hashes."""
     import torch
     from common import set_seed, scratch_path, sac_agent_cfg, tensor_sha256
     from env60 import SurrogateCNN
@@ -37,8 +37,8 @@ def prepare_scratch(algo, seed):
     set_seed(seed)
     if algo == "SAC":
         from sac_agent import SACAgent
-        # The original bank constructed the CNN before constructing the agent.
-        # Preserve that CPU RNG consumption exactly; hashes verify the result.
+        # Construct the CNN before the SAC agent to fix the initialization sequence.
+        # Tensor hashes verify the resulting initialization.
         SurrogateCNN(9, .005)
         agent = SACAgent(60, torch.device("cpu"), sac_agent_cfg())
         blob = {n: getattr(agent, n).state_dict() for n in
@@ -83,7 +83,7 @@ def execute(case_id, dependencies=False, smoke=False):
     if out.exists() and any(out.iterdir()) and not (out/"completion.json").exists():
         raise RuntimeError(f"incomplete output exists: {out}; preserve it before retrying")
     if method == "DDPG-TRL":
-        # The manuscript uses the later actor-fc1..4 / critic-fc1..4 experiment.
+        # Transfer actor and critic hidden layers fc1-fc4.
         # Run it in a separate process to preserve its module names and RNG order.
         if (out/"completion.json").exists():
             print(f"Already complete: {case_id}")
@@ -102,7 +102,7 @@ def execute(case_id, dependencies=False, smoke=False):
     else:
         import torch
         if not torch.cuda.is_available():
-            raise RuntimeError("the preserved SAC/DDPG training runners require CUDA")
+            raise RuntimeError("the SAC/DDPG training runners require CUDA")
         prepare_scratch(algo, seed)
         module = importlib.import_module("run_" + algo.lower())
         if smoke:
@@ -139,7 +139,7 @@ def main():
         for algo in ["SAC", "DDPG"]:
             for seed in range(5):
                 prepare_scratch(algo, seed)
-        print("All original source/target initial tensors match the archived run audits.")
+        print("All source/target initial tensors match the specified hashes.")
         return
     if args.case is None:
         p.error("--case is required")

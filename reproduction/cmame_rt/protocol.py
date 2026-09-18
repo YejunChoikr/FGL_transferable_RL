@@ -23,7 +23,7 @@ LOCATION_GOLDEN_PATH: Path = SPEC / "location_golden.json"
 REFERENCE_MATH_PATH: Path = SPEC / "reference_math.py"
 
 #: Expected canonical hash, as stamped into every row of cases.json.
-EXPECTED_PROTOCOL_HASH = "9c92c76af45543a626c48ceeac2935f3816cfe1d07b78fc70bd34f4b53fc94c9"
+EXPECTED_PROTOCOL_HASH = "d58f0bd1b6bcb5708c0d75a1e3c8e25370d3cb993fa4674c431434a449ef552a"
 
 
 def canonical_digest(obj: Any) -> str:
@@ -58,7 +58,7 @@ def load_protocol() -> dict:
 
 @lru_cache(maxsize=1)
 def load_cases() -> list:
-    """Load the frozen 590-row case registry."""
+    """Load the registered case registry."""
     return _read_json(CASES_PATH)
 
 
