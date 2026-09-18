@@ -23,7 +23,7 @@ LOCATION_GOLDEN_PATH: Path = SPEC / "location_golden.json"
 REFERENCE_MATH_PATH: Path = SPEC / "reference_math.py"
 
 #: Expected canonical hash, as stamped into every row of cases.json.
-EXPECTED_PROTOCOL_HASH = "ed02b4ac8df780ce56439b677b5e8fa72b3a037c93dcc29e7f467ed212c50f46"
+EXPECTED_PROTOCOL_HASH = "9c92c76af45543a626c48ceeac2935f3816cfe1d07b78fc70bd34f4b53fc94c9"
 
 
 def canonical_digest(obj: Any) -> str:

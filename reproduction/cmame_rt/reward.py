@@ -37,6 +37,13 @@ def normalized_thickness(actions: Sequence) -> float:
     return float(np.mean((a + 1) / 2))
 
 
+def material_weight(C2: float, rho):
+    """The no-material-penalty baseline has W=1, not W=0.5."""
+    if C2 < 0:
+        raise ValueError("C2 must be nonnegative")
+    return 1.0 if C2 == 0 else 0.5 + C2 * rho
+
+
 def kappa(displacements: Sequence, goal: int):
     """Goal displacement divided by the arithmetic mean of its two neighbours.
 
@@ -78,7 +85,7 @@ def reward(displacements: Sequence, actions: Sequence, goal: int,
     _check(u, a, goal, C2)
     i = goal - 1
     rho = float(np.mean((a + 1) / 2))
-    return float(u[i] - C1 * (u[i - 1] + u[i + 1])) / (0.5 + C2 * rho)
+    return float(u[i] - C1 * (u[i - 1] + u[i + 1])) / material_weight(C2, rho)
 
 
 def design_metrics(displacements: Sequence, actions: Sequence, goal: int,
@@ -96,7 +103,7 @@ def design_metrics(displacements: Sequence, actions: Sequence, goal: int,
     rho = float(np.mean((a + 1) / 2))
     contrast = float(u[i] - (u[i - 1] + u[i + 1]) / 2)
     numerator = float(u[i] - C1 * (u[i - 1] + u[i + 1]))
-    denom = 0.5 + C2 * rho
+    denom = material_weight(C2, rho)
     neighbor_mean = float((u[i - 1] + u[i + 1]) / 2)
     return {
         "reward": numerator / denom,
@@ -139,7 +146,7 @@ def reward_torch(u9, actions, goal: Any, C1: float = C1_CANONICAL,
     ul = u.gather(1, (idx - 1).unsqueeze(1)).squeeze(1)
     ur = u.gather(1, (idx + 1).unsqueeze(1)).squeeze(1)
     rho = ((a + 1) / 2).mean(dim=1)
-    return (ug - C1 * (ul + ur)) / (0.5 + C2 * rho)
+    return (ug - C1 * (ul + ur)) / material_weight(C2, rho)
 
 
 def peak_success_torch(u9, goal: Any):

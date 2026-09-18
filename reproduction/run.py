@@ -113,6 +113,9 @@ def run_one(case_id, device, backend, with_dependencies=False, smoke=False):
         source = output_root / deps[0] / "best.pt" if deps else None
         result = run_supervised(case, out, device=device, adam_backend=backend,
                                 source_best_path=source, epochs=1 if smoke else None)
+        from cmame_rt.checkpoint_evaluation import evaluate_checkpoint
+        for which in ("best", "last"):
+            evaluate_checkpoint(out, which, device=device)
     elif case["kind"] == "policy":
         from cmame_rt.policy_train import run_policy
         from cmame_rt.reporting import summarize_run

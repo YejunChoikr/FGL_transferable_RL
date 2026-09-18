@@ -476,7 +476,7 @@
   "reward": {
     "C1": 0.5,
     "C2": 1.0,
-    "formula": "(u[g]-C1*(u[g-1]+u[g+1]))/(0.5+C2*mean((a+1)/2))",
+    "formula": "(u[g]-C1*(u[g-1]+u[g+1]))/W; W=1 if C2=0, else 0.5+C2*mean((a+1)/2)",
     "indexing": "g is 1-based in manuscript; array index=g-1",
     "nonterminal": 0.0,
     "clipping_penalty_extra_scaling": null,

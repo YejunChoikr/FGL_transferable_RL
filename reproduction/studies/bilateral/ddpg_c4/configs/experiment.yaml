@@ -1,0 +1,108 @@
+recipe_id: A4_C4_NATIVE_OPT
+env:
+  model_row: 10
+  model_col: 3
+  case: zigzag
+  leakyrelu_para: 0.005
+  state_encoding: surrogate_interleaved_thickness_location
+  state_dim: 60
+  critic_input_dim: 61
+  action_dim: 1
+  steps_per_design: 30
+  action_range:
+  - -1.0
+  - 1.0
+  one_hot_420_forbidden: true
+ddpg:
+  episodes: 1500
+  episode_length: 30
+  memory_fill_designs: 20
+  replay_capacity: 100000
+  batch_size: 64
+  gamma: 0.99
+  tau: 0.001
+  actor_lr: 0.0001
+  critic_lr: 0.001
+  actor_weight_decay: 0.0
+  critic_weight_decay: 0.0
+  ou:
+    mu: 0.0
+    theta: 0.15
+    sigma: 0.3
+  ou_reset_each_episode: true
+  ou_active_through_episode: 1500
+  deterministic_eval_interval: 25
+  deterministic_eval_includes_episode0: true
+  updates_per_transition: 1
+  warmup: none
+  freezing: none
+transfer:
+  recipe_id: A4_C4_NATIVE_OPT
+  actor_load:
+  - fc1
+  - fc2
+  - fc3
+  - fc4
+  actor_fresh:
+  - fc5
+  critic_load:
+  - fc1
+  - fc2
+  - fc3
+  - fc4
+  critic_fresh:
+  - fc5
+  n_transferred_tensors: 16
+  hard_copy_targets_after_assembly: true
+  fresh_optimizer_states: true
+  seed_pairing: target seed s <- SAME-TASK source seed s (identity, always)
+  never_transfer:
+  - optimizer_state
+  - replay
+  - OU_state
+  - observations
+  - rewards
+  - normalization_state
+  - periodic_checkpoints
+selection:
+  schedule:
+  - 0
+  - every 25 through 1500
+  primary: highest_scheduled_deterministic_surrogate_reward
+  tie_break: earlier_episode
+  FEA_used_for_selection: false
+domains:
+  upper:
+    surrogate: ../assets/surrogate_6x10_6000_1.2_to_2.4.pth
+    scaler: ../assets/scaler_Y_6x10_6000_1.2_to_2.4.pkl
+    t_min: 1.2
+    t_max: 2.4
+    row_factor: 5.0
+    col_factor: 5.0
+    fea: square
+required_asset_sha256:
+  ../assets/surrogate_6x10_6000_1.2_to_2.4.pth: 1c7731601503199779cdd89ae5917713b3a2ba05e46fb20a8a616a5907c5cb38
+  ../assets/scaler_Y_6x10_6000_1.2_to_2.4.pkl: 28e1e4fbf6b256730f0c0f54348a6ca9bfe8f10d8098e2cae70aef1fe67dce9e
+tasks:
+- FGL5
+- FGL6
+- FGL7
+task_indices:
+  FGL5:
+    target: 4
+    lower: 3
+    upper: 5
+  FGL6:
+    target: 5
+    lower: 4
+    upper: 6
+  FGL7:
+    target: 6
+    lower: 5
+    upper: 7
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4

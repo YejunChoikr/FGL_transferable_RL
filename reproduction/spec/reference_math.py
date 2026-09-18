@@ -38,7 +38,7 @@ def design_metrics(displacements, actions, goal, C1=0.5, C2=1.0):
     rho = float(np.mean((a + 1) / 2))
     contrast = float(u[i] - (u[i - 1] + u[i + 1]) / 2)
     numerator = float(u[i] - C1 * (u[i - 1] + u[i + 1]))
-    denom = 0.5 + C2 * rho
+    denom = 1.0 if C2 == 0 else 0.5 + C2 * rho
     neighbor_mean = float((u[i - 1] + u[i + 1]) / 2)
     return {'reward': numerator / denom, 'contrast_mm': contrast,
             'kappa': float(u[i] / neighbor_mean) if neighbor_mean != 0 else None,

@@ -1,0 +1,139 @@
+project: proj_sac_reward_coefficient_lock_3machine_202607
+calibration:
+  lock_file: configs/CALIBRATION_PROTOCOL_LOCK.yaml
+  required_status: LOCKED
+  required_config: H1
+  required_state_dim: 60
+  required_critic_input_dim: 61
+assets:
+  surrogate: assets/surrogate_6x10_30000_1.2_to_1.8.pth
+  scaler_Y: assets/scaler_Y_6x10_30000_1.2_to_1.8.pkl
+env:
+  model_row: 10
+  model_col: 3
+  case: zigzag
+  leakyrelu_para: 0.005
+  state_encoding: surrogate_interleaved_thickness_location
+  state_dim: 60
+  critic_input_dim: 61
+  domain: source_1.2_to_1.8_mm
+reward:
+  form: numerator / W
+  numerator: u_i - C1*(u_(i-1) + u_(i+1))
+  rho_A: mean((action + 1)/2)
+  W_when_C2_zero: 1.0
+  W_otherwise: 0.5 + C2*rho_A
+  original_pair:
+    C1: 0.5
+    C2: 1.0
+  note: The reward formula and its scale change with the coefficients, so raw reward
+    is never used to compare coefficient cells. It is only the learning signal and
+    the within-run checkpoint criterion. Cross-cell comparison uses kappa and the
+    physical margins.
+tasks:
+  FGL5:
+    target_index0: 4
+    neighbor_index0:
+    - 3
+    - 5
+  FGL6:
+    target_index0: 5
+    neighbor_index0:
+    - 4
+    - 6
+  FGL7:
+    target_index0: 6
+    neighbor_index0:
+    - 5
+    - 7
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+train:
+  deterministic_eval_episodes_extra:
+  - 20
+  deterministic_eval_interval: 25
+  latest_checkpoint_every: 500
+stages:
+  stage1_C1:
+    C1_grid:
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    C2: 0
+    runs: 75
+    rationale_for_upper_bound: 'C1 > 0.5 is not explored: neighbour suppression would
+      dominate target- displacement gain and change the physical meaning of the original
+      reward. Same rationale as the manuscript.'
+  stage2_C2:
+    C2_grid:
+    - 0.0
+    - 0.25
+    - 0.5
+    - 0.75
+    - 1.0
+    reuse_from_stage1: (C1*, C2=0)
+    new_runs: 60
+    rationale_for_upper_bound: 'C2 > 1 is not explored: material reduction could dominate
+      the localisation objective.'
+  stage3_joint:
+    design: '{C1*, C1_alt} x {C2*, C2_alt}'
+    new_runs_max: 30
+    note: C1* row is reused from Stage 2; only the C1_alt row is newly run.
+selection:
+  C1:
+    metric: best_det kappa
+    rule: S_t(c) = mean_kappa_t(c) / max_c mean_kappa_t(c); robust_C1_score(c) = min_t
+      S_t(c); pick argmax.
+    practical_tie_abs: 0.02
+    tie_break: closest to the manuscript setting, then the larger value
+    conditional_threshold: 0.95
+  C2:
+    kappa_retention_min: 0.98
+    rule: among feasible, minimise the three-task mean rho_A
+    rho_tie_abs: 0.01
+    tie_break: closer to the manuscript setting C2 = 1.0
+    warn_kappa_retention: 0.95
+    warn_bilateral_drop_frac: 0.1
+  joint:
+    bootstrap_iterations: 10000
+    bootstrap_ci: 0.95
+    conditional_kappa_drop_frac: 0.05
+machines:
+  local:
+    task: FGL5
+  server:
+    task: FGL6
+  workstation:
+    task: FGL7
+ansys:
+  candidates_per_task: 15
+  rows: 10
+  cols: 3
+  thickness_min_mm: 1.2
+  thickness_max_mm: 1.8
+  cell_size_mm: 10.0
+  beam_depth_mm: 20.0
+  mesh_size_mm: 1.0
+  compression_ratio: 0.14999
+  youngs_modulus_mpa: 2.01
+  poisson_ratio: 0.49
+  strict_convergence: true
+  top_displacement_tolerance_mm: 1.0e-05
+  accepted_exit_codes:
+  - 0
+  - 8
+  timeout_seconds: 1800
+  workers: 1
+  clearance:
+    enabled: true
+    contact_threshold_mm: 0.0
+    undeformed_margin_mm: 1.0e-06
+cross_machine:
+  n_fixture_actions: 5
+  tolerance: 1.0e-05

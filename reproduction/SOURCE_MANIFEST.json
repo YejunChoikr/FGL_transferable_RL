@@ -69,8 +69,8 @@
     },
     "protocol.py": {
       "source_sha256": "ebfc74426706e77e1f5248193570e3e3667d27a5a7a848a2573bfa39a52e56e8",
-      "published_sha256": "6abbdfa2be61554ea213d48c32538752be452b794e55665d9029dc15fb55834c",
-      "changes": "Module description; published protocol digest after metadata removal"
+      "published_sha256": "e0336980020ac8ecc7ab906a19a73ed8bf25868fa41669011798c0b68065ddd7",
+      "changes": "Published protocol hash and local specification paths"
     },
     "replay.py": {
       "source_sha256": "6d038a600adecf24ef83c3ad60252c245e186d1c74edb5519d0e11989a581373",
@@ -79,8 +79,8 @@
     },
     "reward.py": {
       "source_sha256": "993c1c2819ec699b7cbbbb7d0ffb017952a7c930b2224a54bc30e6c01241f65f",
-      "published_sha256": "262ea626ebab8a0db51bbe67e74bc415c912a8f971d495f5751620af34147dba",
-      "changes": "Module description only"
+      "published_sha256": "4db96e1fa7c40069c0a7181bae63fd9388fcbf78211e5fad8d0e7f4dd993c7ee",
+      "changes": "Module description; C2=0 baseline denominator corrected from 0.5 to 1 in NumPy and Torch; positive C2 unchanged"
     },
     "rng.py": {
       "source_sha256": "268862d8041b0eb031d3bb78cab738b2e152653a5fd95ffd657e1005738b8c99",
@@ -129,7 +129,7 @@
       "bytes": 3333015
     }
   },
-  "published_protocol_hash": "ed02b4ac8df780ce56439b677b5e8fa72b3a037c93dcc29e7f467ed212c50f46",
+  "published_protocol_hash": "9c92c76af45543a626c48ceeac2935f3816cfe1d07b78fc70bd34f4b53fc94c9",
   "protocol_metadata_omitted": [
     "id",
     "status",
@@ -153,18 +153,22 @@
     "direct_optimization.GA_note",
     "direct_optimization.no_extended_50000_evaluation_experiment"
   ],
-  "protocol_changes": "Scheduling/private-path metadata removed; training, evaluation and optimizer settings retained.",
+  "protocol_changes": "Scheduling/private-path metadata removed; C2=0 explicitly uses W=1 to match the manuscript and original coefficient study. All positive-C2 mathematics and all 590 registered case settings are unchanged.",
   "spec_sha256": {
     "case_aliases.json": "a69f338cd2f17fa48e8c9437fe3e559632c574bf924cc14348c6fd4b71ccd068",
-    "cases.json": "0eb381c16323215776bab04db456c255934e068d2ea9182ff82b92f7f0d13b25",
+    "cases.json": "9caed02d1bd5ffd164fff460e3e5500f048da9f38844efc2d54fdb4a60c968cf",
     "fea_requests.json": "18f92acacfbe07bbf8451b43a6c02031461c577799172bd3ce50379e59198cce",
     "location_golden.json": "40c586540c48261f4f8e0bb9ebe9efeeb2d18dc79a478e17d35e949021e16769",
-    "protocol.json": "a7ed1e988dd2a05c78ad8c05011acba6cf4842290935de9f3c7cffdea0e938f8",
-    "reference_math.py": "ce585305dc1fe74be72f519c35958694f3ce5bf4367fd82295f7bf1743045ae2",
+    "protocol.json": "362fe40e1e56cf8a6135fec65189e106ed2a8926e533c00d26153479822cb55e",
+    "reference_math.py": "ea6ab592f146728835a4c2d727065af9cdb1e3a6e44b793b007bf001de6efcab",
     "result_views.json": "be78c1d42ea284590be29099c2f33387161745e0fb3ed12e32baee52d3c16fc9"
   },
   "package_additions": {
-    "run.py": "c168b128050ac26a53a7253c77dbda6816d28e34f91c103cf5a754acff5d7af7",
-    "cmame_rt/reporting.py": "a4b43c8bf228d5f2583c8e507dfd3b385ca5880b4c58365533c2f62b96eb59e1"
+    "run.py": "671c73e3c445df04c205e75faee2704f744ab564e38a6001d5fdc385f3db9c71",
+    "cmame_rt/reporting.py": "a4b43c8bf228d5f2583c8e507dfd3b385ca5880b4c58365533c2f62b96eb59e1",
+    "cmame_rt/checkpoint_evaluation.py": "bfa2b2c170eeb1b1ac7513967ee5322482db1ab69bb36c4739ed085e7a61cf08",
+    "evaluate_surrogate.py": "859e809311fef85a06b0b411c84430d036ab8ad678e0c5a118d74ea90731830c",
+    "export_evidence.py": "3bc6d701ab210c43c38d2f453fa0ceda0295186d4aafb49549bdf3aff72f8655",
+    "verify_paper.py": "482b75556c4f2d7ba8809bf49987daa88859def8f3b8fbcd831891dfa38848af"
   }
 }

@@ -18,3 +18,8 @@ reproduction/ledger/
 reproduction/fea/
 reproduction/locks/INIT_LOCK.json
 .pytest_cache/
+reproduction/studies/bilateral/generated/
+reproduction/studies/bilateral/pilot/
+reproduction/studies/reward_coefficients/generated/
+reproduction/evidence_checks/
+reproduction/evidence_checks*.log
