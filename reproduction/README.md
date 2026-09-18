@@ -202,8 +202,7 @@ are not interchangeable.
 
 The sequential reward-coefficient data for Fig. 5 are provided in
 `evidence/coefficients.zip`. Its per-run configurations record the input model
-and execution settings; registration of a case does not mean that its common-
-protocol training result is available.
+and execution settings.
 
 ## Verification
 

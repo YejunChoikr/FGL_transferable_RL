@@ -1,4 +1,4 @@
-"""cmame_rt: runtime package for the CMAME unified rerun (2026-09-13).
+"""cmame_rt: runtime package for the CMAME experiments.
 
 Experimental settings are defined in spec/protocol.json.
 """

@@ -1,4 +1,4 @@
-"""Policy networks (actor and critic) for the CMAME unified rerun.
+"""Policy networks (actor and critic) for the CMAME experiments.
 
 Experimental settings are defined in spec/protocol.json.
 """

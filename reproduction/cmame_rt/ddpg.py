@@ -1,4 +1,4 @@
-"""Deterministic policy gradient (DDPG) update for the CMAME unified rerun.
+"""Deterministic policy gradient (DDPG) update for the CMAME experiments.
 
 Experimental settings are defined in spec/protocol.json.
 """

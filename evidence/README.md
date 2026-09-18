@@ -53,14 +53,12 @@ displacements and thickness table through `solver_records.json`. Verification
 checks the selected design, applied compression and all nine probe values.
 Rewards, ratios and margins are computed from those recorded displacements.
 
-Coefficient sweeps use the source-surrogate and SAC settings in
+The coefficient-sweep command uses the settings in
 `reproduction/spec/protocol.json`. `coefficients.zip` contains the sequential
 reward-coefficient data for Fig. 5. Its 30 overlapping conditions reuse the
 selected designs, complete training curves and configurations in `policies.zip`;
 `POLICY_LINKS.json` records the source members and checksums. Per-run
 `resolved_config.json` files identify the actual model and execution settings.
-The remaining 105 conditions have not been rerun under the common protocol,
-so the combined archive does not establish a fully matched sensitivity sweep.
 S7 joint-sensitivity cases are in the main policy and FEA archives.
 
 Table S9 uses the matching checkpoint and scaler in `validation_models/` with

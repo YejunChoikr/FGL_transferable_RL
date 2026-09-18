@@ -1,4 +1,4 @@
-"""Soft actor-critic update for the CMAME unified rerun.
+"""Soft actor-critic update for the CMAME experiments.
 
 Experimental settings are defined in spec/protocol.json.
 """

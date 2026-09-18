@@ -1,4 +1,4 @@
-"""Domain data access for the CMAME unified rerun.
+"""Domain data access for the CMAME experiments.
 
 Experimental settings are defined in spec/protocol.json.
 """
