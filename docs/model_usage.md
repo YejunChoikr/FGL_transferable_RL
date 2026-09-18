@@ -66,4 +66,3 @@ the matching `scaler_*.json`, probe by probe.
 
 Transfer copies the four hidden layers of the actor and of each critic, 24
 tensors for SAC and 16 for DDPG.
-
