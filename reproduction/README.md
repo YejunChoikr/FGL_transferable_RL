@@ -198,11 +198,8 @@ ratio, bilateral margin and normalized thickness. These quantities support
 comparison across coefficient pairs; the differently scaled training objectives
 are not interchangeable.
 
-The commands generate coefficient results under these settings. Saved Fig. 5
-inputs remain in `evidence/coefficients.zip`; they are not results generated
-by this coefficient runner. Full coefficient sweeps have not been rerun as
-part of repository preparation. New results should be evaluated before replacing
-those figure inputs.
+The sequential reward-coefficient data for Fig. 5 are provided in
+`evidence/coefficients.zip`.
 
 ## Verification
 

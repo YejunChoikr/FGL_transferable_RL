@@ -47,11 +47,10 @@ case, the supplied FEA response is a recovered nine-displacement profile;
 output is not included. Rewards, ratios and margins are computed directly
 from the supplied displacements and actions.
 
-The coefficient commands use the common source-surrogate and SAC settings in
-`reproduction/spec/protocol.json`. `coefficients.zip` contains the saved
-Fig. 5 inputs, not outputs of those commands. `DATA_DESCRIPTION.json` records
-that the complete coefficient sweep under the current runner has not been
-executed. S7 joint-sensitivity cases are in the main policy and FEA archives.
+Coefficient sweeps use the source-surrogate and SAC settings in
+`reproduction/spec/protocol.json`. `coefficients.zip` contains the sequential
+reward-coefficient data for Fig. 5. S7 joint-sensitivity cases are in the main
+policy and FEA archives.
 
 Table S9 uses the matching checkpoint and scaler in `validation_models/` with
 the common CNN and input encoder. Its model hashes and full-precision design

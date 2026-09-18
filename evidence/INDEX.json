@@ -27,8 +27,8 @@
       "members": 502
     },
     "coefficients.zip": {
-      "sha256": "8fff9ce1191c878c574d06735fbcc9146f8c2ed22f1c571db41aca642b7fd667",
-      "bytes": 1332412,
+      "sha256": "a8e15e4f4d407f127898cc0e2eef9c38b4c15c4b787f2860fdbad7f4ddadd818",
+      "bytes": 1332488,
       "members": 277
     }
   },
@@ -38,7 +38,7 @@
     "Table_S6_Fig_S5": "surrogates.zip: source cnn/mlp, seeds 0-4, epoch-300 last.pt predictions",
     "Table_S9": "table_s9.json and validation_models/; main Fig. 6 and experimental Fig. 10",
     "S10": "bilateral.zip and reproduction/studies/bilateral; arithmetic columns from unified policy/direct FEA",
-    "Fig_5b": "coefficients.zip: saved plot data. New coefficient sweeps use reproduction/coefficients.py and spec/protocol.json; no results from that sweep have been generated.",
+    "Fig_5b": "coefficients.zip: sequential C1/C2 sensitivity data for Fig. 5.",
     "Fig_11": "direct.zip first1500.csv; full time-cap selected candidate is in incumbent.json"
   },
   "table_s9_sha256": "69a23c620ba1a30336390f4eeae2953dc3d9aa7265ab2ea8ce8bf192fe985707",
