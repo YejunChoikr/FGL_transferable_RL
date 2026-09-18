@@ -17,9 +17,9 @@
       "members": 361
     },
     "fea.zip": {
-      "sha256": "305ad1bb5dd0dfdfb2966f465231477bf00e8a387b9c6e8bbf27bda91c4590ac",
-      "bytes": 1268983,
-      "members": 700
+      "sha256": "1c869eee38beed409c7745370af7143c05e653659501252e8831de094d1cacb6",
+      "bytes": 1486736,
+      "members": 805
     },
     "bilateral.zip": {
       "sha256": "0f0866ec1ce71b2ab04d35253d3a577c8540922b24fbcafa8677ba2ef08d3b86",
@@ -27,9 +27,9 @@
       "members": 508
     },
     "coefficients.zip": {
-      "sha256": "7ba92495687e615e546f084a895869732909f7ef7bb71ad488aa3db649b2fe68",
-      "bytes": 4931153,
-      "members": 546
+      "sha256": "94ace12fcd375a80422f9fc57d6209d47df65f41d3b8f80aed73501c27aa2b0e",
+      "bytes": 5051338,
+      "members": 550
     }
   },
   "claims": {
@@ -38,8 +38,9 @@
     "Table_S6_Fig_S5": "surrogates.zip: source cnn/mlp, seeds 0-4, epoch-300 last.pt predictions",
     "Table_S9": "table_s9.json and validation_models/; main Fig. 6 and experimental Fig. 10",
     "S10": "bilateral.zip and reproduction/studies/bilateral; arithmetic columns from unified policy/direct FEA",
-    "Fig_5b": "coefficients.zip: all 135 sequential coefficient cases are linked to policies.zip by POLICY_LINKS.json; plain mean/SD tables are in evidence/fig5/.",
-    "Fig_11": "direct.zip first1500.csv; full time-cap selected candidate is in incumbent.json"
+    "Fig_5b": "coefficients.zip: 135 selected designs linked to policies.zip by POLICY_LINKS.json and to fea.zip by FEA_LINKS.json; FEA mean/sample-SD tables in results/C1_summary.csv, results/C2_summary.csv and evidence/fig5/.",
+    "Fig_11": "direct.zip first1500.csv; full time-cap selected candidate is in incumbent.json",
+    "Fig_5a": "coefficients.zip: 135 selected designs linked to policies.zip by POLICY_LINKS.json and to fea.zip by FEA_LINKS.json; FEA mean/sample-SD tables in results/C1_summary.csv, results/C2_summary.csv and evidence/fig5/."
   },
   "table_s9_sha256": "69a23c620ba1a30336390f4eeae2953dc3d9aa7265ab2ea8ce8bf192fe985707",
   "representative_designs_sha256": "4ab1d2e37ca628ba97634a0e7c33548ebad99f90cd325b1faffe57b758ba1c0e"

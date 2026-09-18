@@ -15,7 +15,7 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from cmame_rt.reward import design_metrics, reward
-from evidence_links import verify_coefficient_links, verify_solver_record
+from evidence_links import verify_coefficient_links, verify_coefficient_fea, verify_solver_record
 
 
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -174,6 +174,8 @@ def verify(evidence,output):
         assert checked==135
         report['coefficient_figure_data']={'saved_runs':checked,**description}
     report['coefficient_policy_links']=verify_coefficient_links(
+        evidence, ROOT/'reproduction/spec/coefficient_sweeps.json')
+    report['coefficient_fea']=verify_coefficient_fea(
         evidence, ROOT/'reproduction/spec/coefficient_sweeps.json')
     # These are rounded manuscript values, checked only after independent aggregation.
     for domain,want in [('upper',35.3),('lower',29.8),('ar08',36.4)]:

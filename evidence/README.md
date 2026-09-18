@@ -8,10 +8,10 @@ checksums. Each archive contains a `MANIFEST.json` with member checksums.
 | `surrogates.zip` | 80 runs: configurations, training logs, best checkpoints and test predictions; ten source CNN/MLP runs also include epoch-300 checkpoints and predictions |
 | `policies.zip` | 555 runs: episode rewards, deterministic evaluations, selections and designs |
 | `direct.zip` | 60 runs: first 1,500 evaluations, full-budget selected incumbents, settings and timing |
-| `fea.zip` | Saved FEA responses and links for 700 requests |
+| `fea.zip` | Saved FEA responses and links for 805 requests |
 | `bilateral.zip` | S10 source-policy logs and 75 upper-domain results, selected designs and FEA responses |
-| `coefficients.zip` | Saved sequential coefficient-panel data for Fig. 5 |
-| [`fig5/Fig5a_C1_mean_sd.csv`](fig5/Fig5a_C1_mean_sd.csv), [`fig5/Fig5b_C2_mean_sd.csv`](fig5/Fig5b_C2_mean_sd.csv) | Plain mean and sample-SD tables for the two sequential coefficient sweeps |
+| `coefficients.zip` | Selected designs, training records and FEA results for the 135 sequential coefficient cases in Fig. 5 |
+| [`fig5/Fig5a_C1_mean_sd.csv`](fig5/Fig5a_C1_mean_sd.csv), [`fig5/Fig5b_C2_mean_sd.csv`](fig5/Fig5b_C2_mean_sd.csv) | FEA contrast, margin and reward, and design-based normalized thickness: mean and sample SD over five runs per condition |
 | `table_s9.json`, `validation_models/` | Fabricated-design inputs, matching surrogate/scaler, predictions and FEA profiles |
 | `representative_designs.json` | Thicknesses and FEA profiles of displayed designs, with figure references |
 
@@ -22,8 +22,9 @@ python reproduction/verify_paper.py
 ```
 
 Run from the repository root with the reproduction dependencies installed.
-The verifier checks integrity, design/FEA connections and Table S9 predictions,
-then writes `verified_metrics.json` and `selected_design_fea_metrics.csv` under
+The verifier checks archive integrity, design/FEA connections, Table S9
+predictions and all 135 Fig. 5 designs, solver responses and plotted mean/SD
+tables. It writes `verified_metrics.json` and `selected_design_fea_metrics.csv` under
 `reproduction/evidence_checks/`.
 
 To inspect only saved-data consistency, without model inference or training:
@@ -61,6 +62,15 @@ designs, complete training curves and configurations in `policies.zip`;
 `POLICY_LINKS.json` records the source members and checksums. Per-run
 `resolved_config.json` files identify the actual model and execution settings.
 S7 joint-sensitivity cases are in the main policy and FEA archives.
+
+`FEA_LINKS.json` connects all 135 coefficient designs to their solver responses
+in `fea.zip`. `results/FEA_records.json` contains the nine FEA displacements for
+each design. The Fig. 5 tables are identical to `results/C1_summary.csv` and
+`results/C2_summary.csv`: contrast and rewards are calculated from FEA, and
+normalized thickness is calculated from the same selected design. Each metric
+is calculated per design before taking its mean and sample SD (`ddof=1`).
+Per-run `best_det_design.json` and the `results/surrogate_*` tables retain the
+surrogate predictions used for policy learning.
 
 Table S9 uses the matching checkpoint and scaler in `validation_models/` with
 the common CNN and input encoder. Its model hashes and full-precision design

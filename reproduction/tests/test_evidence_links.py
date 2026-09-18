@@ -21,6 +21,41 @@ def test_supplied_coefficient_and_solver_records_match():
         links.verify_solver_record(archive, records[0])
 
 
+def test_coefficient_fea_covers_every_design_and_matches_figure_tables():
+    report = links.verify_coefficient_fea(EVIDENCE, REGISTRY)
+    assert report["fea_cases"] == 135
+    assert report["condition_rows"] == 30
+
+
+@pytest.mark.parametrize("change", ["missing_case", "displacement", "summary"])
+def test_inconsistent_coefficient_fea_is_rejected(monkeypatch, change):
+    zip_class = zipfile.ZipFile
+
+    class AlteredArchive:
+        def __init__(self, path):
+            self.archive = zip_class(path)
+            self.coefficient = Path(path).name == "coefficients.zip"
+
+        def __enter__(self): return self
+        def __exit__(self, *args): self.archive.close()
+        def namelist(self): return self.archive.namelist()
+
+        def read(self, name):
+            data = self.archive.read(name)
+            if self.coefficient and name == "results/FEA_records.json":
+                document = json.loads(data)
+                if change == "missing_case": document["records"].pop()
+                elif change == "displacement": document["records"][0]["u9_mm"][4] += .01
+                return json.dumps(document).encode()
+            if self.coefficient and name == "results/C1_summary.csv" and change == "summary":
+                return data.replace(b"FEA", b"surrogate", 1)
+            return data
+
+    monkeypatch.setattr(links.zipfile, "ZipFile", AlteredArchive)
+    with pytest.raises(AssertionError):
+        links.verify_coefficient_fea(EVIDENCE, REGISTRY)
+
+
 @pytest.mark.parametrize("field", ["action", "reward_env", "episode"])
 def test_changed_coefficient_record_is_rejected(monkeypatch, field):
     zip_class = zipfile.ZipFile

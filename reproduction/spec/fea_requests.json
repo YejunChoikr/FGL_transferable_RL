@@ -5018,5 +5018,740 @@
     ],
     "derived_reference": "existing AR08 wider-bound illustration",
     "new_training": false
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.1_C2_0/s0/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.1_C2_0/s0",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.1_C2_0/s1/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.1_C2_0/s1",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.1_C2_0/s2/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.1_C2_0/s2",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.1_C2_0/s3/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.1_C2_0/s3",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.1_C2_0/s4/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.1_C2_0/s4",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.2_C2_0/s0/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.2_C2_0/s0",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.2_C2_0/s1/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.2_C2_0/s1",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.2_C2_0/s2/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.2_C2_0/s2",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.2_C2_0/s3/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.2_C2_0/s3",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.2_C2_0/s4/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.2_C2_0/s4",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.3_C2_0/s0/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.3_C2_0/s0",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.3_C2_0/s1/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.3_C2_0/s1",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.3_C2_0/s2/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.3_C2_0/s2",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.3_C2_0/s3/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.3_C2_0/s3",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.3_C2_0/s4/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.3_C2_0/s4",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.4_C2_0/s0/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.4_C2_0/s0",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.4_C2_0/s1/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.4_C2_0/s1",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.4_C2_0/s2/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.4_C2_0/s2",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.4_C2_0/s3/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.4_C2_0/s3",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.4_C2_0/s4/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.4_C2_0/s4",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s0/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s0",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s1/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s1",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s2/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s2",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s3/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s3",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s4/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.25/s4",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s0/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s0",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s1/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s1",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s2/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s2",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s3/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s3",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s4/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0.5/s4",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0/s0/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s0",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0/s1/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s1",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0/s2/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s2",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0/s3/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s3",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g5/C1_0.5_C2_0/s4/fea/g5",
+    "case_id": "policy/SAC/source/g5/C1_0.5_C2_0/s4",
+    "domain": "source",
+    "goal": 5,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.1_C2_0/s0/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.1_C2_0/s0",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.1_C2_0/s1/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.1_C2_0/s1",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.1_C2_0/s2/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.1_C2_0/s2",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.1_C2_0/s3/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.1_C2_0/s3",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.1_C2_0/s4/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.1_C2_0/s4",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.2_C2_0/s0/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.2_C2_0/s0",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.2_C2_0/s1/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.2_C2_0/s1",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.2_C2_0/s2/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.2_C2_0/s2",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.2_C2_0/s3/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.2_C2_0/s3",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.2_C2_0/s4/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.2_C2_0/s4",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.3_C2_0/s0/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.3_C2_0/s0",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.3_C2_0/s1/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.3_C2_0/s1",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.3_C2_0/s2/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.3_C2_0/s2",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.3_C2_0/s3/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.3_C2_0/s3",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.3_C2_0/s4/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.3_C2_0/s4",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.4_C2_0/s0/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.4_C2_0/s0",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.4_C2_0/s1/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.4_C2_0/s1",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.4_C2_0/s2/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.4_C2_0/s2",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.4_C2_0/s3/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.4_C2_0/s3",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.4_C2_0/s4/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.4_C2_0/s4",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s0/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s0",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s1/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s1",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s2/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s2",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s3/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s3",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s4/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.25/s4",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s0/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s0",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s1/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s1",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s2/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s2",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s3/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s3",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s4/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0.5/s4",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0/s0/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s0",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0/s1/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s1",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0/s2/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s2",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0/s3/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s3",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g6/C1_0.5_C2_0/s4/fea/g6",
+    "case_id": "policy/SAC/source/g6/C1_0.5_C2_0/s4",
+    "domain": "source",
+    "goal": 6,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.1_C2_0/s0/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.1_C2_0/s0",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.1_C2_0/s1/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.1_C2_0/s1",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.1_C2_0/s2/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.1_C2_0/s2",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.1_C2_0/s3/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.1_C2_0/s3",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.1_C2_0/s4/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.1_C2_0/s4",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.2_C2_0/s0/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.2_C2_0/s0",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.2_C2_0/s1/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.2_C2_0/s1",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.2_C2_0/s2/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.2_C2_0/s2",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.2_C2_0/s3/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.2_C2_0/s3",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.2_C2_0/s4/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.2_C2_0/s4",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.3_C2_0/s0/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.3_C2_0/s0",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.3_C2_0/s1/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.3_C2_0/s1",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.3_C2_0/s2/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.3_C2_0/s2",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.3_C2_0/s3/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.3_C2_0/s3",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.3_C2_0/s4/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.3_C2_0/s4",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.4_C2_0/s0/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.4_C2_0/s0",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.4_C2_0/s1/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.4_C2_0/s1",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.4_C2_0/s2/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.4_C2_0/s2",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.4_C2_0/s3/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.4_C2_0/s3",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.4_C2_0/s4/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.4_C2_0/s4",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s0/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s0",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s1/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s1",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s2/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s2",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s3/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s3",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s4/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.25/s4",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s0/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s0",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s1/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s1",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s2/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s2",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s3/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s3",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s4/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0.5/s4",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0/s0/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s0",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0/s1/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s1",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0/s2/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s2",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0/s3/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s3",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
+  },
+  {
+    "request_id": "policy/SAC/source/g7/C1_0.5_C2_0/s4/fea/g7",
+    "case_id": "policy/SAC/source/g7/C1_0.5_C2_0/s4",
+    "domain": "source",
+    "goal": 7,
+    "selection": "one selected checkpoint for the case"
   }
 ]
