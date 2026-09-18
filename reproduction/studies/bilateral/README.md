@@ -40,7 +40,7 @@ Their input encoding is implemented in `code/env60.py` and
 | DDPG transfer | Actor LR 1e-4, critic LR 1e-3; batch 64; 1,500 total episodes including 20 replay-fill episodes |
 | BO | `gp_minimize`, 200 total evaluations, 20 random initial points, `gp_hedge` |
 
-Transfer copies actor and critic hidden layers fc1?fc4. Output heads, optimizer
+Transfer copies actor and critic hidden layers fc1-fc4. Output heads, optimizer
 states, replay memory and exploration states are initialized afresh. The DDPG
 transfer implementation is in `ddpg_c4/`; the other paths are in `code/`.
 Initial source/scratch tensors are checked against specified hashes.
