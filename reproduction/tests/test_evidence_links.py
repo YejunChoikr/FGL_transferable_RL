@@ -14,7 +14,7 @@ REGISTRY = ROOT/"reproduction/spec/coefficient_sweeps.json"
 
 def test_supplied_coefficient_and_solver_records_match():
     report = links.verify_coefficient_links(EVIDENCE, REGISTRY)
-    assert report["shared_cases"] == report["matching_cases"] == 30
+    assert report["shared_cases"] == report["matching_cases"] == 135
     with zipfile.ZipFile(EVIDENCE/"bilateral.zip") as archive:
         records = links.read_json(archive, "solver_records.json")
         assert len(records) == 1
@@ -46,6 +46,27 @@ def test_changed_coefficient_record_is_rejected(monkeypatch, field):
 
     monkeypatch.setattr(links.zipfile, "ZipFile", AlteredArchive)
     with pytest.raises(AssertionError):
+        links.verify_coefficient_links(EVIDENCE, REGISTRY)
+
+
+def test_missing_coefficient_policy_case_is_rejected(monkeypatch):
+    zip_class = zipfile.ZipFile
+    missing = "policy/SAC/source/g5/C1_0.1_C2_0/s0/selected_designs.json"
+
+    class MissingPolicyMemberArchive:
+        def __init__(self, path):
+            self.archive = zip_class(path)
+            self.policies = Path(path).name == "policies.zip"
+
+        def __enter__(self): return self
+        def __exit__(self, *args): self.archive.close()
+        def namelist(self):
+            return [name for name in self.archive.namelist()
+                    if not (self.policies and name == missing)]
+        def read(self, name): return self.archive.read(name)
+
+    monkeypatch.setattr(links.zipfile, "ZipFile", MissingPolicyMemberArchive)
+    with pytest.raises(AssertionError, match="missing sequential coefficient policy cases"):
         links.verify_coefficient_links(EVIDENCE, REGISTRY)
 
 

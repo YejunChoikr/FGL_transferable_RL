@@ -6,11 +6,12 @@ checksums. Each archive contains a `MANIFEST.json` with member checksums.
 | Artifact | Contents |
 | --- | --- |
 | `surrogates.zip` | 80 runs: configurations, training logs, best checkpoints and test predictions; ten source CNN/MLP runs also include epoch-300 checkpoints and predictions |
-| `policies.zip` | 450 runs: episode rewards, deterministic evaluations, selections and designs |
+| `policies.zip` | 555 runs: episode rewards, deterministic evaluations, selections and designs |
 | `direct.zip` | 60 runs: first 1,500 evaluations, full-budget selected incumbents, settings and timing |
 | `fea.zip` | Saved FEA responses and links for 700 requests |
 | `bilateral.zip` | S10 source-policy logs and 75 upper-domain results, selected designs and FEA responses |
 | `coefficients.zip` | Saved sequential coefficient-panel data for Fig. 5 |
+| [`fig5/Fig5a_C1_mean_sd.csv`](fig5/Fig5a_C1_mean_sd.csv), [`fig5/Fig5b_C2_mean_sd.csv`](fig5/Fig5b_C2_mean_sd.csv) | Plain mean and sample-SD tables for the two sequential coefficient sweeps |
 | `table_s9.json`, `validation_models/` | Fabricated-design inputs, matching surrogate/scaler, predictions and FEA profiles |
 | `representative_designs.json` | Thicknesses and FEA profiles of displayed designs, with figure references |
 
@@ -55,8 +56,8 @@ Rewards, ratios and margins are computed from those recorded displacements.
 
 The coefficient-sweep command uses the settings in
 `reproduction/spec/protocol.json`. `coefficients.zip` contains the sequential
-reward-coefficient data for Fig. 5. Its 30 overlapping conditions reuse the
-selected designs, complete training curves and configurations in `policies.zip`;
+reward-coefficient data for Fig. 5. All 135 conditions reuse the selected
+designs, complete training curves and configurations in `policies.zip`;
 `POLICY_LINKS.json` records the source members and checksums. Per-run
 `resolved_config.json` files identify the actual model and execution settings.
 S7 joint-sensitivity cases are in the main policy and FEA archives.

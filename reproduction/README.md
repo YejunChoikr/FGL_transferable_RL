@@ -193,8 +193,8 @@ python reproduction/coefficients.py run --stage C2 --goal 5 --seed 0 --C2 1 --wi
 The sequential sweeps contain 135 unique cases. Thirty already occur in the
 main/joint registry, so 105 additional cases are registered. Identical
 coefficient/goal/seed combinations share one case ID and one output directory
-within this registry. The 30 overlapping saved conditions also share identical
-designs and learning curves, verified through `POLICY_LINKS.json`.
+within this registry. All 135 saved conditions share identical designs and
+learning curves with `policies.zip`, verified through `POLICY_LINKS.json`.
 Selected designs include the training objective, canonical reward, contrast
 ratio, bilateral margin and normalized thickness. These quantities support
 comparison across coefficient pairs; the differently scaled training objectives

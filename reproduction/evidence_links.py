@@ -23,13 +23,14 @@ def coefficient_cases(evidence, registry):
     rows = []
     with zipfile.ZipFile(Path(evidence)/"policies.zip") as policies:
         names = set(policies.namelist())
+        missing = sorted(cid for cid in unique if cid + "/selected_designs.json" not in names)
+        assert not missing, f"missing sequential coefficient policy cases: {missing}"
         for cid, r in sorted(unique.items()):
-            if cid + "/selected_designs.json" not in names:
-                continue
             stage = "stage1_C1" if r["C2"] == 0 else "stage2_C2"
             prefix = (f"runs/{stage}/FGL{r['goal']}/"
                       f"C1_{r['C1']:g}__C2_{r['C2']:g}/seed_{r['seed']}")
             rows.append({**r, "prefix": prefix})
+    assert len(rows) == 135, "sequential registry must contain 135 unique coefficient cases"
     return rows
 
 

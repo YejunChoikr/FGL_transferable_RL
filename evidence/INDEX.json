@@ -7,9 +7,9 @@
       "members": 661
     },
     "policies.zip": {
-      "sha256": "d92da3efe4a2be684e417150e9ad4626d0c5f3525458ec63f22df5436141b169",
-      "bytes": 67350730,
-      "members": 2701
+      "sha256": "e9ea490f56f2b3068b1ab66018944b95438b5cc771becc9451c668f14f7231c5",
+      "bytes": 83729915,
+      "members": 3331
     },
     "direct.zip": {
       "sha256": "415c390732d773b045d9353e650d4ad24d5cf500c617a0e93030a8805562d15b",
@@ -27,9 +27,9 @@
       "members": 508
     },
     "coefficients.zip": {
-      "sha256": "dcd50b9f177b5464104d457e2f9bc2544e197e1bedbc8f209bc07263eaab6cae",
-      "bytes": 2203284,
-      "members": 441
+      "sha256": "7ba92495687e615e546f084a895869732909f7ef7bb71ad488aa3db649b2fe68",
+      "bytes": 4931153,
+      "members": 546
     }
   },
   "claims": {
@@ -38,7 +38,7 @@
     "Table_S6_Fig_S5": "surrogates.zip: source cnn/mlp, seeds 0-4, epoch-300 last.pt predictions",
     "Table_S9": "table_s9.json and validation_models/; main Fig. 6 and experimental Fig. 10",
     "S10": "bilateral.zip and reproduction/studies/bilateral; arithmetic columns from unified policy/direct FEA",
-    "Fig_5b": "coefficients.zip; shared coefficient cases are linked to policies.zip by POLICY_LINKS.json.",
+    "Fig_5b": "coefficients.zip: all 135 sequential coefficient cases are linked to policies.zip by POLICY_LINKS.json; plain mean/SD tables are in evidence/fig5/.",
     "Fig_11": "direct.zip first1500.csv; full time-cap selected candidate is in incumbent.json"
   },
   "table_s9_sha256": "69a23c620ba1a30336390f4eeae2953dc3d9aa7265ab2ea8ce8bf192fe985707",
