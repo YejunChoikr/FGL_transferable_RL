@@ -1,11 +1,8 @@
-> **Original release.** Commands and paths below are relative to the repository root. For the current experimental protocol, use [the reproduction guide](../reproduction/README.md).
+# Models and data
 
-# Transferable reinforcement learning for targeted deformation shaping in functionally graded lattice structures
-
-Yejun Choi, Yeoneung Kim, Keun Park
-Seoul National University of Science and Technology
-
-Data, trained models and training code for the above paper.
+This guide describes the supplied datasets, models and selected designs. Paths
+are relative to the repository root. Use [the reproduction guide](../reproduction/README.md)
+for installation and the registered training and optimization experiments.
 
 ## Contents
 
@@ -37,28 +34,23 @@ fourteen optimized designs shown in the paper.
 `tools/` — `train.py`, `train_surrogate.py`, and `make_dataset.py`, which builds
 a data file from a raw finite element sample set.
 
-## Installation
+## Model loading
 
-    pip install -r requirements.txt
+Use each checkpoint with its associated architecture, input encoding and output
+scaler. The Table S9 verification loads `models/surrogate_upper.pth` with
+`src.env.SurrogateCNN`, `src.env.location_grid` and `models/scaler_upper.json`.
+Its exact design inputs and model hashes are recorded in `evidence/table_s9.json`.
 
-## Training a surrogate
+The checkpoints in `evidence/surrogates.zip` use `reproduction/cmame_rt/` and the
+scaler saved alongside each checkpoint. After extracting the archive, evaluate
+a case using:
 
-    python tools/train_surrogate.py --domain source
-    python tools/train_surrogate.py --domain upper --init models/surrogate_source.pth
+```sh
+python reproduction/evaluate_surrogate.py --run-dir PATH_TO_EXTRACTED_CASE --checkpoint both
+```
 
-300 epochs, batch 64, Adam at 5e-4 with weight decay 5e-4, and the learning rate
-halved after 10 epochs without validation improvement. Fine-tuning uses 5e-5.
-
-## Training a policy
-
-    python tools/train.py --domain source --task FGL7 --agent sac --seed 0
-    python tools/train.py --domain upper --task FGL7 --agent sac --seed 0 \
-        --init models/policy_source_FGL7
-
-1500 episodes of 30 steps, preceded by a 20-episode replay fill, with the
-deterministic policy evaluated every 25 episodes. Each run writes its reward
-history, the evaluation record and the selected design to
-`runs/<domain>_<task>_<agent>_seed<n>/`.
+The [evidence guide](../evidence/README.md) maps the models and saved results to
+the manuscript's tables and figures.
 
 ## Conventions
 
@@ -75,15 +67,3 @@ the matching `scaler_*.json`, probe by probe.
 Transfer copies the four hidden layers of the actor and of each critic, 24
 tensors for SAC and 16 for DDPG.
 
-## Citation
-
-    @article{choi_fgl_trl,
-      title  = {Transferable reinforcement learning for targeted deformation
-                shaping in functionally graded lattice structures},
-      author = {Choi, Yejun and Kim, Yeoneung and Park, Keun},
-      year   = {2026}
-    }
-
-## License
-
-Code MIT. Data and models CC-BY-4.0.

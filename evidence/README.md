@@ -64,7 +64,7 @@ profile, its source filename and hash. The five-run table is reproducible from
 this recovery record; the original solver output supporting the recovery is
 not included. Other final S10 FEA profiles are checked against the saved solver
 summary records. All rewards, margins and ratios are recomputed from the nine
-displacements and actions rather than copied from derived legacy fields.
+displacements and actions rather than copied from previously derived fields.
 
 The arithmetic-objective columns of S10 are recomputed from the September
 policy and optimizer archives. The two studies retain their actual protocols;
