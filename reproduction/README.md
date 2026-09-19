@@ -1,10 +1,8 @@
 # CMAME experiment reproduction
 
-This package provides the training and optimization implementation used for the
-paper's experiments. It runs independently of the multi-machine
-scheduler. The registry contains 80 surrogate fits, 450 policy runs and 60 direct-optimization
-runs with saved results, plus 105 coefficient-sweep cases using the same
-training implementation.
+This package provides the training and optimization implementation for the
+paper's experiments. The main registry contains 80 surrogate fits, 555 policy
+runs (including the coefficient sweeps), and 60 direct-optimization runs.
 
 ## Installation
 
@@ -89,11 +87,23 @@ software tests, not research results.
 The compressed arrays in `data/cache/` preserve the numerical inputs, record
 order, and split assignments used for the experiments. Their hashes and the
 training-only output scalers are in `locks/DATA_LOCK.json`. Source data contain
-30,000 records; each target domain contains 6,000. Upper-domain budgets are
-500, 1,000, 2,000, 4,000, and 6,000 **total** records, split 80/10/10 into
-training/validation/test. Budget subsets are nested and retain a common
-600-record target test set, disjoint from every training and validation set.
-Thus, for example, N=6,000 uses 4,800 training records.
+30,000 records; each target domain contains 6,000. Upper-domain budgets use
+nominal sample counts N=500, 1,000, 2,000, 4,000, and 6,000, with 0.8N training
+records and 0.1N validation records. All budgets use the same 600-record held-out
+test set, disjoint from every training and validation set. The training and
+validation subsets are nested. The total number of distinct records used is
+therefore 0.9N+600:
+
+| Nominal sample count N | Training | Validation | Common test | Distinct records |
+| --- | --- | --- | --- | --- |
+| 500 | 400 | 50 | 600 | 1,050 |
+| 1,000 | 800 | 100 | 600 | 1,500 |
+| 2,000 | 1,600 | 200 | 600 | 2,400 |
+| 4,000 | 3,200 | 400 | 600 | 4,200 |
+| 6,000 | 4,800 | 600 | 600 | 6,000 |
+
+The source-domain data-budget plot uses the total sample count before an
+80/10/10 training/validation/test split.
 
 The surrogate and policy share the same cell encoding: normalized thickness
 interleaved with `sqrt(r*r + c*c) / sqrt(R*R + C*C)`, where R=10, C=3,
@@ -193,23 +203,17 @@ python reproduction/coefficients.py run --stage C2 --goal 5 --seed 0 --C2 1 --wi
 The sequential sweeps contain 135 unique cases. Thirty already occur in the
 main/joint registry, so 105 additional cases are registered. Identical
 coefficient/goal/seed combinations share one case ID and one output directory
-within this registry. All 135 saved conditions share identical designs and
-learning curves with `policies.zip`, verified through `POLICY_LINKS.json`.
+within this registry.
 Selected designs include the training objective, canonical reward, contrast
 ratio, bilateral margin and normalized thickness. These quantities support
 comparison across coefficient pairs; the differently scaled training objectives
 are not interchangeable.
-
-The sequential reward-coefficient data for Fig. 5 are provided in
-`evidence/coefficients.zip`. Its per-run configurations record the input model
-and execution settings.
 
 ## Verification
 
 ```sh
 python -m pip install -r reproduction/requirements-test.txt
 python -m pytest reproduction/tests -q
-python reproduction/verify_paper.py
 ```
 
 Tests cover data splits and scalers, encoding, transfer initialization,
@@ -217,9 +221,5 @@ SAC/DDPG updates, coefficient rewards and selection, checkpoint evaluation,
 optimizer settings and training-reward summaries. `FILE_MANIFEST.json` records
 checksums of the supplied code, settings and model assets.
 
-Saved results are documented in [the evidence guide](../evidence/README.md).
-The verifier recomputes MAE, peak counts, S10 comparisons and Table S9
-predictions. Table S9 uses the CNN implementation in `cmame_rt/models_surrogate.py`
-with the matching checkpoint and scaler in `evidence/validation_models/`.
 The [bilateral study guide](studies/bilateral/README.md) specifies the settings
 required for the bilateral-objective results in S10.
