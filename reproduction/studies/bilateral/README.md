@@ -23,8 +23,7 @@ python reproduction/studies/bilateral/run.py run --case upper/FGL5/SAC-TRL/s0 --
 
 `--with-dependencies` uses accepted main-experiment surrogate artifacts when
 present, or generates them through the main registry. Each seed uses its paired
-source N=30,000 CNN/scaler and transferred upper N=6,000 CNN/scaler; fixed policy
-weights and separate S10 surrogates are not distributed.
+source N=30,000 CNN/scaler and transferred upper N=6,000 CNN/scaler.
 
 SAC and DDPG use the main hyperparameters, initialization bank, input encoding,
 and fused Adam CUDA path. Every policy run has 1,500 total episodes, including
@@ -35,13 +34,12 @@ hidden layers `fc1` through `fc4` from the matching goal, algorithm, and seed.
 Output heads retain their paired scratch values; target networks are hard-copied
 after transfer, while optimizers, replay, and random streams start fresh.
 
-Full BO cases use the main BO operators and paired upper surrogate for exactly
-382.5083336830139 seconds. They must run sequentially on an RTX 4080 SUPER while
-the workstation is otherwise idle:
+Full BO cases use the main BO operators and paired upper surrogate within a
+382.5083336830139 s search allowance. They must run sequentially on an RTX 4080
+SUPER while the workstation is otherwise idle:
 
 ```sh
 python reproduction/studies/bilateral/run.py run --case upper/FGL5/BO/s0 --with-dependencies --exclusive
 ```
 
-Generated artifacts are ignored by Git. Selected responses are surrogate
-predictions; the runner does not invoke Ansys or create recovered FEA values.
+Generated artifacts are ignored by Git. Selected responses are surrogate predictions.
