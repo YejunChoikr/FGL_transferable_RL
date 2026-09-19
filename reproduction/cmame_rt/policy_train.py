@@ -208,6 +208,9 @@ def run_policy(case: dict, attempt_dir, device, adam_backend: str = "reference",
     domain = str(case["domain"])
     goals = [int(g) for g in case["goals"]]
     C1, C2 = float(case["C1"]), float(case["C2"])
+    objective = str(case.get("objective", "arithmetic"))
+    if objective not in ("arithmetic", "bilateral"):
+        raise ValueError("objective must be 'arithmetic' or 'bilateral'")
     traversal = str(case["traversal"])
     arm = resolve_arm(case)
     shared = arm["shared"]
@@ -222,9 +225,9 @@ def run_policy(case: dict, attempt_dir, device, adam_backend: str = "reference",
 
     # ---- environments -------------------------------------------------------
     env = SurrogateEnv(surrogate, scaler, traversal, C1, C2, goals, device,
-                       batch=1)
+                       batch=1, objective=objective)
     env_eval = SurrogateEnv(surrogate, scaler, traversal, C1, C2, goals, device,
-                            batch=len(goals))
+                            batch=len(goals), objective=objective)
 
     # ---- agent --------------------------------------------------------------
     init_blob = {}
@@ -288,6 +291,7 @@ def run_policy(case: dict, attempt_dir, device, adam_backend: str = "reference",
         "goals": goals,
         "traversal": traversal,
         "C1": C1, "C2": C2,
+        "objective": objective,
         "episodes": n_episodes,
         "steps_per_episode": STEPS_PER_EPISODE,
         "prefill_episodes": PREFILL_EPISODES,
@@ -365,7 +369,8 @@ def run_policy(case: dict, attempt_dir, device, adam_backend: str = "reference",
         before_fp = EV.training_fingerprint(agent, replay)
         _sync()
         t0 = time.time()
-        recs = EV.evaluate_checkpoint(agent, env_eval, goals, ep, C1, C2)
+        recs = EV.evaluate_checkpoint(agent, env_eval, goals, ep, C1, C2,
+                                      objective=objective)
         _sync()
         t_eval_total += time.time() - t0
         after_rng = EV.rng_snapshot(gens)
@@ -433,7 +438,7 @@ def run_policy(case: dict, attempt_dir, device, adam_backend: str = "reference",
                 ep_reward = reward.reshape(())
             if not prefill_phase:
                 stat_sum += _one_update(agent, algo, replay, batch_size, gens,
-                                        shared, C1, C2, device)
+                                        shared, C1, C2, objective, device)
                 updates_done += 1
                 n_upd_ep += 1
 
@@ -603,7 +608,7 @@ def run_policy(case: dict, attempt_dir, device, adam_backend: str = "reference",
 
 def _one_update(agent, algo: str, replay: GPUReplay, batch_size: int,
                 gens: dict, shared: bool, C1: float, C2: float,
-                device) -> torch.Tensor:
+                objective: str, device) -> torch.Tensor:
     """Draw one minibatch, relabel it when goal-conditioned, and update."""
     b = replay.sample(batch_size, gens["replay_sampling"])
     batch = {"s": b["s"], "a": b["a"], "r": b["r"], "s2": b["s2"],
@@ -615,7 +620,8 @@ def _one_update(agent, algo: str, replay: GPUReplay, batch_size: int,
         new_goal = torch.as_tensor(SHARED_GOALS, dtype=torch.long,
                                    device=device)[pick]
         batch["r"] = relabel_terminal_rewards(b["u9"], b["actions30"],
-                                              b["done"], new_goal, C1, C2)
+                                              b["done"], new_goal, C1, C2,
+                                              objective=objective)
         batch["w"] = ((new_goal.to(torch.float32) - 5.0) / 2.0).unsqueeze(1)
     if algo == "SAC":
         nt = torch.randn((batch_size, 1),

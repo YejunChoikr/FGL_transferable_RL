@@ -234,11 +234,13 @@ class _ToySurrogate(torch.nn.Module):
         return self.lin(x.reshape(x.shape[0], -1))
 
 
-def _toy_env(goals, batch=1, C1=0.5, C2=1.0, traversal="rowwise_raster"):
+def _toy_env(goals, batch=1, C1=0.5, C2=1.0,
+             traversal="rowwise_raster", objective="arithmetic"):
     torch.manual_seed(0)
     return SurrogateEnv(_ToySurrogate(), {"mean": np.zeros(9),
                                           "scale": np.ones(9)},
-                        traversal, C1, C2, goals, "cpu", batch=batch)
+                        traversal, C1, C2, goals, "cpu", batch=batch,
+                        objective=objective)
 
 
 @pytest.mark.parametrize("c2", [0., .25, .75, 1.])
@@ -349,6 +351,22 @@ def test_training_and_canonical_objectives_are_separate_fields(c2):
     assert abs(rec["canonical_reward"]
                - REF.design_metrics(u, a, 5, 0.5, 1.0)["reward"]) < 1e-9
     assert rec["selection_score"] == rec["training_objective"]
+
+
+def test_bilateral_selection_keeps_canonical_reporting_separate():
+    env = _toy_env([5], objective="bilateral")
+    ag = SAC.SACAgent("cpu", False, PI.build_policy_init(0, "SAC"),
+                      "reference")
+    rec = EV.evaluate_checkpoint(
+        ag, env, [5], 0, 0.5, 1.0, objective="bilateral")[0]
+    u = np.asarray(rec["u9_pred"])
+    a = np.asarray(rec["actions30"])
+    rho = np.mean((a + 1) / 2)
+    expected = min(u[4] - u[3], u[4] - u[5]) / (0.5 + rho)
+    assert rec["training_objective"] == pytest.approx(expected)
+    assert rec["selection_score"] == rec["training_objective"]
+    assert rec["canonical_reward"] == pytest.approx(
+        REF.design_metrics(u, a, 5, 0.5, 1.0)["reward"])
 
 
 # ------------------------------------------------------------------ schedules

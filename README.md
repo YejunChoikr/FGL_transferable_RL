@@ -25,9 +25,10 @@ coefficient sensitivity, and BO/L-BFGS-B/GA/DE. The main runner uses
 and checkpoint selection. The case registry specifies the experiments and
 coefficient sweeps. The smoke command tests the installation with short runs.
 
-The [bilateral-objective study](reproduction/studies/bilateral/README.md)
-contains the SAC/DDPG training and 200-evaluation BO paths used for S10,
-including four-layer actor and critic transfer.
+The [bilateral-objective study](reproduction/studies/bilateral/README.md) routes
+S10 through the common SAC/DDPG and timed-BO runtime. It uses 1,500 total policy
+episodes including 20 uniform prefill episodes, paired seed-specific source and
+upper surrogates, and four-layer actor and critic transfer.
 [Coefficient sweeps](reproduction/README.md#reward-coefficient-sweeps) use the
 same SAC, source surrogate, encoding and training settings as the main runner.
 
@@ -37,7 +38,7 @@ same SAC, source surrogate, encoding and training settings as the main runner.
 | `reproduction/spec/` | Numerical protocol, case registry, and reference math |
 | `reproduction/data/` | Design inputs, FEA displacements, fixed splits, and output scalers |
 | `reproduction/tests/` | Regression and integration tests |
-| `reproduction/studies/` | Bilateral-objective code and its required surrogate/scaler pairs |
+| `reproduction/studies/` | Bilateral-objective wrapper built on the common runtime |
 
 The data comprise 30,000 source-domain records and 6,000 records for each of
 the upper-bound, lower-bound, and aspect-ratio domains. Each record contains

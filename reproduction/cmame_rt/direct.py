@@ -209,7 +209,7 @@ class SurrogateObjective:
         return (as_numpy(reward), as_numpy(u9))
 
     def objective(self, actions: np.ndarray) -> np.ndarray:
-        """Minimized objective = negative canonical reward."""
+        """Return the negative case-selected reward for minimization."""
         reward, _ = self.rewards(actions)
         return -reward
 
@@ -273,6 +273,13 @@ def build_objective(case: dict[str, Any], device: Any) -> tuple[SurrogateObjecti
             raise ValueError(f"scaler {name} carries non-finite values")
     if bool((y_scale == 0).any()):
         raise ValueError("scaler scale carries a zero; inverse scaling would be undefined")
+    objective_name = str(case.get("objective", "arithmetic"))
+    if objective_name == "arithmetic":
+        objective_fn = reward_mod.reward_torch
+    elif objective_name == "bilateral":
+        objective_fn = reward_mod.bilateral_reward_torch
+    else:
+        raise ValueError("objective must be 'arithmetic' or 'bilateral'")
     return SurrogateObjective(
         model=model, y_mean=y_mean, y_scale=y_scale, goal=goal,
         C1=float(case.get("C1", protocol["reward"]["C1"])),
@@ -280,7 +287,7 @@ def build_objective(case: dict[str, Any], device: Any) -> tuple[SurrogateObjecti
         device=device,
         encode_batch_torch=encoding.encode_batch_torch,
         to_cnn_input=encoding.to_cnn_input,
-        reward_torch=reward_mod.reward_torch,
+        reward_torch=objective_fn,
     ), source_case
 
 
@@ -291,12 +298,16 @@ class SearchLog:
     """Every evaluated candidate, with the wall clock that decides the cap."""
 
     FIELDS = ("index", "phase", "batch_index", "batch_size", "elapsed_s",
-              "batch_wall_s", "within_cap", "objective", "canonical_reward")
+              "batch_wall_s", "within_cap", "objective",
+              "training_objective", "bilateral_reward", "canonical_reward")
 
-    def __init__(self, path: Path, t0: float, deadline: float):
+    def __init__(self, path: Path, t0: float, deadline: float,
+                 goal: int, objective_name: str = "arithmetic"):
         self.path = Path(path)
         self.t0 = t0
         self.deadline = deadline
+        self.goal = int(goal)
+        self.objective_name = str(objective_name)
         self.index = 0
         self.batch_index = 0
         self.rows: list[dict[str, Any]] = []
@@ -320,12 +331,25 @@ class SearchLog:
             self.last_within_cap_elapsed_s = finished - self.t0
         designs = np.atleast_2d(as_numpy(designs))
         for i in range(designs.shape[0]):
+            a = designs[i]
+            u = as_numpy(u9[i])
+            if self.objective_name == "bilateral":
+                j = self.goal - 1
+                rho = float(np.mean((a + 1.0) / 2.0))
+                canonical = (float(u[j] - 0.5 * (u[j - 1] + u[j + 1]))
+                             / (0.5 + rho))
+                bilateral = float(rewards[i])
+            else:
+                canonical = float(rewards[i])
+                bilateral = None
             row = {
                 "index": self.index, "phase": phase, "batch_index": self.batch_index,
                 "batch_size": int(designs.shape[0]),
                 "elapsed_s": finished - self.t0, "batch_wall_s": batch_wall_s,
                 "within_cap": int(within), "objective": float(-rewards[i]),
-                "canonical_reward": float(rewards[i]),
+                "training_objective": float(rewards[i]),
+                "bilateral_reward": bilateral,
+                "canonical_reward": canonical,
             }
             for j in range(N_VARS):
                 row[f"a{j:02d}"] = float(designs[i, j])
@@ -349,8 +373,22 @@ class SearchLog:
             return None
         best = max(valid, key=lambda r: r["reward"])
         k = best["index"]
-        return {"index": k, "canonical_reward": best["reward"],
-                "actions30": self.designs[k].tolist(), "u9_pred_mm": self.u9[k].tolist()}
+        objective_name = getattr(self, "objective_name", "arithmetic")
+        if objective_name == "arithmetic":
+            canonical = best["reward"]
+        else:
+            a = self.designs[k]
+            u = self.u9[k]
+            j = self.goal - 1
+            rho = float(np.mean((a + 1.0) / 2.0))
+            canonical = float(u[j] - 0.5 * (u[j - 1] + u[j + 1])) / (0.5 + rho)
+        result = {"index": k, "training_objective": best["reward"],
+                  "canonical_reward": canonical,
+                  "actions30": self.designs[k].tolist(),
+                  "u9_pred_mm": self.u9[k].tolist()}
+        if objective_name == "bilateral":
+            result["bilateral_reward"] = best["reward"]
+        return result
 
 
 def _evaluate(objective: SurrogateObjective, log: SearchLog, phase: str,
@@ -705,7 +743,9 @@ def run_direct(case: dict[str, Any], attempt_dir: Path, device: Any,
     # ---- clock starts here: surrogate is loaded, nothing has been initialized
     t0 = time.perf_counter()
     deadline = t0 + time_cap_s
-    log = SearchLog(attempt_dir / "search_log.csv", t0, deadline)
+    objective_name = str(case.get("objective", "arithmetic"))
+    log = SearchLog(attempt_dir / "search_log.csv", t0, deadline,
+                    objective.goal, objective_name)
     try:
         if method in ("GA", "DE"):
             method_counts = _run_ga_or_de(method, cfg, objective, log, deadline, stream_seed)
@@ -789,7 +829,10 @@ def run_direct(case: dict[str, Any], attempt_dir: Path, device: Any,
         "domain": cfg["domain"],
         "bounds": cfg["bounds"],
         "variables": cfg["variables"],
-        "terminal_objective": cfg["terminal_objective"],
+        "terminal_objective": (cfg["terminal_objective"]
+                               if objective_name == "arithmetic" else
+                               "negative bilateral reward"),
+        "reporting_objective": "canonical arithmetic reward",
         "C1": objective.C1,
         "C2": objective.C2,
         "goal": goal,
@@ -825,12 +868,16 @@ def run_direct(case: dict[str, Any], attempt_dir: Path, device: Any,
         "attempt": int(case.get("attempt", 0)),
         "kind": "optimizer",
         "method": method,
+        "objective": objective_name,
         "nonfinite": bool(incumbent is None
-                          or not np.isfinite(incumbent["canonical_reward"])),
+                          or not np.isfinite(incumbent["canonical_reward"])
+                          or not np.isfinite(incumbent["training_objective"])),
         "candidates_within_cap": counts["candidates_within_cap"],
         "candidates_overrun": counts["overrun_candidates"],
         "best_canonical_reward": (None if incumbent is None
-                                  else incumbent["canonical_reward"]),
+                                   else incumbent["canonical_reward"]),
+        "best_training_objective": (None if incumbent is None
+                                    else incumbent["training_objective"]),
         "artifact_sha256": artifacts,
         "t_load_s": float(t_load_s),
         "t_total_s": float(t_total_s),

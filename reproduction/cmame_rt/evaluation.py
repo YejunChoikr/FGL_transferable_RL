@@ -142,7 +142,8 @@ def env_steps(env) -> int:
 
 
 def evaluate_checkpoint(agent, env, goals: Sequence[int], episode: int,
-                        C1: float, C2: float) -> list:
+                        C1: float, C2: float,
+                        objective: str = "arithmetic") -> list:
     """Run the scheduled evaluation and build one record per goal."""
     roll = deterministic_rollout(agent, env, goals)
     u9 = roll["u9"].detach().cpu().numpy().astype(np.float64)
@@ -152,7 +153,14 @@ def evaluate_checkpoint(agent, env, goals: Sequence[int], episode: int,
         u, a = u9[i], acts[i]
         rho = float(np.mean((a + 1) / 2))
         j = g - 1
-        train_obj = float(u[j] - C1 * (u[j - 1] + u[j + 1])) / material_weight(C2, rho)
+        if objective == "bilateral":
+            train_obj = (float(min(u[j] - u[j - 1], u[j] - u[j + 1]))
+                         / (0.5 + rho))
+        elif objective == "arithmetic":
+            train_obj = (float(u[j] - C1 * (u[j - 1] + u[j + 1]))
+                         / material_weight(C2, rho))
+        else:
+            raise ValueError("objective must be 'arithmetic' or 'bilateral'")
         canon = (float(u[j] - C1_CANONICAL * (u[j - 1] + u[j + 1]))
                  / (0.5 + C2_CANONICAL * rho))
         records.append({

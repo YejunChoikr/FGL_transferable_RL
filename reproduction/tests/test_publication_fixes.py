@@ -1,8 +1,6 @@
 """Regression tests for the publication reward and checkpoint interfaces."""
 import json
 from pathlib import Path
-import subprocess
-import sys
 
 import numpy as np
 import pytest
@@ -11,7 +9,8 @@ import torch
 from cmame_rt.checkpoint_evaluation import evaluate_checkpoint
 from cmame_rt.models_surrogate import CNN
 from cmame_rt.protocol import case_by_id, load_reference_math
-from cmame_rt.reward import reward, reward_torch, design_metrics
+from cmame_rt.reward import (bilateral_reward, bilateral_reward_torch,
+                             design_metrics, reward, reward_torch)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -71,36 +70,40 @@ def test_coefficient_sweeps_use_common_cases_and_reuse_identical_pairs():
     assert all('/P0/' in r['case_id'] for r in final)
 
 
-def test_bilateral_bo_routes_200_calls_to_bilateral_objective(tmp_path):
-    # Exercise the real BO runner and surrogate. Replace only the GP search so
-    # this checks objective wiring and the 200-call contract without a full fit.
-    code = r'''
-import json,sys
-from pathlib import Path
-from types import SimpleNamespace
-import numpy as np
-import torch
-torch.set_num_threads(1)
-sys.path.insert(0,sys.argv[1])
-import run_bo
-calls=[]
-def search(objective,dimensions,**kw):
-    assert len(dimensions)==30
-    assert kw['n_calls']==200 and kw['n_initial_points']==20
-    assert kw['acq_func']=='gp_hedge'
-    for t in np.linspace(-1,1,200):
-        calls.append(objective([t]*30))
-    return SimpleNamespace(models=[])
-run_bo.gp_minimize=search
-out=Path(sys.argv[2]);run_bo.bo_run_dir=lambda *args:out
-r=run_bo.run('FGL5',0,'local')
-assert r['complete'] and r['n_objective_calls']==200
-hist=json.loads((out/'objective_history.json').read_text())
-for row,loss in zip(hist['records'],calls):
-    u,a=row['u'],np.array(row['actions'])
-    expected=min(u[4]-u[3],u[4]-u[5])/np.mean((a+2)/2)
-    assert abs(loss+expected)<1e-5
-'''
-    result = subprocess.run([sys.executable,'-c',code,
-        str(ROOT/'studies/bilateral/code'),str(tmp_path)],capture_output=True,text=True)
-    assert result.returncode == 0,result.stdout+result.stderr
+def test_bilateral_reward_is_separate_from_arithmetic_regression():
+    u = np.array([0., 1., 2., 4., 8., 7., 3., 2., 1.])
+    a = np.linspace(-1., 1., 30)
+    arithmetic = reward(u, a, 5)
+    bilateral = bilateral_reward(u, a, 5)
+    assert arithmetic == pytest.approx(2.5 / 1.)
+    assert bilateral == pytest.approx(1. / 1.)
+    ut = torch.tensor(u[None], dtype=torch.float32)
+    at = torch.tensor(a[None], dtype=torch.float32)
+    assert reward_torch(ut, at, 5).item() == pytest.approx(arithmetic)
+    assert bilateral_reward_torch(ut, at, 5).item() == pytest.approx(bilateral)
+
+
+def test_s10_registry_uses_common_matched_dependencies():
+    import importlib.util
+
+    path = ROOT / "studies" / "bilateral" / "run.py"
+    spec = importlib.util.spec_from_file_location("s10_bilateral_run", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    rows = module.cases()
+    assert len(rows) == 105
+    assert sum(c["kind"] == "policy" and c["domain"] == "source"
+               for c in rows) == 30
+    assert sum(c["kind"] == "policy" and c["domain"] == "upper"
+               for c in rows) == 60
+    assert sum(c["kind"] == "optimizer" for c in rows) == 15
+    table = {c["case_id"]: c for c in rows}
+    for algorithm in ("SAC", "DDPG"):
+        for goal in (5, 6, 7):
+            for seed in range(5):
+                target = table[f"upper/FGL{goal}/{algorithm}-TRL/s{seed}"]
+                assert target["objective"] == "bilateral"
+                assert target["dependencies"][1] == (
+                    f"source/FGL{goal}/{algorithm}-SOURCE/s{seed}")
+                assert target["dependencies"][0] == (
+                    f"surrogate/cnn/upper/N6000/transfer/s{seed}")

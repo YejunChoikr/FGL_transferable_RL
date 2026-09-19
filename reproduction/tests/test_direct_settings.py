@@ -2,8 +2,9 @@
 
 These are implementation checks, not experiments: the time cap must be refused
 when it is not frozen, every optimizer setting must come from the protocol and
-be readable back out of the library, and the objective must be the canonical
-reward of ``spec/reference_math.py``.
+be readable back out of the library, and the default objective must remain the
+canonical reward of ``spec/reference_math.py``. S10 selects its separate
+bilateral objective through the common runner.
 
 Run: ``python -m pytest tests/test_direct_settings.py`` from the project root,
 or ``python tests/test_direct_settings.py``.
@@ -334,6 +335,25 @@ def test_incumbent_is_the_best_candidate_inside_the_cap() -> None:
     log.u9 = [np.zeros(9)] * 3
     best = direct.SearchLog.incumbent(log)
     assert best["index"] == 2 and best["canonical_reward"] == 2.0
+
+
+def test_bilateral_log_keeps_eq4_reporting_separate() -> None:
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        log = direct.SearchLog(tmp / "search.csv", 0.0, float("inf"), 5,
+                               "bilateral")
+        actions = np.zeros((1, 30))
+        u9 = np.array([[0., 1., 2., 4., 8., 7., 3., 2., 1.]])
+        log.add_batch("BO", actions, np.array([1.0]), u9, 0.01)
+        log.close()
+        best = log.incumbent()
+        assert best["bilateral_reward"] == 1.0
+        assert best["training_objective"] == 1.0
+        assert best["canonical_reward"] == 2.5
+        row = json.loads(json.dumps(best))
+        assert row["canonical_reward"] != row["bilateral_reward"]
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
 
 def _main() -> int:

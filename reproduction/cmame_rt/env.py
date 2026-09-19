@@ -69,11 +69,15 @@ class SurrogateEnv:
     """
 
     def __init__(self, surrogate, scaler, traversal, C1: float, C2: float,
-                 goals: Sequence[int], device, batch: int = 1):
+                 goals: Sequence[int], device, batch: int = 1,
+                 objective: str = "arithmetic"):
         self.device = torch.device(device)
         self.batch = int(batch)
         self.C1 = float(C1)
         self.C2 = float(C2)
+        self.objective = str(objective)
+        if self.objective not in ("arithmetic", "bilateral"):
+            raise ValueError("objective must be 'arithmetic' or 'bilateral'")
         self.goals = tuple(int(g) for g in goals)
         self.traversal_name = str(traversal)
         order = traversal_indices(self.traversal_name)
@@ -155,8 +159,7 @@ class SurrogateEnv:
             return self.state, reward, False, {"u9": None, "actions30": None}
         u9 = self.predict_u9(self.state)
         acts = self.state[:, 0::2]
-        reward = self.reward_from(u9, acts, self.goal,
-                                  self.C1, self.C2).unsqueeze(1)
+        reward = self.training_reward(u9, acts, self.goal).unsqueeze(1)
         return self.state, reward, True, {"u9": u9, "actions30": acts.clone()}
 
     # -------------------------------------------------------------- surrogate
@@ -190,6 +193,26 @@ class SurrogateEnv:
         r = (ug - float(C1) * (ul + ur)) / material_weight(float(C2), rho)
         return r.to(torch.float32)
 
+    @staticmethod
+    def bilateral_reward_from(u9: torch.Tensor, actions30: torch.Tensor,
+                              goal: torch.Tensor) -> torch.Tensor:
+        """Bilateral S10 terminal objective ``[B]``."""
+        idx = goal.reshape(-1).to(torch.long) - 1
+        u = u9.to(torch.float64)
+        a = actions30.to(torch.float64)
+        ug = u.gather(1, idx.unsqueeze(1)).squeeze(1)
+        ul = u.gather(1, (idx - 1).unsqueeze(1)).squeeze(1)
+        ur = u.gather(1, (idx + 1).unsqueeze(1)).squeeze(1)
+        rho = ((a + 1.0) / 2.0).mean(dim=1)
+        return (torch.minimum(ug - ul, ug - ur) / (0.5 + rho)).to(torch.float32)
+
+    def training_reward(self, u9: torch.Tensor, actions30: torch.Tensor,
+                        goal: torch.Tensor) -> torch.Tensor:
+        """Return the case-selected training and checkpoint objective."""
+        if self.objective == "bilateral":
+            return self.bilateral_reward_from(u9, actions30, goal)
+        return self.reward_from(u9, actions30, goal, self.C1, self.C2)
+
     def canonical_reward(self, u9: torch.Tensor, actions30: torch.Tensor,
                          goal: torch.Tensor) -> torch.Tensor:
         """Reward at the canonical reporting coefficients C1=0.5, C2=1.0."""
@@ -209,7 +232,7 @@ class SurrogateEnv:
         return {
             "state60": state,
             "u9": u9,
-            "training_objective": self.reward_from(u9, a, g, self.C1, self.C2),
+            "training_objective": self.training_reward(u9, a, g),
             "canonical_reward": self.canonical_reward(u9, a, g),
         }
 
@@ -225,11 +248,15 @@ class SurrogateEnv:
             "C2": self.C2,
             "C1_canonical": C1_CANONICAL,
             "C2_canonical": C2_CANONICAL,
+            "objective": self.objective,
             "goals": list(self.goals),
             "batch": self.batch,
             "device": str(self.device),
             "terminal_rule": _POLICY["termination"],
-            "reward_formula": _PROTO["reward"]["formula"],
+            "reward_formula": (_PROTO["reward"]["formula"]
+                               if self.objective == "arithmetic" else
+                               "min(u_g-u_{g-1},u_g-u_{g+1})/(0.5+rho)"),
+            "reporting_reward_formula": _PROTO["reward"]["formula"],
             "y_scaler_mean": [float(x) for x in self.y_mean.tolist()],
             "y_scaler_scale": [float(x) for x in self.y_scale.tolist()],
             "goal_not_given_to_surrogate": bool(
@@ -239,7 +266,8 @@ class SurrogateEnv:
 
 def relabel_terminal_rewards(u9: torch.Tensor, actions30: torch.Tensor,
                              done: torch.Tensor, goal: torch.Tensor,
-                             C1: float, C2: float) -> torch.Tensor:
+                             C1: float, C2: float,
+                             objective: str = "arithmetic") -> torch.Tensor:
     """Recompute a minibatch's rewards for freshly drawn goals, shape ``[B,1]``.
 
     Non-terminal transitions score exactly zero at every goal, so the terminal
@@ -249,7 +277,12 @@ def relabel_terminal_rewards(u9: torch.Tensor, actions30: torch.Tensor,
     d = done.reshape(-1)
     g = goal.reshape(-1).to(torch.long)
     safe_u9 = torch.where(d.unsqueeze(1) > 0, u9, torch.ones_like(u9))
-    r = SurrogateEnv.reward_from(safe_u9, actions30, g, C1, C2)
+    if objective == "bilateral":
+        r = SurrogateEnv.bilateral_reward_from(safe_u9, actions30, g)
+    elif objective == "arithmetic":
+        r = SurrogateEnv.reward_from(safe_u9, actions30, g, C1, C2)
+    else:
+        raise ValueError("objective must be 'arithmetic' or 'bilateral'")
     return (r * d).unsqueeze(1)
 
 

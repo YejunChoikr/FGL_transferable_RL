@@ -88,6 +88,21 @@ def reward(displacements: Sequence, actions: Sequence, goal: int,
     return float(u[i] - C1 * (u[i - 1] + u[i + 1])) / material_weight(C2, rho)
 
 
+def bilateral_reward(displacements: Sequence, actions: Sequence,
+                     goal: int) -> float:
+    """Bilateral S10 objective in float64.
+
+    This is intentionally separate from :func:`reward`, which remains the
+    canonical arithmetic objective used by every registered main experiment.
+    """
+    u = np.asarray(displacements, dtype=np.float64)
+    a = np.asarray(actions, dtype=np.float64)
+    _check(u, a, goal, C2_CANONICAL)
+    i = goal - 1
+    rho = float(np.mean((a + 1) / 2))
+    return float(min(u[i] - u[i - 1], u[i] - u[i + 1])) / (0.5 + rho)
+
+
 def design_metrics(displacements: Sequence, actions: Sequence, goal: int,
                    C1: float = C1_CANONICAL,
                    C2: float = C2_CANONICAL) -> dict:
@@ -149,6 +164,40 @@ def reward_torch(u9, actions, goal: Any, C1: float = C1_CANONICAL,
     return (ug - C1 * (ul + ur)) / material_weight(C2, rho)
 
 
+def bilateral_reward_torch(u9, actions, goal: Any,
+                           C1: float = C1_CANONICAL,
+                           C2: float = C2_CANONICAL):
+    """Batched bilateral S10 objective, shape ``[B]``.
+
+    ``C1`` and ``C2`` are accepted for the common direct-optimizer callable
+    interface; the bilateral definition fixes its denominator coefficients.
+    """
+    import torch
+
+    if u9.ndim != 2 or u9.shape[1] != N_PROBES:
+        raise ValueError("u9 must have shape (B,9)")
+    if actions.ndim != 2 or actions.shape[1] != N_CELLS:
+        raise ValueError("actions must have shape (B,30)")
+    if u9.shape[0] != actions.shape[0]:
+        raise ValueError("batch mismatch between u9 and actions")
+    u = u9.to(torch.float32)
+    a = actions.to(torch.float32)
+    b = u.shape[0]
+    if isinstance(goal, int):
+        idx = torch.full((b,), goal - 1, dtype=torch.long, device=u.device)
+    else:
+        idx = goal.to(torch.long).reshape(-1) - 1
+        if idx.shape[0] != b:
+            raise ValueError("goal tensor must have shape (B,)")
+    if bool(((idx < 1) | (idx > N_PROBES - 2)).any()):
+        raise ValueError("invalid goal/actions")
+    ug = u.gather(1, idx.unsqueeze(1)).squeeze(1)
+    ul = u.gather(1, (idx - 1).unsqueeze(1)).squeeze(1)
+    ur = u.gather(1, (idx + 1).unsqueeze(1)).squeeze(1)
+    rho = ((a + 1) / 2).mean(dim=1)
+    return torch.minimum(ug - ul, ug - ur) / (0.5 + rho)
+
+
 def peak_success_torch(u9, goal: Any):
     """Batched strict-peak indicator, shape ``[B]`` bool."""
     import torch
@@ -194,6 +243,7 @@ def goal_coordinate(goal: Any):
 
 
 __all__ = ["C1_CANONICAL", "C2_CANONICAL", "VALID_GOALS", "reward",
+           "bilateral_reward", "bilateral_reward_torch",
            "design_metrics", "kappa", "peak_success", "bilateral_margin",
            "contrast_mm", "normalized_thickness", "reward_torch",
            "peak_success_torch", "bilateral_margin_torch", "goal_coordinate"]
