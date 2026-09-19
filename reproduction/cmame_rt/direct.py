@@ -161,7 +161,7 @@ def as_numpy(value: Any, dtype: Any = np.float64) -> np.ndarray:
 
 @dataclass
 class SurrogateObjective:
-    """Canonical reward of a completed 30-cell design under a frozen surrogate.
+    """Case-selected reward of a completed 30-cell design under a frozen surrogate.
 
     ``model`` maps ``[B, 1, 10, 6]`` to standardized u9; ``y_mean`` / ``y_scale``
     invert the output scaler. The encoding and reward functions are injected so
@@ -197,7 +197,7 @@ class SurrogateObjective:
         return reward, u9_mm
 
     def rewards(self, actions: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-        """Canonical reward and predicted u9 (mm) for a batch of designs."""
+        """Training-objective rewards and predicted u9 (mm) for a batch of designs."""
         import torch
 
         batch = np.atleast_2d(as_numpy(actions, np.float32))
